@@ -1,0 +1,50 @@
+---
+title: "Eda Balaban"
+format: html
+---
+
+![](/assets/images/edabalaban.jpg){fig-align="left" width="160"}
+
+[Detaylı özgeçmişe buradan ulaşabilirsiniz.](/assets/edabalaban_CV.pdf "Eda Balaban")
+
+[![](/assets/linkedin.png){fig-align="left" width="38"}](https://www.linkedin.com/in/edabalaban/)
+
+# Eğitim
+
+-   Lisans, Tobb Üniversitesi , 2015 - 2021.
+
+-   Yüksek Lisans, Mühendislik Yönetimi, Hacettepe Üniversitesi, 2025 - devam ediyor
+
+# İş Deneyimi
+
+## İşler
+
+1.  01/2022–09/2024
+
+    LOGO YAZILIM -Yazılım Geliştirme Uzmanı
+
+    • Web tabanlı insan kaynakları süreçlerini yöneten bir projede Java yazılım geliştirme uzmanı olarak çalıştım. Teknolojik olarak, Vaadin tabanlı bir framework, Java Core ve MS SQL kullandım.
+
+## Stajlar
+
+1.  05/2021–09/2021 Uzun Dönem Staj– ULAK HABERLEŞME
+
+2.  05/2020–08/2020 Uzun Dönem staj – STM SAVUNMA
+
+3.  01/2020–03/2020 Uzun Dönem staj – TSE
+
+# Yetkinlikler
+
+-   **Java** ★★★★☆
+-   **Spring Boot** ★★★☆☆
+-   **SQL** ★★★☆☆
+-   **Jira/Github** ★★★☆☆
+-   **Vaadin** ★★☆☆☆
+-   **Postman** ★★☆☆☆
+-   **Python** ★★☆☆☆
+-   **IOS(Swift)** ★★☆☆☆
+-   **R** ★☆☆☆☆
+
+# Hobiler
+
+Quad paten , Lego yapmak

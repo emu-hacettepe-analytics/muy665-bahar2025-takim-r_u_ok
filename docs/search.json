@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Takım: XXX",
+    "title": "Takım: R-U-OK ?",
     "section": "",
     "text": "MUY660-İş Analitiği dersi takım sayfamıza hoş geldiniz.\nBu analitik çalışmalarımızı paylaşıyoruz.\nLütfen faaliyetlerimizi görmek için için bizi takipte kalın."
   },
@@ -192,37 +192,37 @@
   {
     "objectID": "index.html#proje-adı",
     "href": "index.html#proje-adı",
-    "title": "Takım: XXX",
+    "title": "Takım: R-U-OK ?",
     "section": "Proje Adı",
     "text": "Proje Adı\nMUY660-İş Analitiği iyileştirme çalışmaları (örnek)"
   },
   {
     "objectID": "index.html#proje-konusu",
     "href": "index.html#proje-konusu",
-    "title": "Takım: XXX",
+    "title": "Takım: R-U-OK ?",
     "section": "Proje Konusu",
     "text": "Proje Konusu\nÖrnek: Bu projede MUY660-İş Analitiği ders içeriğinin analitik yaklaşımlarla iyileştirilmesini hedefledik. Bu doğrultuda tüm üniversitelerdeki benzer derslerin verisini toplayarak bir veri seti oluşturduk Analiz için …….. yöntemleri kullanarak, ……. çalışmaları yaptık Sonuç olarak, MUY660-İş Analitiği dersinin dünyadaki tüm derslerden daha iyi olduğunu ve bu dersi aldığımız için çok mutlu olduğumuzu tespit ettik."
   },
   {
     "objectID": "index.html#veri-seti-hakkında-özet-bilgi",
     "href": "index.html#veri-seti-hakkında-özet-bilgi",
-    "title": "Takım: XXX",
+    "title": "Takım: R-U-OK ?",
     "section": "Veri Seti Hakkında Özet Bilgi",
     "text": "Veri Seti Hakkında Özet Bilgi"
   },
   {
     "objectID": "index.html#sonuçlar",
     "href": "index.html#sonuçlar",
-    "title": "Takım: XXX",
+    "title": "Takım: R-U-OK ?",
     "section": "Sonuçlar",
     "text": "Sonuçlar\nBurada key takeways verilmelidir. En az 3 en fazla 5 madde ile çarpıcı sonuçlar sunulmalıdır."
   },
   {
     "objectID": "index.html#takım-üyeleri",
     "href": "index.html#takım-üyeleri",
-    "title": "Takım: XXX",
+    "title": "Takım: R-U-OK ?",
     "section": "Takım Üyeleri",
-    "text": "Takım Üyeleri\n\nEdin_Džeko\nDušan Tadić\nFrederico Rodrigues de Paula Santos\nSebastian Szymański"
+    "text": "Takım Üyeleri\n\nEda Balaban\nDušan Tadić\nFrederico Rodrigues de Paula Santos\nSebastian Szymański"
   },
   {
     "objectID": "portfolyo.html",
@@ -240,7 +240,7 @@
     "href": "takim.html",
     "title": "Takım Üyeleri",
     "section": "",
-    "text": "Takım Üyelerimizin detaylı özgemişlerinin yer aldığı kişisel sayfalarına gitmek için sol menüyü veya aşağıdaki linkleri kullanabilirsiniz.\n\nTakım Üyeleri\n\nEdin_Džeko\nDušan Tadić\nFrederico Rodrigues de Paula Santos\nSebastian Szymański\n\n\n\n\n\n Back to top",
+    "text": "Takım Üyelerimizin detaylı özgemişlerinin yer aldığı kişisel sayfalarına gitmek için sol menüyü veya aşağıdaki linkleri kullanabilirsiniz.\n\nTakım Üyeleri\n\nEda Balaban\nDušan Tadić\nFrederico Rodrigues de Paula Santos\nSebastian Szymański\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Takım Üyeleri"
     ]
@@ -550,5 +550,75 @@
       "Takım Üyeleri",
       "Dusan Tadic"
     ]
+  },
+  {
+    "objectID": "takim/EdaBalaban.html",
+    "href": "takim/EdaBalaban.html",
+    "title": "Eda Balaban",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
+    "objectID": "takim/eda_balaban.html",
+    "href": "takim/eda_balaban.html",
+    "title": "Eda Balaban",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
+    "objectID": "takim/eda_balaban.html#işler",
+    "href": "takim/eda_balaban.html#işler",
+    "title": "Eda Balaban",
+    "section": "İşler",
+    "text": "İşler\n\nFirma xxx, pozisyon xx, yıl xxx\nFirma yyy, pozisyon yyy, yıl yyy"
+  },
+  {
+    "objectID": "takim/eda_balaban.html#stajlar",
+    "href": "takim/eda_balaban.html#stajlar",
+    "title": "Eda Balaban",
+    "section": "Stajlar",
+    "text": "Stajlar\n\nFirma aaa, pozisyon xx, yıl xxx\nFirma bbb, pozisyon yyy, yıl yyy"
+  },
+  {
+    "objectID": "takim/edabalaban.html",
+    "href": "takim/edabalaban.html",
+    "title": "Eda Balaban",
+    "section": "",
+    "text": "Detaylı özgeçmişe buradan ulaşabilirsiniz."
+  },
+  {
+    "objectID": "takim/edabalaban.html#java-software-developer-3-years-experience",
+    "href": "takim/edabalaban.html#java-software-developer-3-years-experience",
+    "title": "Eda Balaban - CV",
+    "section": "Java Software Developer | 3+ Years Experience",
+    "text": "Java Software Developer | 3+ Years Experience\n\nDeveloped, tested, and maintained Spring Boot-based microservices.\nDesigned scalable applications and RESTful APIs.\nApplied software design patterns including Singleton, Factory, Observer, and Strategy."
+  },
+  {
+    "objectID": "takim/edabalaban.html#cybersecurity-intern",
+    "href": "takim/edabalaban.html#cybersecurity-intern",
+    "title": "Eda Balaban - CV",
+    "section": "Cybersecurity Intern",
+    "text": "Cybersecurity Intern\n\nDeveloped Python scripts for attack surface analysis.\nUsed OSINT tools for information gathering and reporting.\nAssisted in setting up a malware lab using VMware vSphere."
+  },
+  {
+    "objectID": "takim/edabalaban.html#software-development-intern",
+    "href": "takim/edabalaban.html#software-development-intern",
+    "title": "Eda Balaban - CV",
+    "section": "Software Development Intern",
+    "text": "Software Development Intern\n\nCreated the CU Log Tracing App using Python and PyQt5 for analyzing UE (5G phone) installation logs.\nWrote unit test codes for application testing.\nAssisted in Jira project management tasks."
+  },
+  {
+    "objectID": "takim/edabalaban.html#işler",
+    "href": "takim/edabalaban.html#işler",
+    "title": "Eda Balaban",
+    "section": "İşler",
+    "text": "İşler\n\n01/2022–09/2024\nLOGO YAZILIM -Yazılım Geliştirme Uzmanı\n• Web tabanlı insan kaynakları süreçlerini yöneten bir projede Java yazılım geliştirme uzmanı olarak çalıştım. Teknolojik olarak, Vaadin tabanlı bir framework, Java Core ve MS SQL kullandım."
+  },
+  {
+    "objectID": "takim/edabalaban.html#stajlar",
+    "href": "takim/edabalaban.html#stajlar",
+    "title": "Eda Balaban",
+    "section": "Stajlar",
+    "text": "Stajlar\n\n05/2021–09/2021 Uzun Dönem Staj– ULAK HABERLEŞME\n05/2020–08/2020 Uzun Dönem staj – STM SAVUNMA\n01/2020–03/2020 Uzun Dönem staj – TSE"
   }
 ]
