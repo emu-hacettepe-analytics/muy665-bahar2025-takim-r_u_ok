@@ -1,188 +1,56 @@
 [
   {
+<<<<<<< Updated upstream
     "objectID": "index.html",
     "href": "index.html",
     "title": "Takım: R-U-OK ?",
     "section": "",
     "text": "MUY660-İş Analitiği dersi takım sayfamıza hoş geldiniz.\nBu analitik çalışmalarımızı paylaşıyoruz.\nLütfen faaliyetlerimizi görmek için için bizi takipte kalın."
+=======
+    "objectID": "takim/SevtapGokce.html#işler",
+    "href": "takim/SevtapGokce.html#işler",
+    "title": "Sevtap Gokce",
+    "section": "İşler",
+    "text": "İşler\n\nTürkiye Teknoloji Geliştirme Vakfı, Program Uzmanı, 2021-devam ediyor\nTÜPRAŞ Kırıkkale Rafinerisi, Laboratuvar Şefi, 2018-2021"
+>>>>>>> Stashed changes
   },
   {
-    "objectID": "teammembers/volkansonmez.html",
-    "href": "teammembers/volkansonmez.html",
-    "title": "Assignment 2",
-    "section": "",
-    "text": "Assignment 2\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\n Back to top"
+    "objectID": "takim/SevtapGokce.html#stajlar",
+    "href": "takim/SevtapGokce.html#stajlar",
+    "title": "Sevtap Gokce",
+    "section": "Stajlar",
+    "text": "Stajlar\n\nİzmit DYO Boya Fabrikası, Kalite Kontrol Departmanı, 2014"
   },
   {
-    "objectID": "team.html",
-    "href": "team.html",
+    "objectID": "takim.html",
+    "href": "takim.html",
     "title": "Takım Üyeleri",
     "section": "",
-    "text": "Use left menu to see the detailed CVs of our Team Members.\n\nTeam Members\n\nEdin_Džeko\nDušan Tadić\nFrederico Rodrigues de Paula Santos\nSebastian Szymański\n\n\n\n\n\n Back to top",
+    "text": "Takım Üyelerimizin detaylı özgemişlerinin yer aldığı kişisel sayfalarına gitmek için sol menüyü veya aşağıdaki linkleri kullanabilirsiniz.\n\nTakım Üyeleri\n\nEdin_Džeko\nDušan Tadić\nFrederico Rodrigues de Paula Santos\nSebastian Szymański\nSevtap Gokce\n\n\n\n\n\n Back to top",
     "crumbs": [
-      "Team Members",
       "Takım Üyeleri"
     ]
   },
   {
-    "objectID": "assignments/assignment-2.html",
-    "href": "assignments/assignment-2.html",
-    "title": "Assignment 2",
+    "objectID": "takim/SevtapG.html",
+    "href": "takim/SevtapG.html",
+    "title": "SevtapG",
     "section": "",
-    "text": "Assignment 2\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Assignment 2"
-    ]
+    "text": "Back to top"
   },
   {
-    "objectID": "analysis.html",
-    "href": "analysis.html",
-    "title": "Analysis",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "assignments/assignment-1.html",
-    "href": "assignments/assignment-1.html",
-    "title": "Assignment 1",
-    "section": "",
-    "text": "1 + 1\n\n[1] 2\n\n\nMy first assignment has two parts.",
-    "crumbs": [
-      "Assignment 1"
-    ]
-  },
-  {
-    "objectID": "data.html",
-    "href": "data.html",
-    "title": "Data",
-    "section": "",
-    "text": "Data source: xxx\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "teammembers/erdidasdemir.html",
-    "href": "teammembers/erdidasdemir.html",
-    "title": "Assignment 1",
-    "section": "",
-    "text": "1 + 1\n\n[1] 2\n\n\nMy first assignment has two parts."
-  },
-  {
-    "objectID": "team/volkansonmez.html",
-    "href": "team/volkansonmez.html",
-    "title": "Assignment 2",
-    "section": "",
-    "text": "Assignment 2\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Project Team",
-      "Assignment 2"
-    ]
-  },
-  {
-    "objectID": "team/erdidasdemir.html",
-    "href": "team/erdidasdemir.html",
-    "title": "Erdi Dasdemir",
-    "section": "",
-    "text": "1 + 1\n\n[1] 2\n\n\nMy first assignment has two parts.",
-    "crumbs": [
-      "Team Members",
-      "Erdi Dasdemir"
-    ]
-  },
-  {
-    "objectID": "assignments.html",
-    "href": "assignments.html",
-    "title": "My Assignments",
-    "section": "",
-    "text": "On this page, I showcase the assignment I conducted for the [term and year, e.g. Spring 2024] EMU660 Decision Making with Analytics course.\nPlease use left menu to navigate through my assignments.\n\n\n\n Back to top",
-    "crumbs": [
-      "Assignments",
-      "My Assignments"
-    ]
-  },
-  {
-    "objectID": "project.html",
-    "href": "project.html",
-    "title": "Project X",
-    "section": "",
-    "text": "Welcome to my project page.\nKeep an eye on this space to stay updated with my project activities.\n(The titles below are provided as examples; please feel free to adjust them as necessary.)"
-  },
-  {
-    "objectID": "project.html#data-source",
-    "href": "project.html#data-source",
-    "title": "Project X",
-    "section": "2.1 Data Source",
-    "text": "2.1 Data Source\nxxxxxx"
-  },
-  {
-    "objectID": "project.html#general-information-about-data",
-    "href": "project.html#general-information-about-data",
-    "title": "Project X",
-    "section": "2.2 General Information About Data",
-    "text": "2.2 General Information About Data\nxxxxxx"
-  },
-  {
-    "objectID": "project.html#reason-of-choice",
-    "href": "project.html#reason-of-choice",
-    "title": "Project X",
-    "section": "2.3 Reason of Choice",
-    "text": "2.3 Reason of Choice\nxxxxxx"
-  },
-  {
-    "objectID": "project.html#preprocessing",
-    "href": "project.html#preprocessing",
-    "title": "Project X",
-    "section": "2.4 Preprocessing",
-    "text": "2.4 Preprocessing\nxxxxxx"
-  },
-  {
-    "objectID": "project.html#exploratory-data-analysis",
-    "href": "project.html#exploratory-data-analysis",
-    "title": "Project X",
-    "section": "3.1 Exploratory Data Analysis",
-    "text": "3.1 Exploratory Data Analysis\nxxxxxx"
-  },
-  {
-    "objectID": "project.html#trend-analysis",
-    "href": "project.html#trend-analysis",
-    "title": "Project X",
-    "section": "3.2 Trend Analysis",
-    "text": "3.2 Trend Analysis\nxxxxxx"
-  },
-  {
-    "objectID": "project.html#model-fitting",
-    "href": "project.html#model-fitting",
-    "title": "Project X",
-    "section": "3.3 Model Fitting",
-    "text": "3.3 Model Fitting\nxxxxxx"
-  },
-  {
-    "objectID": "project.html#results",
-    "href": "project.html#results",
-    "title": "Project X",
-    "section": "3.4 Results",
-    "text": "3.4 Results\nxxxxxx"
-  },
-  {
-    "objectID": "team/szymanski.html",
-    "href": "team/szymanski.html",
-    "title": "Sebastian Szymański",
-    "section": "",
-    "text": "Assignment 2\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "team/edindzeko.html",
-    "href": "team/edindzeko.html",
-    "title": "Edin_Džeko",
-    "section": "",
-    "text": "1 + 1\n\n[1] 2\n\n\nMy first assignment has two parts."
-  },
-  {
-    "objectID": "team/dusantadic.html",
-    "href": "team/dusantadic.html",
+    "objectID": "takim/dusantadic.html#işler",
+    "href": "takim/dusantadic.html#işler",
     "title": "Dusan Tadic",
-    "section": "",
-    "text": "Assignment 2\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\n Back to top"
+    "section": "İşler",
+    "text": "İşler\n\nFirma xxx, pozisyon xx, yıl xxx\nFirma yyy, pozisyon yyy, yıl yyy",
+    "crumbs": [
+      "Takım Üyeleri",
+      "Dusan Tadic"
+    ]
   },
   {
+<<<<<<< Updated upstream
     "objectID": "team/fred.html",
     "href": "team/fred.html",
     "title": "Frederico Rodrigues",
@@ -223,6 +91,17 @@
     "title": "Takım: R-U-OK ?",
     "section": "Takım Üyeleri",
     "text": "Takım Üyeleri\n\nEda Balaban\nDušan Tadić\nFrederico Rodrigues de Paula Santos\nSebastian Szymański"
+=======
+    "objectID": "takim/dusantadic.html#stajlar",
+    "href": "takim/dusantadic.html#stajlar",
+    "title": "Dusan Tadic",
+    "section": "Stajlar",
+    "text": "Stajlar\n\nFirma aaa, pozisyon xx, yıl xxx\nFirma bbb, pozisyon yyy, yıl yyy",
+    "crumbs": [
+      "Takım Üyeleri",
+      "Dusan Tadic"
+    ]
+>>>>>>> Stashed changes
   },
   {
     "objectID": "portfolyo.html",
@@ -236,77 +115,41 @@
     ]
   },
   {
-    "objectID": "takim.html",
-    "href": "takim.html",
-    "title": "Takım Üyeleri",
+    "objectID": "portfolyo/calisma1.html",
+    "href": "portfolyo/calisma1.html",
+    "title": "Çalışma 1: Veri Bilimi Üzerine Sohbetler",
     "section": "",
+<<<<<<< Updated upstream
     "text": "Takım Üyelerimizin detaylı özgemişlerinin yer aldığı kişisel sayfalarına gitmek için sol menüyü veya aşağıdaki linkleri kullanabilirsiniz.\n\nTakım Üyeleri\n\nEda Balaban\nDušan Tadić\nFrederico Rodrigues de Paula Santos\nSebastian Szymański\n\n\n\n\n\n Back to top",
+=======
+    "text": "Bu çalışmada, Doç. Dr. Mustafa Gökçe Baydoğan ve Erdi Daşdemir’in gerçekleştirdiği söyleşi temel alınarak, veri bilimi ve endüstri mühendisliği alanlarında karar verme süreçlerinde verinin rolü incelenmektedir. Dr. Baydoğan, Boğaziçi Üniversitesi Endüstri Mühendisliği Bölümü’nde öğretim üyesi olup, veri madenciliği, zaman serisi analizi ve optimizasyon problemleri üzerine akademik çalışmalar yürütmektedir. Aynı zamanda Algopoly adlı yazılım ve danışmanlık şirketinin kurucusu olarak, enerji ve lojistik sektörlerinde karşılaşılan veri analitiği problemlerine yönelik çözümler geliştirmektedir.\n\n\n\nOptimizasyon süreçleri, endüstri mühendisliğinde matematiksel modelleme, simülasyon ve olasılıksal yaklaşımlar gibi çeşitli yöntemler kullanılarak ele alınmaktadır. Bu süreçte, belirli bir problem için veriye dayalı alternatiflerin belirlenmesi, performans değerlendirmesi için karşılaştırmalı ölçütler (benchmarking) geliştirilmesi ve elde edilen sonuçlara dayalı karar mekanizmalarının oluşturulması kritik önem taşımaktadır.\nBaydoğan, geçmiş talep verileri üzerinden öngörü (forecasting) yapılması ile ilgili süreçleri detaylandırarak, bu süreçte çeşitli tahmin yöntemlerinin kullanılabileceğini belirtmektedir. Örneğin, tedarik zinciri optimizasyonu kapsamında, geçmiş satış verilerinin analiz edilmesi ve talep tahminlerinin geliştirilmesi sayesinde ürünlerin depodan mağazalara dağıtım süreci iyileştirilebilmektedir.\n\n\n\nEndüstriyel üretim süreçlerinde veri madenciliği ve makine öğrenmesi uygulamaları, operasyonel verimliliği artırmada kritik bir rol oynamaktadır. Söyleşide ele alınan önemli bir örnek, kereste üretiminde karşılaşılan kalite sorunlarının görsel veri analizi ve makine öğrenmesi teknikleriyle çözülmesi üzerinedir.\nKereste üretim sürecindeki kritik sorunlardan biri, hammaddenin işlenmesi sırasında eğrilik (yamukluk) probleminin tespit edilmesi ve önleyici aksiyonların alınmasıdır. Baydoğan’ın doktora çalışmaları sırasında ele aldığı bir problem, yaş kerestenin fotoğraf analizi ile eğrilik tahmininin yapılması üzerine olmuştur.\nBu süreç şu aşamalardan oluşmaktadır:\n\nProblemin Tanımlanması: Eğrilik probleminin kereste fiyatları üzerindeki etkisi incelenmiş ve kalite kontrol süreçlerinde kritik bir değişken olduğu belirlenmiştir.\nÖznitelik Çıkarımı: Kerestenin eğrilik durumunu belirlemek için ağaç halka oryantasyonu, budak noktaları ve odun yaş dağılımı gibi faktörler değerlendirilmiştir.\nModelleme ve Analiz: Görüntü işleme ve makine öğrenmesi algoritmaları kullanılarak eğrilik tahmin modelleri geliştirilmiştir.\nSonuç ve Uygulamalar: Öngörülen eğrilik değerleri sayesinde kurutma sürecinde önleyici aksiyonlar alınarak üretim süreçlerinde %5 oranında bir verimlilik artışı sağlanmıştır.\n\nBu çalışma, veri madenciliği tekniklerinin görsel verilerden anlamlı özniteliklerin çıkarılması ve üretim süreçlerinin iyileştirilmesi açısından nasıl kullanılabileceğini göstermektedir.\n\n\n\nSöyleşi kapsamında, makine öğrenmesi ve derin öğrenme yöntemlerinin elektrik üretim tahminleri, perakende sıralama algoritmaları ve takviyeli öğrenme (reinforcement learning) modelleri gibi çeşitli uygulamalarda nasıl kullanıldığı tartışılmıştır.\n\nElektrik Üretim ve Tüketim Tahminleri: Elektrik piyasasında arz-talep dengesinin sağlanması için üreticiler ve tüketiciler tarafından yapılan tahminlerin doğruluğu büyük önem taşımaktadır. Bu tahminlerin yanlış yapılması, ciddi ekonomik kayıplara neden olabilir. Zaman serisi analizi ve regresyon modelleri, elektrik tüketim tahminlerinde yaygın olarak kullanılan yöntemler arasındadır.\nE-Ticaret Sıralama Algoritmaları: Online perakende sektöründe, kullanıcıların alışveriş davranışlarını analiz eden sıralama algoritmaları, ürün önerilerinde ve stok yönetiminde kritik rol oynamaktadır. Google Trends verileri ve kullanıcı davranış analizleri, gelecekteki satış tahminlerine yardımcı olmaktadır.\nTakviyeli Öğrenme (Reinforcement Learning): Karar verme süreçlerinde, geçmiş verilerden elde edilen ödülleri maksimize etmek için kullanılan takviyeli öğrenme yöntemleri, özellikle karmaşık optimizasyon problemlerinde etkili olmaktadır.\n\nBu çerçevede, veri bilimi ve endüstri mühendisliğinin birleşim noktası olan karar destek sistemleri, günümüz sanayi uygulamalarında giderek daha fazla yer edinmektedir. Öznitelik mühendisliği, büyük veri analitiği ve yapay öğrenme yöntemleri, işletmelerin operasyonel verimliliğini artırarak rekabet avantajı elde etmelerine olanak tanımaktadır.\n\n\n\nBaydoğan, M. G., & Daşdemir, E. (2023). Veriye dayalı karar verme - Farklı sektörlerden uygulamalar [Video]. YouTube. https://www.youtube.com/watch?v=%5BVIDEO_ID]\nBishop, C. M. (2006). Pattern recognition and machine learning. Springer.\nChollet, F. (2017). Deep learning with Python. Manning Publications.\nGoodfellow, I., Bengio, Y., & Courville, A. (2016). Deep learning. MIT Press.\nHastie, T., Tibshirani, R., & Friedman, J. (2009). The elements of statistical learning: Data mining, inference, and prediction. Springer.\nMitchell, T. M. (1997). Machine learning. McGraw-Hill.\nRussell, S. J., & Norvig, P. (2021). Artificial intelligence: A modern approach (4th ed.). Pearson.\nSilver, D., Schrittwieser, J., Simonyan, K., Antonoglou, I., Huang, A., Guez, A., … & Hassabis, D. (2017). Mastering the game of Go without human knowledge. Nature, 550(7676), 354-359. https://doi.org/10.1038/nature24270\nVan Der Aalst, W. (2016). Process mining: Data science in action. Springer.\n\n(Aşağıdakiler örnek olarak verilmiştir.)\nBu çalışmada 3 görevimiz var. Bu görevler….. Bunlara sırayla aşağıda cevap arıyoruz.",
+>>>>>>> Stashed changes
     "crumbs": [
-      "Takım Üyeleri"
+      "Porfolyo",
+      "Çalışma 1: Veri Bilimi Üzerine Sohbetler"
     ]
   },
   {
-    "objectID": "proje.html",
-    "href": "proje.html",
-    "title": "Proje X (proje adını yazınız)",
-    "section": "",
-    "text": "Proje sayfamıza hoş geldiniz.\nProjemizle ilgili güncellemelerden haberdar olmak için bu alanı takip edin.\n(Aşağıdaki başlıklar örnek olarak verilmiştir; lütfen gerektiği şekilde düzenlemekten çekinmeyin.)"
+    "objectID": "portfolyo/calisma1.html#a",
+    "href": "portfolyo/calisma1.html#a",
+    "title": "Çalışma 1: Veri Bilimi Üzerine Sohbetler",
+    "section": "(a)",
+    "text": "(a)\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "Porfolyo",
+      "Çalışma 1: Veri Bilimi Üzerine Sohbetler"
+    ]
   },
   {
-    "objectID": "proje.html#data-source",
-    "href": "proje.html#data-source",
-    "title": "Proje X",
-    "section": "2.1 Data Source",
-    "text": "2.1 Data Source\nxxxxxx"
-  },
-  {
-    "objectID": "proje.html#general-information-about-data",
-    "href": "proje.html#general-information-about-data",
-    "title": "Proje X",
-    "section": "2.2 General Information About Data",
-    "text": "2.2 General Information About Data\nxxxxxx"
-  },
-  {
-    "objectID": "proje.html#reason-of-choice",
-    "href": "proje.html#reason-of-choice",
-    "title": "Proje X",
-    "section": "2.3 Reason of Choice",
-    "text": "2.3 Reason of Choice\nxxxxxx"
-  },
-  {
-    "objectID": "proje.html#preprocessing",
-    "href": "proje.html#preprocessing",
-    "title": "Proje X",
-    "section": "2.4 Preprocessing",
-    "text": "2.4 Preprocessing\nxxxxxx"
-  },
-  {
-    "objectID": "proje.html#exploratory-data-analysis",
-    "href": "proje.html#exploratory-data-analysis",
-    "title": "Proje X",
-    "section": "3.1 Exploratory Data Analysis",
-    "text": "3.1 Exploratory Data Analysis\nxxxxxx"
-  },
-  {
-    "objectID": "proje.html#trend-analysis",
-    "href": "proje.html#trend-analysis",
-    "title": "Proje X",
-    "section": "3.2 Trend Analysis",
-    "text": "3.2 Trend Analysis\nxxxxxx"
-  },
-  {
-    "objectID": "proje.html#model-fitting",
-    "href": "proje.html#model-fitting",
-    "title": "Proje X",
-    "section": "3.3 Model Fitting",
-    "text": "3.3 Model Fitting\nxxxxxx"
-  },
-  {
-    "objectID": "proje.html#results",
-    "href": "proje.html#results",
-    "title": "Proje X",
-    "section": "3.4 Results",
-    "text": "3.4 Results\nxxxxxx"
+    "objectID": "portfolyo/calisma1.html#b",
+    "href": "portfolyo/calisma1.html#b",
+    "title": "Çalışma 1: Veri Bilimi Üzerine Sohbetler",
+    "section": "(b)",
+    "text": "(b)",
+    "crumbs": [
+      "Porfolyo",
+      "Çalışma 1: Veri Bilimi Üzerine Sohbetler"
+    ]
   },
   {
     "objectID": "portfolyo/calisma2.html",
@@ -320,15 +163,33 @@
     ]
   },
   {
-    "objectID": "portfolyo/calisma1.html",
-    "href": "portfolyo/calisma1.html",
-    "title": "Çalışma 1",
-    "section": "",
-    "text": "(Aşağıdakiler örnek olarak verilmiştir.)\nBu çalışmada 3 görevimiz var. Bu görevler….. Bunlara sırayla aşağıda cevap arıyoruz.",
+    "objectID": "portfolyo/calisma2.html#a",
+    "href": "portfolyo/calisma2.html#a",
+    "title": "Çalışma 2",
+    "section": "(a)",
+    "text": "(a)\n\n1 + 1\n\n[1] 2",
     "crumbs": [
       "Porfolyo",
-      "Çalışma 1"
+      "Çalışma 2"
     ]
+  },
+  {
+    "objectID": "portfolyo/calisma2.html#b",
+    "href": "portfolyo/calisma2.html#b",
+    "title": "Çalışma 2",
+    "section": "(b)",
+    "text": "(b)",
+    "crumbs": [
+      "Porfolyo",
+      "Çalışma 2"
+    ]
+  },
+  {
+    "objectID": "proje.html",
+    "href": "proje.html",
+    "title": "Proje X (proje adını yazınız)",
+    "section": "",
+    "text": "Proje sayfamıza hoş geldiniz.\nProjemizle ilgili güncellemelerden haberdar olmak için bu alanı takip edin.\n(Aşağıdaki başlıklar örnek olarak verilmiştir; lütfen gerektiği şekilde düzenlemekten çekinmeyin.)"
   },
   {
     "objectID": "proje.html#veri-kaynağı",
@@ -387,80 +248,25 @@
     "text": "3.4 Sonuçlar\nxxxxxx"
   },
   {
-    "objectID": "portfolyo/calisma1.html#a",
-    "href": "portfolyo/calisma1.html#a",
-    "title": "Çalışma 1",
-    "section": "(a)",
-    "text": "(a)\n\n1 + 1\n\n[1] 2",
-    "crumbs": [
-      "Porfolyo",
-      "Çalışma 1"
-    ]
-  },
-  {
-    "objectID": "portfolyo/calisma2.html#a",
-    "href": "portfolyo/calisma2.html#a",
-    "title": "Çalışma 2",
-    "section": "(a)",
-    "text": "(a)\n\n1 + 1\n\n[1] 2",
-    "crumbs": [
-      "Porfolyo",
-      "Çalışma 2"
-    ]
-  },
-  {
-    "objectID": "portfolyo/calisma2.html#b",
-    "href": "portfolyo/calisma2.html#b",
-    "title": "Çalışma 2",
-    "section": "(b)",
-    "text": "(b)",
-    "crumbs": [
-      "Porfolyo",
-      "Çalışma 2"
-    ]
-  },
-  {
-    "objectID": "portfolyo/calisma1.html#b",
-    "href": "portfolyo/calisma1.html#b",
-    "title": "Çalışma 1",
-    "section": "(b)",
-    "text": "(b)",
-    "crumbs": [
-      "Porfolyo",
-      "Çalışma 1"
-    ]
-  },
-  {
-    "objectID": "takim/dusantadic.html",
-    "href": "takim/dusantadic.html",
-    "title": "Dusan Tadic",
-    "section": "",
-    "text": "Assignment 2\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\n Back to top",
+    "objectID": "takim/fred.html#işler",
+    "href": "takim/fred.html#işler",
+    "title": "Frederico Rodrigues",
+    "section": "İşler",
+    "text": "İşler\n\nFirma xxx, pozisyon xx, yıl xxx\nFirma yyy, pozisyon yyy, yıl yyy",
     "crumbs": [
       "Takım Üyeleri",
-      "Dusan Tadic"
+      "Frederico Rodrigues"
     ]
   },
   {
-    "objectID": "takim/szymanski.html#employements",
-    "href": "takim/szymanski.html#employements",
-    "title": "Sebastian Szymański",
-    "section": "Employements",
-    "text": "Employements\n\nFirm xxx, position xx, year xxx\nFirm yyy, position yyy, year yyy",
+    "objectID": "takim/fred.html#stajlar",
+    "href": "takim/fred.html#stajlar",
+    "title": "Frederico Rodrigues",
+    "section": "Stajlar",
+    "text": "Stajlar\n\nFirma aaa, pozisyon xx, yıl xxx\nFirma bbb, pozisyon yyy, yıl yyy",
     "crumbs": [
       "Takım Üyeleri",
-      "Sebastian Szymański"
-    ]
-  },
-  {
-    "objectID": "takim/szymanski.html#internships",
-    "href": "takim/szymanski.html#internships",
-    "title": "Sebastian Szymański",
-    "section": "Internships",
-    "text": "Internships\n\nFirm aaa, position xx, year xxx\nFirm bbb, position yyy, year yyy",
-    "crumbs": [
-      "Takım Üyeleri",
-      "Sebastian Szymański"
+      "Frederico Rodrigues"
     ]
   },
   {
@@ -486,69 +292,67 @@
     ]
   },
   {
-    "objectID": "takim/edindzeko.html#işler",
-    "href": "takim/edindzeko.html#işler",
-    "title": "Edin_Džeko",
-    "section": "İşler",
-    "text": "İşler\n\nFirma xxx, pozisyon xx, yıl xxx\nFirma yyy, pozisyon yyy, yıl yyy",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Takım: R U OK",
+    "section": "",
+    "text": "MUY665-İş Analitiği dersi R U OK takım sayfamıza hoş geldiniz.\nBu sayfada yıl içerisinde gerçekleştireceğimiz analitik çalışmalarımızı paylaşıyoruz.\nLütfen faaliyetlerimizi görmek için için bizi takipte kalın."
+  },
+  {
+    "objectID": "index.html#takım-üyeleri",
+    "href": "index.html#takım-üyeleri",
+    "title": "Takım: R U OK",
+    "section": "Takım Üyeleri",
+    "text": "Takım Üyeleri\n\nBurak\nBurak\nEda\nSebastian Szymański\nSevtap Gokce"
+  },
+  {
+    "objectID": "index.html#proje-adı",
+    "href": "index.html#proje-adı",
+    "title": "Takım: R U OK",
+    "section": "Proje Adı",
+    "text": "Proje Adı\nMUY665-İş Analitiği iyileştirme çalışmaları (örnek)"
+  },
+  {
+    "objectID": "index.html#proje-konusu",
+    "href": "index.html#proje-konusu",
+    "title": "Takım: R U OK",
+    "section": "Proje Konusu",
+    "text": "Proje Konusu\nÖrnek: Bu projede MUY660-İş Analitiği ders içeriğinin analitik yaklaşımlarla iyileştirilmesini hedefledik. Bu doğrultuda tüm üniversitelerdeki benzer derslerin verisini toplayarak bir veri seti oluşturduk Analiz için …….. yöntemleri kullanarak, ……. çalışmaları yaptık Sonuç olarak, MUY660-İş Analitiği dersinin dünyadaki tüm derslerden daha iyi olduğunu ve bu dersi aldığımız için çok mutlu olduğumuzu tespit ettik."
+  },
+  {
+    "objectID": "index.html#veri-seti-hakkında-özet-bilgi",
+    "href": "index.html#veri-seti-hakkında-özet-bilgi",
+    "title": "Takım: R U OK",
+    "section": "Veri Seti Hakkında Özet Bilgi",
+    "text": "Veri Seti Hakkında Özet Bilgi"
+  },
+  {
+    "objectID": "index.html#sonuçlar",
+    "href": "index.html#sonuçlar",
+    "title": "Takım: R U OK",
+    "section": "Sonuçlar",
+    "text": "Sonuçlar\nBurada key takeways verilmelidir. En az 3 en fazla 5 madde ile çarpıcı sonuçlar sunulmalıdır."
+  },
+  {
+    "objectID": "portfolyo/calisma1.html#a-video-özeti",
+    "href": "portfolyo/calisma1.html#a-video-özeti",
+    "title": "Çalışma 1: Veri Bilimi Üzerine Sohbetler",
+    "section": "",
+    "text": "Bu çalışmada, Doç. Dr. Mustafa Gökçe Baydoğan ve Erdi Daşdemir’in gerçekleştirdiği söyleşi temel alınarak, veri bilimi ve endüstri mühendisliği alanlarında karar verme süreçlerinde verinin rolü incelenmektedir. Dr. Baydoğan, Boğaziçi Üniversitesi Endüstri Mühendisliği Bölümü’nde öğretim üyesi olup, veri madenciliği, zaman serisi analizi ve optimizasyon problemleri üzerine akademik çalışmalar yürütmektedir. Aynı zamanda Algopoly adlı yazılım ve danışmanlık şirketinin kurucusu olarak, enerji ve lojistik sektörlerinde karşılaşılan veri analitiği problemlerine yönelik çözümler geliştirmektedir.\n\n\n\nOptimizasyon süreçleri, endüstri mühendisliğinde matematiksel modelleme, simülasyon ve olasılıksal yaklaşımlar gibi çeşitli yöntemler kullanılarak ele alınmaktadır. Bu süreçte, belirli bir problem için veriye dayalı alternatiflerin belirlenmesi, performans değerlendirmesi için karşılaştırmalı ölçütler (benchmarking) geliştirilmesi ve elde edilen sonuçlara dayalı karar mekanizmalarının oluşturulması kritik önem taşımaktadır.\nBaydoğan, geçmiş talep verileri üzerinden öngörü (forecasting) yapılması ile ilgili süreçleri detaylandırarak, bu süreçte çeşitli tahmin yöntemlerinin kullanılabileceğini belirtmektedir. Örneğin, tedarik zinciri optimizasyonu kapsamında, geçmiş satış verilerinin analiz edilmesi ve talep tahminlerinin geliştirilmesi sayesinde ürünlerin depodan mağazalara dağıtım süreci iyileştirilebilmektedir.\n\n\n\nEndüstriyel üretim süreçlerinde veri madenciliği ve makine öğrenmesi uygulamaları, operasyonel verimliliği artırmada kritik bir rol oynamaktadır. Söyleşide ele alınan önemli bir örnek, kereste üretiminde karşılaşılan kalite sorunlarının görsel veri analizi ve makine öğrenmesi teknikleriyle çözülmesi üzerinedir.\nKereste üretim sürecindeki kritik sorunlardan biri, hammaddenin işlenmesi sırasında eğrilik (yamukluk) probleminin tespit edilmesi ve önleyici aksiyonların alınmasıdır. Baydoğan’ın doktora çalışmaları sırasında ele aldığı bir problem, yaş kerestenin fotoğraf analizi ile eğrilik tahmininin yapılması üzerine olmuştur.\nBu süreç şu aşamalardan oluşmaktadır:\n\nProblemin Tanımlanması: Eğrilik probleminin kereste fiyatları üzerindeki etkisi incelenmiş ve kalite kontrol süreçlerinde kritik bir değişken olduğu belirlenmiştir.\nÖznitelik Çıkarımı: Kerestenin eğrilik durumunu belirlemek için ağaç halka oryantasyonu, budak noktaları ve odun yaş dağılımı gibi faktörler değerlendirilmiştir.\nModelleme ve Analiz: Görüntü işleme ve makine öğrenmesi algoritmaları kullanılarak eğrilik tahmin modelleri geliştirilmiştir.\nSonuç ve Uygulamalar: Öngörülen eğrilik değerleri sayesinde kurutma sürecinde önleyici aksiyonlar alınarak üretim süreçlerinde %5 oranında bir verimlilik artışı sağlanmıştır.\n\nBu çalışma, veri madenciliği tekniklerinin görsel verilerden anlamlı özniteliklerin çıkarılması ve üretim süreçlerinin iyileştirilmesi açısından nasıl kullanılabileceğini göstermektedir.\n\n\n\nSöyleşi kapsamında, makine öğrenmesi ve derin öğrenme yöntemlerinin elektrik üretim tahminleri, perakende sıralama algoritmaları ve takviyeli öğrenme (reinforcement learning) modelleri gibi çeşitli uygulamalarda nasıl kullanıldığı tartışılmıştır.\n\nElektrik Üretim ve Tüketim Tahminleri: Elektrik piyasasında arz-talep dengesinin sağlanması için üreticiler ve tüketiciler tarafından yapılan tahminlerin doğruluğu büyük önem taşımaktadır. Bu tahminlerin yanlış yapılması, ciddi ekonomik kayıplara neden olabilir. Zaman serisi analizi ve regresyon modelleri, elektrik tüketim tahminlerinde yaygın olarak kullanılan yöntemler arasındadır.\nE-Ticaret Sıralama Algoritmaları: Online perakende sektöründe, kullanıcıların alışveriş davranışlarını analiz eden sıralama algoritmaları, ürün önerilerinde ve stok yönetiminde kritik rol oynamaktadır. Google Trends verileri ve kullanıcı davranış analizleri, gelecekteki satış tahminlerine yardımcı olmaktadır.\nTakviyeli Öğrenme (Reinforcement Learning): Karar verme süreçlerinde, geçmiş verilerden elde edilen ödülleri maksimize etmek için kullanılan takviyeli öğrenme yöntemleri, özellikle karmaşık optimizasyon problemlerinde etkili olmaktadır.\n\nBu çerçevede, veri bilimi ve endüstri mühendisliğinin birleşim noktası olan karar destek sistemleri, günümüz sanayi uygulamalarında giderek daha fazla yer edinmektedir. Öznitelik mühendisliği, büyük veri analitiği ve yapay öğrenme yöntemleri, işletmelerin operasyonel verimliliğini artırarak rekabet avantajı elde etmelerine olanak tanımaktadır.\n\n\n\nBaydoğan, M. G., & Daşdemir, E. (2023). Veriye dayalı karar verme - Farklı sektörlerden uygulamalar [Video]. YouTube. https://www.youtube.com/watch?v=%5BVIDEO_ID]\nBishop, C. M. (2006). Pattern recognition and machine learning. Springer.\nChollet, F. (2017). Deep learning with Python. Manning Publications.\nGoodfellow, I., Bengio, Y., & Courville, A. (2016). Deep learning. MIT Press.\nHastie, T., Tibshirani, R., & Friedman, J. (2009). The elements of statistical learning: Data mining, inference, and prediction. Springer.\nMitchell, T. M. (1997). Machine learning. McGraw-Hill.\nRussell, S. J., & Norvig, P. (2021). Artificial intelligence: A modern approach (4th ed.). Pearson.\nSilver, D., Schrittwieser, J., Simonyan, K., Antonoglou, I., Huang, A., Guez, A., … & Hassabis, D. (2017). Mastering the game of Go without human knowledge. Nature, 550(7676), 354-359. https://doi.org/10.1038/nature24270\nVan Der Aalst, W. (2016). Process mining: Data science in action. Springer.\n\n(Aşağıdakiler örnek olarak verilmiştir.)\nBu çalışmada 3 görevimiz var. Bu görevler….. Bunlara sırayla aşağıda cevap arıyoruz.",
     "crumbs": [
-      "Takım Üyeleri",
-      "Edin_Džeko"
+      "Porfolyo",
+      "Çalışma 1: Veri Bilimi Üzerine Sohbetler"
     ]
   },
   {
-    "objectID": "takim/edindzeko.html#stajlar",
-    "href": "takim/edindzeko.html#stajlar",
-    "title": "Edin_Džeko",
-    "section": "Stajlar",
-    "text": "Stajlar\n\nFirma aaa, pozisyon xx, yıl xxx\nFirma bbb, pozisyon yyy, yıl yyy",
+    "objectID": "portfolyo/calisma1.html#b-fonksiyonlar-ve-döngüler-ile-verileri-özetleme",
+    "href": "portfolyo/calisma1.html#b-fonksiyonlar-ve-döngüler-ile-verileri-özetleme",
+    "title": "Çalışma 1: Veri Bilimi Üzerine Sohbetler",
+    "section": "(b) Fonksiyonlar ve Döngüler ile Verileri Özetleme",
+    "text": "(b) Fonksiyonlar ve Döngüler ile Verileri Özetleme\n\nmy_summary_stats &lt;- function(x) {\n  if (!is.numeric(x)) {\n    stop(\"Girdi sayısal olmalıdır!\")\n  }\n  \n  summary_list &lt;- list(\n    Ortalama = mean(x, na.rm = TRUE),\n    Medyan = median(x, na.rm = TRUE),\n    Standart_Sapma = sd(x, na.rm = TRUE),\n    Minimum = min(x, na.rm = TRUE),\n    Maksimum = max(x, na.rm = TRUE)\n  )\n  \n  return(summary_list)\n}",
     "crumbs": [
-      "Takım Üyeleri",
-      "Edin_Džeko"
-    ]
-  },
-  {
-    "objectID": "takim/fred.html#işler",
-    "href": "takim/fred.html#işler",
-    "title": "Frederico Rodrigues",
-    "section": "İşler",
-    "text": "İşler\n\nFirma xxx, pozisyon xx, yıl xxx\nFirma yyy, pozisyon yyy, yıl yyy",
-    "crumbs": [
-      "Takım Üyeleri",
-      "Frederico Rodrigues"
-    ]
-  },
-  {
-    "objectID": "takim/fred.html#stajlar",
-    "href": "takim/fred.html#stajlar",
-    "title": "Frederico Rodrigues",
-    "section": "Stajlar",
-    "text": "Stajlar\n\nFirma aaa, pozisyon xx, yıl xxx\nFirma bbb, pozisyon yyy, yıl yyy",
-    "crumbs": [
-      "Takım Üyeleri",
-      "Frederico Rodrigues"
-    ]
-  },
-  {
-    "objectID": "takim/dusantadic.html#işler",
-    "href": "takim/dusantadic.html#işler",
-    "title": "Dusan Tadic",
-    "section": "İşler",
-    "text": "İşler\n\nFirma xxx, pozisyon xx, yıl xxx\nFirma yyy, pozisyon yyy, yıl yyy",
-    "crumbs": [
-      "Takım Üyeleri",
-      "Dusan Tadic"
-    ]
-  },
-  {
-    "objectID": "takim/dusantadic.html#stajlar",
-    "href": "takim/dusantadic.html#stajlar",
-    "title": "Dusan Tadic",
-    "section": "Stajlar",
-    "text": "Stajlar\n\nFirma aaa, pozisyon xx, yıl xxx\nFirma bbb, pozisyon yyy, yıl yyy",
-    "crumbs": [
-      "Takım Üyeleri",
-      "Dusan Tadic"
+      "Porfolyo",
+      "Çalışma 1: Veri Bilimi Üzerine Sohbetler"
     ]
   },
   {

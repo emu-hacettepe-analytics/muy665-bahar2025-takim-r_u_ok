@@ -1,6 +1,71 @@
 ---
-title: "Çalışma 1"
+title: "Çalışma 1: Veri Bilimi Üzerine Sohbetler"
+author: "Sevtap Gokce,Eda "
+date: today
+format: html
 ---
+
+## (a) Video Özeti
+
+### Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler - Kerem Demirtaş & Erdi Daşdemir
+
+Bu çalışmada, **Doç. Dr. Mustafa Gökçe Baydoğan** ve **Erdi Daşdemir**'in gerçekleştirdiği söyleşi temel alınarak, veri bilimi ve endüstri mühendisliği alanlarında karar verme süreçlerinde verinin rolü incelenmektedir. Dr. Baydoğan, Boğaziçi Üniversitesi Endüstri Mühendisliği Bölümü'nde öğretim üyesi olup, veri madenciliği, zaman serisi analizi ve optimizasyon problemleri üzerine akademik çalışmalar yürütmektedir. Aynı zamanda **Algopoly** adlı yazılım ve danışmanlık şirketinin kurucusu olarak, enerji ve lojistik sektörlerinde karşılaşılan veri analitiği problemlerine yönelik çözümler geliştirmektedir.
+
+### **Veriye Dayalı Karar Verme Süreci ve Optimizasyon**
+
+Optimizasyon süreçleri, endüstri mühendisliğinde **matematiksel modelleme, simülasyon ve olasılıksal yaklaşımlar** gibi çeşitli yöntemler kullanılarak ele alınmaktadır. Bu süreçte, belirli bir problem için **veriye dayalı alternatiflerin belirlenmesi**, performans değerlendirmesi için **karşılaştırmalı ölçütler (benchmarking)** geliştirilmesi ve elde edilen sonuçlara dayalı **karar mekanizmalarının oluşturulması** kritik önem taşımaktadır.
+
+Baydoğan, geçmiş **talep verileri üzerinden öngörü (forecasting) yapılması** ile ilgili süreçleri detaylandırarak, bu süreçte çeşitli tahmin yöntemlerinin kullanılabileceğini belirtmektedir. Örneğin, tedarik zinciri optimizasyonu kapsamında, geçmiş satış verilerinin analiz edilmesi ve talep tahminlerinin geliştirilmesi sayesinde **ürünlerin depodan mağazalara dağıtım süreci iyileştirilebilmektedir**.
+
+### **Veri Madenciliği ve Endüstriyel Uygulamalar**
+
+Endüstriyel üretim süreçlerinde **veri madenciliği ve makine öğrenmesi uygulamaları**, operasyonel verimliliği artırmada kritik bir rol oynamaktadır. Söyleşide ele alınan önemli bir örnek, kereste üretiminde karşılaşılan kalite sorunlarının **görsel veri analizi ve makine öğrenmesi teknikleriyle çözülmesi** üzerinedir.
+
+**Kereste üretim sürecindeki kritik sorunlardan biri**, hammaddenin işlenmesi sırasında **eğrilik (yamukluk) probleminin tespit edilmesi** ve önleyici aksiyonların alınmasıdır. Baydoğan’ın doktora çalışmaları sırasında ele aldığı bir problem, yaş kerestenin **fotoğraf analizi ile eğrilik tahmininin yapılması** üzerine olmuştur.
+
+Bu süreç şu aşamalardan oluşmaktadır:
+
+1.   **Problemin Tanımlanması:** Eğrilik probleminin kereste fiyatları üzerindeki etkisi incelenmiş ve kalite kontrol süreçlerinde kritik bir değişken olduğu belirlenmiştir.
+
+2.   **Öznitelik Çıkarımı:** Kerestenin eğrilik durumunu belirlemek için **ağaç halka oryantasyonu, budak noktaları ve odun yaş dağılımı** gibi faktörler değerlendirilmiştir.
+
+3.   **Modelleme ve Analiz:** Görüntü işleme ve makine öğrenmesi algoritmaları kullanılarak eğrilik tahmin modelleri geliştirilmiştir.
+
+4.   **Sonuç ve Uygulamalar:** Öngörülen eğrilik değerleri sayesinde **kurutma sürecinde önleyici aksiyonlar alınarak** üretim süreçlerinde %5 oranında bir verimlilik artışı sağlanmıştır.
+
+Bu çalışma, veri madenciliği tekniklerinin **görsel verilerden anlamlı özniteliklerin çıkarılması ve üretim süreçlerinin iyileştirilmesi** açısından nasıl kullanılabileceğini göstermektedir.
+
+### **Makine Öğrenmesi ve Derin Öğrenme Uygulamaları**
+
+Söyleşi kapsamında, makine öğrenmesi ve derin öğrenme yöntemlerinin **elektrik üretim tahminleri, perakende sıralama algoritmaları ve takviyeli öğrenme (reinforcement learning) modelleri** gibi çeşitli uygulamalarda nasıl kullanıldığı tartışılmıştır.
+
+-   **Elektrik Üretim ve Tüketim Tahminleri:** Elektrik piyasasında arz-talep dengesinin sağlanması için üreticiler ve tüketiciler tarafından yapılan tahminlerin doğruluğu büyük önem taşımaktadır. Bu tahminlerin yanlış yapılması, ciddi ekonomik kayıplara neden olabilir. **Zaman serisi analizi ve regresyon modelleri**, elektrik tüketim tahminlerinde yaygın olarak kullanılan yöntemler arasındadır.
+
+-   **E-Ticaret Sıralama Algoritmaları:** Online perakende sektöründe, kullanıcıların alışveriş davranışlarını analiz eden sıralama algoritmaları, ürün önerilerinde ve stok yönetiminde kritik rol oynamaktadır. **Google Trends verileri ve kullanıcı davranış analizleri**, gelecekteki satış tahminlerine yardımcı olmaktadır.
+
+-   **Takviyeli Öğrenme (Reinforcement Learning):** Karar verme süreçlerinde, geçmiş verilerden elde edilen ödülleri maksimize etmek için kullanılan takviyeli öğrenme yöntemleri, özellikle karmaşık optimizasyon problemlerinde etkili olmaktadır.
+
+Bu çerçevede, **veri bilimi ve endüstri mühendisliğinin birleşim noktası olan karar destek sistemleri**, günümüz sanayi uygulamalarında giderek daha fazla yer edinmektedir. **Öznitelik mühendisliği, büyük veri analitiği ve yapay öğrenme yöntemleri**, işletmelerin operasyonel verimliliğini artırarak **rekabet avantajı elde etmelerine** olanak tanımaktadır.
+
+### **Kaynakça**
+
+Baydoğan, M. G., & Daşdemir, E. (2023). *Veriye dayalı karar verme - Farklı sektörlerden uygulamalar* \[Video\]. YouTube. <https://www.youtube.com/watch?v=%5BVIDEO_ID>\]
+
+Bishop, C. M. (2006). *Pattern recognition and machine learning*. Springer.
+
+Chollet, F. (2017). *Deep learning with Python*. Manning Publications.
+
+Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep learning*. MIT Press.
+
+Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The elements of statistical learning: Data mining, inference, and prediction*. Springer.
+
+Mitchell, T. M. (1997). *Machine learning*. McGraw-Hill.
+
+Russell, S. J., & Norvig, P. (2021). *Artificial intelligence: A modern approach* (4th ed.). Pearson.
+
+Silver, D., Schrittwieser, J., Simonyan, K., Antonoglou, I., Huang, A., Guez, A., ... & Hassabis, D. (2017). Mastering the game of Go without human knowledge. *Nature, 550*(7676), 354-359. https://doi.org/10.1038/nature24270
+
+Van Der Aalst, W. (2016). *Process mining: Data science in action*. Springer.
 
 \
 (Aşağıdakiler örnek olarak verilmiştir.)
@@ -11,6 +76,7 @@ Bu çalışmada 3 görevimiz var. Bu görevler..... Bunlara sırayla aşağıda 
 
 ```{r}
 1 + 1
+
 ```
 
-## (b)
+## (b) 

@@ -1,27 +1,43 @@
 ---
+<<<<<<< Updated upstream
 title: "Takım: R-U-OK ?"
+=======
+title: "Takım: R U OK"
+>>>>>>> Stashed changes
 sidebar: false 
 ---
 
-MUY660-İş Analitiği dersi takım sayfamıza hoş geldiniz.
+MUY665-İş Analitiği dersi R U OK takım sayfamıza hoş geldiniz.
 
-Bu analitik çalışmalarımızı paylaşıyoruz.
+Bu sayfada yıl içerisinde gerçekleştireceğimiz analitik çalışmalarımızı paylaşıyoruz.
 
 Lütfen faaliyetlerimizi görmek için için bizi takipte kalın.
 
 ## Takım Üyeleri
 
+<<<<<<< Updated upstream
 1.  [Eda Balaban](/takim/edabalaban.qmd)
+=======
+1.  Burak
+>>>>>>> Stashed changes
 
-2.  [Dušan Tadić](/takim/dusantadic.qmd)
+2.  Burak
 
-3.  [Frederico Rodrigues de Paula Santos](/takim/fred.qmd)
+3.  Eda
 
 4.  [Sebastian Szymański](/takim/szymanski.qmd)
 
+<<<<<<< Updated upstream
 ## Proje Adı
 
 MUY660-İş Analitiği iyileştirme çalışmaları (örnek)
+=======
+5.  [Sevtap Gokce](/takim/SevtapGokce.qmd)
+
+## Proje Adı
+
+MUY665-İş Analitiği iyileştirme çalışmaları (örnek)
+>>>>>>> Stashed changes
 
 ## Proje Konusu
 
