@@ -36,6 +36,7 @@ website:
       search: true
       contents:
         - takim.qmd
+        - takim/edabalaban.qmd
         - takim/dusantadic.qmd
         - takim/edindzeko.qmd
         - takim/fred.qmd  

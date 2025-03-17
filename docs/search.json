@@ -584,7 +584,11 @@
     "href": "takim/edabalaban.html",
     "title": "Eda Balaban",
     "section": "",
-    "text": "Detaylı özgeçmişe buradan ulaşabilirsiniz."
+    "text": "Detaylı özgeçmişe buradan ulaşabilirsiniz.",
+    "crumbs": [
+      "Takım Üyeleri",
+      "Eda Balaban"
+    ]
   },
   {
     "objectID": "takim/edabalaban.html#java-software-developer-3-years-experience",
@@ -612,13 +616,21 @@
     "href": "takim/edabalaban.html#işler",
     "title": "Eda Balaban",
     "section": "İşler",
-    "text": "İşler\n\n01/2022–09/2024\nLOGO YAZILIM -Yazılım Geliştirme Uzmanı\n• Web tabanlı insan kaynakları süreçlerini yöneten bir projede Java yazılım geliştirme uzmanı olarak çalıştım. Teknolojik olarak, Vaadin tabanlı bir framework, Java Core ve MS SQL kullandım."
+    "text": "İşler\n\n01/2022–09/2024\nLOGO YAZILIM -Yazılım Geliştirme Uzmanı\n• Web tabanlı insan kaynakları süreçlerini yöneten bir projede Java yazılım geliştirme uzmanı olarak çalıştım. Teknolojik olarak, Vaadin tabanlı bir framework, Java Core ve MS SQL kullandım.",
+    "crumbs": [
+      "Takım Üyeleri",
+      "Eda Balaban"
+    ]
   },
   {
     "objectID": "takim/edabalaban.html#stajlar",
     "href": "takim/edabalaban.html#stajlar",
     "title": "Eda Balaban",
     "section": "Stajlar",
-    "text": "Stajlar\n\n05/2021–09/2021 Uzun Dönem Staj– ULAK HABERLEŞME\n05/2020–08/2020 Uzun Dönem staj – STM SAVUNMA\n01/2020–03/2020 Uzun Dönem staj – TSE"
+    "text": "Stajlar\n\n05/2021–09/2021 Uzun Dönem Staj– ULAK HABERLEŞME\n05/2020–08/2020 Uzun Dönem staj – STM SAVUNMA\n01/2020–03/2020 Uzun Dönem staj – TSE",
+    "crumbs": [
+      "Takım Üyeleri",
+      "Eda Balaban"
+    ]
   }
 ]
