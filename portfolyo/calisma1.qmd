@@ -1,5 +1,5 @@
 ---
-title: "Çalışma 1"
+title: "Çalışma 1: Veri Bilimi Üzerine Sohbetler"
 ---
 
 \
@@ -11,6 +11,7 @@ Bu çalışmada 3 görevimiz var. Bu görevler..... Bunlara sırayla aşağıda 
 
 ```{r}
 1 + 1
+
 ```
 
 ## (b)

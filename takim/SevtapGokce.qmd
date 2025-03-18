@@ -1,0 +1,39 @@
+---
+title: "Sevtap Gokce"
+format: html
+---
+
+![](/assets/sevtapgokce.PNG){fig-align="center" width="181"}
+
+Detaylı özgeçmişe buradan ulaşabilirsiniz.
+
+[![](/assets/linkedin.png){width="38"}](https://www.linkedin.com/in/sevtap-gokce/)
+
+# Eğitim
+
+-   Lisans, Kimya Bölümü, Orta Doğu Teknik Üniversitesi, Türkiye, 2010 - 2016.
+-   Yüksek Lisans, Endüstri Mühendisliği, Hacettepe Üniversitesi, Türkiye, 2025 - devam ediyor.
+
+# İş Deneyimi
+
+## İşler
+
+1.  Türkiye Teknoloji Geliştirme Vakfı, Program Uzmanı, 2021-devam ediyor
+
+2.  TÜPRAŞ Kırıkkale Rafinerisi, Laboratuvar Şefi, 2018-2021
+
+## Stajlar
+
+1.  İzmit DYO Boya Fabrikası, Kalite Kontrol Departmanı, 2014
+
+# Yayınlar
+
+1.  **Gökce, S., Akbulut, H., & Baykal, B. (2023).** “ Yapı ve inşaat sektörünün karbonsuzlaşmasında sürdürülebilir çimento üretimi.”
+
+# Yetkinlikler
+
+SAP, LIMS, M-Files, QDMS, DOE (Minitab), Nitro Pro, Graph Commons, Agile Tools (Mural, Miro, Mentimeter, ...) Slack, Nitro, Canva, Chem Draw, Microsoft Office,
+
+# Hobiler
+
+Kayak

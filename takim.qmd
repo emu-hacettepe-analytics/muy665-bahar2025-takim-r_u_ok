@@ -8,7 +8,7 @@ Takım Üyelerimizin detaylı özgemişlerinin yer aldığı kişisel sayfaları
 
 1.  [Eda Balaban](/takim/edabalaban.qmd)
 
-2.  [Dušan Tadić](/takim/dusantadic.qmd)
+2.  [Sevtap Gökçe](/takim/SevtapGokce.qmd)
 
 3.  [Frederico Rodrigues de Paula Santos](/takim/fred.qmd)
 
