@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "R-U-OK ? Takımı Analitik Labı",
+    "title": "Takım: R U OK ?",
     "section": "",
-    "text": "title: “Takım: R-U-OK ?”"
+    "text": "MUY665-İş Analitiği dersi R U OK takım sayfamıza hoş geldiniz.\nBu sayfada yıl içerisinde gerçekleştireceğimiz analitik çalışmalarımızı paylaşıyoruz.\nLütfen faaliyetlerimizi görmek için için bizi takipte kalın."
   },
   {
     "objectID": "teammembers/volkansonmez.html",
@@ -192,35 +192,35 @@
   {
     "objectID": "index.html#proje-adı",
     "href": "index.html#proje-adı",
-    "title": "R-U-OK ? Takımı Analitik Labı",
+    "title": "Takım: R U OK ?",
     "section": "Proje Adı",
     "text": "Proje Adı\nMUY660-İş Analitiği iyileştirme çalışmaları (örnek)"
   },
   {
     "objectID": "index.html#proje-konusu",
     "href": "index.html#proje-konusu",
-    "title": "R-U-OK ? Takımı Analitik Labı",
+    "title": "Takım: R U OK ?",
     "section": "Proje Konusu",
     "text": "Proje Konusu\nÖrnek: Bu projede MUY660-İş Analitiği ders içeriğinin analitik yaklaşımlarla iyileştirilmesini hedefledik. Bu doğrultuda tüm üniversitelerdeki benzer derslerin verisini toplayarak bir veri seti oluşturduk Analiz için …….. yöntemleri kullanarak, ……. çalışmaları yaptık Sonuç olarak, MUY660-İş Analitiği dersinin dünyadaki tüm derslerden daha iyi olduğunu ve bu dersi aldığımız için çok mutlu olduğumuzu tespit ettik."
   },
   {
     "objectID": "index.html#veri-seti-hakkında-özet-bilgi",
     "href": "index.html#veri-seti-hakkında-özet-bilgi",
-    "title": "R-U-OK ? Takımı Analitik Labı",
+    "title": "Takım: R U OK ?",
     "section": "Veri Seti Hakkında Özet Bilgi",
     "text": "Veri Seti Hakkında Özet Bilgi"
   },
   {
     "objectID": "index.html#sonuçlar",
     "href": "index.html#sonuçlar",
-    "title": "R-U-OK ? Takımı Analitik Labı",
+    "title": "Takım: R U OK ?",
     "section": "Sonuçlar",
     "text": "Sonuçlar\nBurada key takeways verilmelidir. En az 3 en fazla 5 madde ile çarpıcı sonuçlar sunulmalıdır."
   },
   {
     "objectID": "index.html#takım-üyeleri",
     "href": "index.html#takım-üyeleri",
-    "title": "R-U-OK ? Takımı Analitik Labı",
+    "title": "Takım: R U OK ?",
     "section": "Takım Üyeleri",
     "text": "Takım Üyeleri\n\nEda Balaban\nSevtap Gökçe"
   },
@@ -643,7 +643,7 @@
   {
     "objectID": "index.html#proje-adı-1",
     "href": "index.html#proje-adı-1",
-    "title": "R-U-OK ? Takımı Analitik Labı",
+    "title": "Takım: R U OK ?",
     "section": "Proje Adı",
     "text": "Proje Adı\nMUY665-İş Analitiği iyileştirme çalışmaları (örnek) &lt;&lt;&lt;&lt;&lt;&lt;&lt; Updated upstream"
   },
@@ -652,21 +652,33 @@
     "href": "takim/SevtapGokce.html",
     "title": "Sevtap Gokce",
     "section": "",
-    "text": "Detaylı özgeçmişe buradan ulaşabilirsiniz."
+    "text": "Detaylı özgeçmişe buradan ulaşabilirsiniz.",
+    "crumbs": [
+      "Takım Üyeleri",
+      "Sevtap Gokce"
+    ]
   },
   {
     "objectID": "takim/SevtapGokce.html#işler",
     "href": "takim/SevtapGokce.html#işler",
     "title": "Sevtap Gokce",
     "section": "İşler",
-    "text": "İşler\n\nTürkiye Teknoloji Geliştirme Vakfı, Program Uzmanı, 2021-devam ediyor\nTÜPRAŞ Kırıkkale Rafinerisi, Laboratuvar Şefi, 2018-2021"
+    "text": "İşler\n\nTürkiye Teknoloji Geliştirme Vakfı, Program Uzmanı, 2021-devam ediyor\nTÜPRAŞ Kırıkkale Rafinerisi, Laboratuvar Şefi, 2018-2021",
+    "crumbs": [
+      "Takım Üyeleri",
+      "Sevtap Gokce"
+    ]
   },
   {
     "objectID": "takim/SevtapGokce.html#stajlar",
     "href": "takim/SevtapGokce.html#stajlar",
     "title": "Sevtap Gokce",
     "section": "Stajlar",
-    "text": "Stajlar\n\nİzmit DYO Boya Fabrikası, Kalite Kontrol Departmanı, 2014"
+    "text": "Stajlar\n\nİzmit DYO Boya Fabrikası, Kalite Kontrol Departmanı, 2014",
+    "crumbs": [
+      "Takım Üyeleri",
+      "Sevtap Gokce"
+    ]
   },
   {
     "objectID": "docs/project.html",
