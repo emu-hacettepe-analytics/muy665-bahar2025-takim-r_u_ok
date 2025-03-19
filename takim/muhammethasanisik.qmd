@@ -1,0 +1,36 @@
+---
+title: "Muhammet Hasan Işık"
+---
+
+![](images/Resim1.png){fig-align="center" width="151" height="185"}
+
+# Eğitim
+
+-   Lisans, Elektrik Elektronik Mühendisliği, Selçuk Üniversitesi, Türkiye, 2013 - 2018.
+-   Yüksek Lisans, Endüstri Mühendisliği, Hacettepe Üniversitesi, Türkiye, 2025 - devam ediyor.
+
+# İş Deneyimi
+
+## İşler
+
+1.  AYD Otomotiv, Bakım Onarım Mühendisi, 2 Yıl
+
+2.  MAN Türkiye A.Ş, Kıd. Uzm. Bakım Onarım Mühendisi, 5 Yıl- devam ediyor.
+
+## Stajlar
+
+1.  Endüstriyel Elektrik, Üretim Stajı, 2016
+
+2.  Medikal2000 Teknoloji, Arge Stajı, 2017
+
+# Projeler
+
+1.  Bitirme Projesi - Güneş Takip Sistemi
+
+# Yayınlar
+
+# Yetkinlikler
+
+AutoCAD
+
+# Hobiler
