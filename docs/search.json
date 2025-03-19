@@ -240,7 +240,7 @@
     "href": "takim.html",
     "title": "Takım Üyeleri",
     "section": "",
-    "text": "Takım Üyelerimizin detaylı özgemişlerinin yer aldığı kişisel sayfalarına gitmek için sol menüyü veya aşağıdaki linkleri kullanabilirsiniz.\n\nTakım Üyeleri\n\nEda Balaban\nSevtap Gökçe\nFrederico Rodrigues de Paula Santos\nMuhammet Hasan Işık\n\n\n\n\n\n Back to top",
+    "text": "Takım Üyelerimizin detaylı özgemişlerinin yer aldığı kişisel sayfalarına gitmek için sol menüyü veya aşağıdaki linkleri kullanabilirsiniz.\n\nTakım Üyeleri\n\nEda Balaban\nSevtap Gökçe\nFrederico Rodrigues de Paula Santos\nMuhammet Hasan Işık\nBurak Cenkış\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Takım Üyeleri"
     ]
@@ -777,5 +777,19 @@
     "title": "Muhammet Hasan Işık",
     "section": "",
     "text": "install.packages(“rmarkdown”) install.packages(“knitr”) # Eğitim"
+  },
+  {
+    "objectID": "takim/burakcenkis.html#işler",
+    "href": "takim/burakcenkis.html#işler",
+    "title": "Burak Cenkış",
+    "section": "İşler",
+    "text": "İşler\n\nFibatek Mühendislik ,Proje Mühendisi 1 Yıl\nETI Alüminyum A.Ş ,Bakım Mühendisi 2.5 Yıl\nYiğit Akü A.Ş , Üretim Mühendisi 2 Yıl\nMAN Türkiye A.Ş, Bakım Metot Mühendisi 2.5 Yıl"
+  },
+  {
+    "objectID": "takim/burakcenkis.html#stajlar",
+    "href": "takim/burakcenkis.html#stajlar",
+    "title": "Burak Cenkış",
+    "section": "Stajlar",
+    "text": "Stajlar\n\nAygersan A.Ş, Üretim Stajı, 2013"
   }
 ]

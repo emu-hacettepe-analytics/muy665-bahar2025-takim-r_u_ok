@@ -13,3 +13,5 @@ Takım Üyelerimizin detaylı özgemişlerinin yer aldığı kişisel sayfaları
 3.  [Frederico Rodrigues de Paula Santos](/takim/fred.qmd)
 
 4.  [Muhammet Hasan Işık](/takim/muhammethasanisik.qmd)
+
+5.  [Burak Cenkış](/takim/burakcenkis.qmd)
