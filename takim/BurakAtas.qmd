@@ -2,7 +2,7 @@
 title: "Burak Atas"
 ---
 
-![](images/IMG_2378.JPG){fig-align="center"}
+![](images/IMG_2378.JPG){fig-align="center" width="137"}
 
 # Eğitim
 
