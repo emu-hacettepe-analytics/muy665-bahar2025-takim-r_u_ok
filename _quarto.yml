@@ -38,9 +38,10 @@ website:
         - takim.qmd
         - takim/edabalaban.qmd
         - takim/SevtapGokce.qmd
-        - takim/edindzeko.qmd
+        - takim/BurakAtas.qmd
         - takim/fred.qmd  
         - takim/szymanski.qmd  
+       
         
         
   page-navigation: true

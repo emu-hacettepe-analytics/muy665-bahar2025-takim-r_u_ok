@@ -10,7 +10,7 @@ Takım Üyelerimizin detaylı özgemişlerinin yer aldığı kişisel sayfaları
 
 2.  [Sevtap Gökçe](/takim/SevtapGokce.qmd)
 
-3.  [Frederico Rodrigues de Paula Santos](/takim/fred.qmd)
+3.  [Burak Atas](/takim/BurakAtasqmd)
 
 4.  [Muhammet Hasan Işık](/takim/muhammethasanisik.qmd)
 
