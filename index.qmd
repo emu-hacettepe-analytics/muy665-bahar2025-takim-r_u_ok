@@ -2,6 +2,7 @@
 title: "Takım: R U OK ?"
 sidebar: false 
 ---
+
 MUY665-İş Analitiği dersi R U OK takım sayfamıza hoş geldiniz.
 
 Bu sayfada yıl içerisinde gerçekleştireceğimiz analitik çalışmalarımızı paylaşıyoruz.
@@ -12,6 +13,7 @@ Lütfen faaliyetlerimizi görmek için için bizi takipte kalın.
 
 1.  [Eda Balaban](/takim/edabalaban.qmd)
 2.  [Sevtap Gökçe](/takim/SevtapGokce.qmd)
+4.  [Muhammet Hasan Işık](/takim/muhammethasanisik.qmd)
 
 ## Proje Adı
 

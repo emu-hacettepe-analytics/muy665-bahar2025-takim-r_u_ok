@@ -222,7 +222,7 @@
     "href": "index.html#takım-üyeleri",
     "title": "Takım: R U OK ?",
     "section": "Takım Üyeleri",
-    "text": "Takım Üyeleri\n\nEda Balaban\nSevtap Gökçe"
+    "text": "Takım Üyeleri\n\nEda Balaban\nSevtap Gökçe\nMuhammet Hasan Işık"
   },
   {
     "objectID": "portfolyo.html",
@@ -240,7 +240,7 @@
     "href": "takim.html",
     "title": "Takım Üyeleri",
     "section": "",
-    "text": "Takım Üyelerimizin detaylı özgemişlerinin yer aldığı kişisel sayfalarına gitmek için sol menüyü veya aşağıdaki linkleri kullanabilirsiniz.\n\nTakım Üyeleri\n\nEda Balaban\nSevtap Gökçe\nFrederico Rodrigues de Paula Santos\nSebastian Szymański\n\n\n\n\n\n Back to top",
+    "text": "Takım Üyelerimizin detaylı özgemişlerinin yer aldığı kişisel sayfalarına gitmek için sol menüyü veya aşağıdaki linkleri kullanabilirsiniz.\n\nTakım Üyeleri\n\nEda Balaban\nSevtap Gökçe\nFrederico Rodrigues de Paula Santos\nMuhammet Hasan Işık\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Takım Üyeleri"
     ]
@@ -756,5 +756,26 @@
     "title": "Burak Atas",
     "section": "Stajlar",
     "text": "Stajlar\n\nYersa A.Ş., Üretim Stajı, 2014\nYarış Kabin A.Ş., Üretim Stajı, 2015"
+  },
+  {
+    "objectID": "takim/muhammethasanisik.html#işler",
+    "href": "takim/muhammethasanisik.html#işler",
+    "title": "Muhammet Hasan Işık",
+    "section": "İşler",
+    "text": "İşler\n\nAYD Otomotiv, Bakım Onarım Mühendisi, 2 Yıl\nMAN Türkiye A.Ş, Kıd. Uzm. Bakım Onarım Mühendisi, 5 Yıl- devam ediyor."
+  },
+  {
+    "objectID": "takim/muhammethasanisik.html#stajlar",
+    "href": "takim/muhammethasanisik.html#stajlar",
+    "title": "Muhammet Hasan Işık",
+    "section": "Stajlar",
+    "text": "Stajlar\n\nEndüstriyel Elektrik, Üretim Stajı, 2016\nMedikal2000 Teknoloji, Arge Stajı, 2017"
+  },
+  {
+    "objectID": "takim/muhammethasanisik.html",
+    "href": "takim/muhammethasanisik.html",
+    "title": "Muhammet Hasan Işık",
+    "section": "",
+    "text": "install.packages(“rmarkdown”) install.packages(“knitr”) # Eğitim"
   }
 ]
