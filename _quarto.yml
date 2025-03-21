@@ -57,6 +57,12 @@ format:
       light: simplex 
       dark: cyborg
     css: styles.css
-
+    header-includes:
+      - "<style>
+          .navbar .navbar-brand {
+            color: #e74c3c !important; /* Renk özelleştirmesi */
+            font-weight: bold;
+          }
+        </style>"
 
 editor: visual

@@ -10,7 +10,7 @@ format:
 
 ## (a)**Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler - Kerem Demirtaş & Erdi Daşdemir**
 
-Bu çalışmada, Doç. Dr. Mustafa Gökçe Baydoğan ve Erdi Daşdemir'in [@baydogan2023]gerçekleştirdiği söyleşi temel alınarak, veri bilimi ve endüstri mühendisliği alanlarında karar verme süreçlerinde verinin rolü incelenmektedir. Dr. Baydoğan, Boğaziçi Üniversitesi Endüstri Mühendisliği Bölümü'nde öğretim üyesi olup, veri madenciliği, zaman serisi analizi ve optimizasyon problemleri üzerine akademik çalışmalar yürütmektedir. Aynı zamanda Algopoly adlı yazılım ve danışmanlık şirketinin kurucusu olarak, enerji ve lojistik sektörlerinde karşılaşılan veri analitiği problemlerine yönelik çözümler geliştirmektedir.
+Bu çalışmada, Doç. Dr. Mustafa Gökçe Baydoğan ve Erdi Daşdemir'in gerçekleştirdiği söyleşi temel alınarak, veri bilimi ve endüstri mühendisliği alanlarında karar verme süreçlerinde verinin rolü incelenmektedir. Dr. Baydoğan, Boğaziçi Üniversitesi Endüstri Mühendisliği Bölümü'nde öğretim üyesi olup, veri madenciliği, zaman serisi analizi ve optimizasyon problemleri üzerine akademik çalışmalar yürütmektedir. Aynı zamanda Algopoly adlı yazılım ve danışmanlık şirketinin kurucusu olarak, enerji ve lojistik sektörlerinde karşılaşılan veri analitiği problemlerine yönelik çözümler geliştirmektedir.
 
 **Veriye Dayalı Karar Verme Süreci ve Optimizasyon**
 
