@@ -3,7 +3,7 @@ title: "Eda Balaban"
 format: html
 ---
 
-![](/assets/images/edabalaban.jpg){fig-align="left" width="160"}
+![](/assets/images/edabalaban.jpg){fig-align="center" width="160"}
 
 [Detaylı özgeçmişe buradan ulaşabilirsiniz.](/assets/edabalaban_CV.pdf "Eda Balaban")
 
