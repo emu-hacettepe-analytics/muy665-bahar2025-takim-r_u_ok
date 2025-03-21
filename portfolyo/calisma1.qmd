@@ -1,15 +1,16 @@
 ---
 title: "Çalışma 1: Veri Bilimi Üzerine Sohbetler"
+bibliography: references.bib
+format:
+  html:
+    toc: true
+    number-sections: true
+    reference-location: section
 ---
-
-\
-(Aşağıdakiler örnek olarak verilmiştir.)
-
-Bu çalışmada 3 görevimiz var. Bu görevler..... Bunlara sırayla aşağıda cevap arıyoruz.
 
 ## (a)**Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler - Kerem Demirtaş & Erdi Daşdemir**
 
-Bu çalışmada, Doç. Dr. Mustafa Gökçe Baydoğan ve Erdi Daşdemir'in gerçekleştirdiği söyleşi temel alınarak, veri bilimi ve endüstri mühendisliği alanlarında karar verme süreçlerinde verinin rolü incelenmektedir. Dr. Baydoğan, Boğaziçi Üniversitesi Endüstri Mühendisliği Bölümü'nde öğretim üyesi olup, veri madenciliği, zaman serisi analizi ve optimizasyon problemleri üzerine akademik çalışmalar yürütmektedir. Aynı zamanda Algopoly adlı yazılım ve danışmanlık şirketinin kurucusu olarak, enerji ve lojistik sektörlerinde karşılaşılan veri analitiği problemlerine yönelik çözümler geliştirmektedir.
+Bu çalışmada, Doç. Dr. Mustafa Gökçe Baydoğan ve Erdi Daşdemir'in [@baydogan2023]gerçekleştirdiği söyleşi temel alınarak, veri bilimi ve endüstri mühendisliği alanlarında karar verme süreçlerinde verinin rolü incelenmektedir. Dr. Baydoğan, Boğaziçi Üniversitesi Endüstri Mühendisliği Bölümü'nde öğretim üyesi olup, veri madenciliği, zaman serisi analizi ve optimizasyon problemleri üzerine akademik çalışmalar yürütmektedir. Aynı zamanda Algopoly adlı yazılım ve danışmanlık şirketinin kurucusu olarak, enerji ve lojistik sektörlerinde karşılaşılan veri analitiği problemlerine yönelik çözümler geliştirmektedir.
 
 **Veriye Dayalı Karar Verme Süreci ve Optimizasyon**
 
@@ -25,13 +26,13 @@ Kereste üretim sürecindeki kritik sorunlardan biri, hammaddenin işlenmesi sı
 
 Bu süreç şu aşamalardan oluşmaktadır:
 
-1.   Problemin Tanımlanması: Eğrilik probleminin kereste fiyatları üzerindeki etkisi incelenmiş ve kalite kontrol süreçlerinde kritik bir değişken olduğu belirlenmiştir.
+1.  Problemin Tanımlanması: Eğrilik probleminin kereste fiyatları üzerindeki etkisi incelenmiş ve kalite kontrol süreçlerinde kritik bir değişken olduğu belirlenmiştir.
 
-2.   Öznitelik Çıkarımı: Kerestenin eğrilik durumunu belirlemek için ağaç halka oryantasyonu, budak noktaları ve odun yaş dağılımı gibi faktörler değerlendirilmiştir (deep learning).
+2.  Öznitelik Çıkarımı: Kerestenin eğrilik durumunu belirlemek için ağaç halka oryantasyonu, budak noktaları ve odun yaş dağılımı gibi faktörler değerlendirilmiştir (deep learning).
 
-3.   Modelleme ve Analiz: Görüntü işleme ve makine öğrenmesi algoritmaları kullanılarak eğrilik tahmin modelleri geliştirilmiştir.
+3.  Modelleme ve Analiz: Görüntü işleme ve makine öğrenmesi algoritmaları kullanılarak eğrilik tahmin modelleri geliştirilmiştir.
 
-4.   Sonuç ve Uygulamalar: Öngörülen eğrilik değerleri sayesinde kurutma sürecinde önleyici aksiyonlar alınarak üretim süreçlerinde %5 oranında bir verimlilik artışı sağlanmıştır.
+4.  Sonuç ve Uygulamalar: Öngörülen eğrilik değerleri sayesinde kurutma sürecinde önleyici aksiyonlar alınarak üretim süreçlerinde %5 oranında bir verimlilik artışı sağlanmıştır.
 
 Bu çalışma, veri madenciliği tekniklerinin görsel verilerden anlamlı özniteliklerin çıkarılması ve üretim süreçlerinin iyileştirilmesi açısından nasıl kullanılabileceğini göstermektedir. Söyleşinin bu kısmında; problem, veri, çözüm yöntemi, karar ve etki başlıkları çerçevesinde veri işleme süreçleri ele alınmaktadır. Gabor filtresi, özellikle görüntü işleme alanında kullanılan bir matematiksel operasyon olarak vurgulanmaktadır. Ayrıca, structured data (yapılandırılmış veri) ve unstructured data (yapılandırılmamış veri) arasındaki farklar üzerinde durulmuş; resim, haber makaleleri ve metin gibi yapılandırılmamış verilerin işlenmesinde derin öğrenme tekniklerinin önemli bir rol oynadığı belirtilmiştir. Söyleşi, ChatGPT gibi modellerin bu tür verilerle nasıl etkili çalıştığını ve derin öğrenme yöntemlerinin gelişen teknolojilerle birlikte nasıl daha güçlü hale geldiğini açıklamaktadır.
 
@@ -39,13 +40,13 @@ Bu çalışma, veri madenciliği tekniklerinin görsel verilerden anlamlı özni
 
 Söyleşi kapsamında, g**eleneksel öğrenme (traditional learning) ve derin öğrenme (deep learning) arasındaki farklara** değinilmiştir. Geleneksel öğrenme yöntemleri daha çok **önceden belirlenmiş kurallar ve özellik mühendisliği** gerektirirken, derin öğrenme **veriden doğrudan özellikleri öğrenen ve daha karmaşık yapıları modelleyebilen** bir yaklaşım sunmaktadır. **Derin öğrenmenin büyük veri ile daha iyi çalıştığı, geleneksel yöntemlerin ise daha az veri gerektirdiği ancak bazı karmaşık problemleri çözmede yetersiz kalabileceği** ifade edilmiştir.Bu kapsamda, makine öğrenmesi ve derin öğrenme yöntemlerinin elektrik üretim tahminleri, perakende sıralama algoritmaları ve takviyeli öğrenme (reinforcement learning) modelleri gibi çeşitli uygulamalarda nasıl kullanıldığı tartışılmıştır.
 
--    Elektrik Üretim ve Tüketim Tahminleri: Elektrik piyasasında arz-talep dengesinin sağlanması için üreticiler ve tüketiciler tarafından yapılan tahminlerin doğruluğu büyük önem taşımaktadır. Bu tahminlerin yanlış yapılması, ciddi ekonomik kayıplara neden olabilir. Zaman serisi analizi ve regresyon modelleri, elektrik tüketim tahminlerinde yaygın olarak kullanılan yöntemler arasındadır.
+-   Elektrik Üretim ve Tüketim Tahminleri: Elektrik piyasasında arz-talep dengesinin sağlanması için üreticiler ve tüketiciler tarafından yapılan tahminlerin doğruluğu büyük önem taşımaktadır. Bu tahminlerin yanlış yapılması, ciddi ekonomik kayıplara neden olabilir. Zaman serisi analizi ve regresyon modelleri, elektrik tüketim tahminlerinde yaygın olarak kullanılan yöntemler arasındadır.
 
--    E-Ticaret Sıralama Algoritmaları: Online perakende sektöründe, kullanıcıların alışveriş davranışlarını analiz eden sıralama algoritmaları, ürün önerilerinde ve stok yönetiminde kritik rol oynamaktadır. Google Trends verileri ve kullanıcı davranış analizleri, gelecekteki satış tahminlerine yardımcı olmaktadır.
+-   E-Ticaret Sıralama Algoritmaları: Online perakende sektöründe, kullanıcıların alışveriş davranışlarını analiz eden sıralama algoritmaları, ürün önerilerinde ve stok yönetiminde kritik rol oynamaktadır. Google Trends verileri ve kullanıcı davranış analizleri, gelecekteki satış tahminlerine yardımcı olmaktadır.
 
--    Takviyeli Öğrenme (Reinforcement Learning): Karar verme süreçlerinde, geçmiş verilerden elde edilen ödülleri maksimize etmek için kullanılan takviyeli öğrenme yöntemleri, özellikle karmaşık optimizasyon problemlerinde etkili olmaktadır.
+-   Takviyeli Öğrenme (Reinforcement Learning): Karar verme süreçlerinde, geçmiş verilerden elde edilen ödülleri maksimize etmek için kullanılan takviyeli öğrenme yöntemleri, özellikle karmaşık optimizasyon problemlerinde etkili olmaktadır.
 
--    Karar verme süreçlerinde tahmin doğruluğunun önemi vurgulanmıştır. Daha doğru tahminlerin, daha etkili kararlar alınmasını sağladığı belirtilmiş, bu süreçlerin az veya kirli veriyle çalışırken ciddi insan kaynağı gerektirdiği ifade edilmiştir. Veri eksikliği veya hatalı verilerle çalışmanın, manüel veri işleme ve uzmanlık gereksinimini artırdığı belirtilmiştir. İnsan yönlendirmesinin fark yarattığı ve yorumlanabilirliğin karar verme süreçlerinde kritik bir faktör olduğu ifade edilmiştir. Modelin nasıl karar aldığına dair şeffaflığın sağlanması, özellikle yapay zeka destekli sistemlerin benimsenmesi açısından önemli bir konu olarak ele alınmıştır. Son olarak, takviyeli pekiştirmeli öğrenme (reinforcement learning) yaklaşımlarının karar verme süreçlerinde giderek daha kritik bir rol oynadığı belirtilmiştir. Bu yöntemler, çevresel geri bildirimlere dayanarak optimum kararları almak için kullanılan bir öğrenme stratejisi olarak öne çıkmakta ve özellikle robotik, finans ve otonom sistemler gibi alanlarda karar verme mekanizmalarını geliştirmede büyük bir potansiyel sunmaktadır.
+-   Karar verme süreçlerinde tahmin doğruluğunun önemi vurgulanmıştır. Daha doğru tahminlerin, daha etkili kararlar alınmasını sağladığı belirtilmiş, bu süreçlerin az veya kirli veriyle çalışırken ciddi insan kaynağı gerektirdiği ifade edilmiştir. Veri eksikliği veya hatalı verilerle çalışmanın, manüel veri işleme ve uzmanlık gereksinimini artırdığı belirtilmiştir. İnsan yönlendirmesinin fark yarattığı ve yorumlanabilirliğin karar verme süreçlerinde kritik bir faktör olduğu ifade edilmiştir. Modelin nasıl karar aldığına dair şeffaflığın sağlanması, özellikle yapay zeka destekli sistemlerin benimsenmesi açısından önemli bir konu olarak ele alınmıştır. Son olarak, takviyeli pekiştirmeli öğrenme (reinforcement learning) yaklaşımlarının karar verme süreçlerinde giderek daha kritik bir rol oynadığı belirtilmiştir. Bu yöntemler, çevresel geri bildirimlere dayanarak optimum kararları almak için kullanılan bir öğrenme stratejisi olarak öne çıkmakta ve özellikle robotik, finans ve otonom sistemler gibi alanlarda karar verme mekanizmalarını geliştirmede büyük bir potansiyel sunmaktadır.
 
 **Yeni Teknolojiler ve Gelecek Perspektifleri**
 
@@ -69,29 +70,112 @@ Makine öğrenmesi, **dinamik sistemleri modelleyerek en uygun çözümleri beli
 
 Bu yeni yaklaşımlar, **makine öğrenmesi modellerinin daha doğru, verimli ve güvenilir hale gelmesi açısından büyük potansiyele sahip** olarak değerlendirilmiştir.
 
-Kaynakça
+::: hidden
+[@baydogan2023] [@bishop2006] [@chollet2017] [@goodfellow2016] [@hastie2009] [@mitchell1997] [@russell2021] [@silver2017] [@vanderAalst2016]
+:::
 
-1.     Baydoğan, M. G., & Daşdemir, E. (2023). *Veriye dayalı karar verme - Farklı sektörlerden uygulamalar* \[Video\]. YouTube. <https://www.youtube.com/watch?v=%5BVIDEO_ID>\]
+## Kaynakça
 
-2.     Bishop, C. M. (2006). *Pattern recognition and machine learning*. Springer.
-
-3.     Chollet, F. (2017). *Deep learning with Python*. Manning Publications.
-
-4.     Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep learning*. MIT Press.
-
-5.     Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The elements of statistical learning: Data mining, inference, and prediction*. Springer.
-
-6.     Mitchell, T. M. (1997). *Machine learning*. McGraw-Hill.
-
-7.     Russell, S. J., & Norvig, P. (2021). *Artificial intelligence: A modern approach* (4th ed.). Pearson.
-
-8.     Silver, D., Schrittwieser, J., Simonyan, K., Antonoglou, I., Huang, A., Guez, A., ... & Hassabis, D. (2017). Mastering the game of Go without human knowledge. *Nature, 550*(7676), 354-359. https://doi.org/10.1038/nature24270
-
-9.     Van Der Aalst, W. (2016). *Process mining: Data science in action*. Springer.
-
-```{r}
-1 + 1
-
-```
+::: {#refs}
+:::
 
 ## (b)
+
+```{r}
+library(dslabs)  ## dslabs paketi yükleme
+library(knitr)  # kable fonksiyonu için paket
+data(mtcars)  ## mtcars veri seti yükleme
+
+print(mtcars)
+
+# Özel özet istatistik fonksiyonu
+my_summary_stats <- function(x) {
+  c(
+    Ortalama = mean(x, na.rm = TRUE),
+    Medyan = median(x, na.rm = TRUE),
+    StandartSapma = sd(x, na.rm = TRUE),
+    Minimum = min(x, na.rm = TRUE),
+    Maksimum = max(x, na.rm = TRUE)
+  )
+}
+
+# Özet listesi
+summary_list <- list()
+
+# Sayısal sütunlar için istatistikleri hesaplama
+for (col_name in names(mtcars)) {
+  column <- mtcars[[col_name]]
+  if (is.numeric(column)) {
+    stats <- my_summary_stats(column)
+    summary_list[[col_name]] <- stats
+  }
+}
+
+# Listeyi data frame haline dönüştürme
+# rbind listedeki her sütunun özetini satırlar halinde birleştirir.
+summary_df <- as.data.frame(do.call(rbind, summary_list))
+#data frame içeriğini görmek için 
+print (summary_df)
+# Tablo olarak gösterme
+kable(summary_df, caption = "mtcars Veri Seti - Özet İstatistikler", digits = 2)
+
+# apply ile özet istatistikleri her sütuna uygula
+apply_results <- apply(mtcars, 2, my_summary_stats)
+
+# apply sonucu sütunları satır olarak döndürdüğü için transpoze ediyoruz
+apply_df <- as.data.frame(t(apply_results))
+
+# Tablo olarak yazdır
+kable(apply_df, caption = "apply() ile Hesaplanan Özet İstatistikler", digits = 2)
+```
+
+## (c)
+
+```{r}
+# Gerekli paketleri yükleme
+library(dslabs)
+library(ggplot2)
+
+# na_example veri seti yükleme
+data("na_example")
+# na_example veri setinin içeriğini gösterme
+print(na_example)
+
+# NA Sayısı hesaplama
+cat("NA değeri veri setinde", sum(is.na(na_example)), "kez geçmektedir.")
+
+# NA olan ve olmayanları gösteren grafik
+na_df <- data.frame(
+  value = na_example,
+  status = ifelse(is.na(na_example), "Eksik", "Geçerli")
+)
+
+# Geçerli veriler mavi, NA olan veriler varsa kırmızı gösteren grafik.
+ggplot(na_df, aes(x = status, fill = status)) +
+  geom_bar() +
+  scale_fill_manual(values = c("Geçerli" = "blue", "Eksik" = "red")) +
+  labs(title = "na_example :Eksik ve Geçerli veri Sayısı",
+       x = "", y = "Adet") +
+  theme_minimal()
+
+# NA değerlerini 2025 ile değiştirme
+cleaned_data <- ifelse(is.na(na_example), 2025, na_example)
+# cleane_data veri setinin içeriğini görme
+print(cleaned_data)
+# Veri setindeki 2025 sayısı hesaplama
+cat("2025 değeri veri setinde", sum(cleaned_data == 2025), "kez geçmektedir.")
+
+# Temizlenmiş data için NA kontrolü
+na_cleaned_df <- data.frame(
+  value = cleaned_data,
+  status = ifelse(is.na(cleaned_data), "Eksik", "Geçerli")
+)
+
+# NA olmadığını gösteren grafik (geçerli veriler mavi, NA varsa kırmızı)
+ggplot(na_cleaned_df, aes(x = status, fill = status)) +
+  geom_bar() +
+  scale_fill_manual(values = c("Geçerli" = "blue", "Eksik" = "red")) +
+  labs(title = "cleaned_data :Eksik ve Geçerli Değer Sayısı",
+       x = "", y = "Adet") +
+  theme_minimal()
+```
