@@ -3,6 +3,8 @@ title: "Takım: R U OK ?"
 sidebar: false 
 ---
 
+![](images/ruok_uploaded_boomerang.gif)
+
 MUY665-İş Analitiği dersi R U OK takım sayfamıza hoş geldiniz.
 
 Bu sayfada yıl içerisinde gerçekleştireceğimiz analitik çalışmalarımızı paylaşıyoruz.
