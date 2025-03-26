@@ -792,7 +792,11 @@
     "href": "takim/muhammethasanisik.html",
     "title": "Muhammet Hasan Işık",
     "section": "",
-    "text": "install.packages(“rmarkdown”) install.packages(“knitr”) # Eğitim"
+    "text": "# Eğitim",
+    "crumbs": [
+      "Takım Üyeleri",
+      "Muhammet Hasan Işık"
+    ]
   },
   {
     "objectID": "takim/burakcenkis.html#işler",
