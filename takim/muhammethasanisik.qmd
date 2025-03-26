@@ -4,7 +4,9 @@ title: "Muhammet Hasan Işık"
 
 ![](images/Resim1.png){fig-align="center" width="151" height="185"}
 
-# Eğitim
+[![](/assets/linkedin.png){fig-align="left" width="38"}](https://www.linkedin.com/in/mhasanisik/)
+
+\# Eğitim
 
 -   Lisans, Elektrik Elektronik Mühendisliği, Selçuk Üniversitesi, Türkiye, 2013 - 2018.
 -   Yüksek Lisans, Endüstri Mühendisliği, Hacettepe Üniversitesi, Türkiye, 2025 - devam ediyor.
@@ -34,3 +36,5 @@ title: "Muhammet Hasan Işık"
 AutoCAD
 
 # Hobiler
+
+Kutu Oyun
