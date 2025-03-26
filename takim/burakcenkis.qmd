@@ -4,6 +4,8 @@ title: "Burak Cenkış"
 
 ![](images/pp.jfif){fig-align="center" width="222"}
 
+[![](/assets/linkedin.png){fig-align="left" width="38"}](https://www.linkedin.com/in/burak-cenki%C5%9F-4630b6156/)
+
 # Eğitim
 
 -   Lisans, Makine Mühendisliği, Selçuk Üniversitesi, Türkiye, 2011-2016
