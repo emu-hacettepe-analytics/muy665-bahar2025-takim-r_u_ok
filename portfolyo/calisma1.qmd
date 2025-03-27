@@ -81,11 +81,13 @@ Bu yeni yaklaşımlar, **makine öğrenmesi modellerinin daha doğru, verimli ve
 
 ## (b)
 
-```{r}
-library(dslabs)  ## dslabs paketi yükleme
-library(knitr)  # kable fonksiyonu için paket
-data(mtcars)  ## mtcars veri seti yükleme
+### Özel Özet Fonksiyonu Döngü Kullanarak Uygulama:
 
+```{r}
+library(dslabs)  # dslabs paketi yükleme
+library(knitr)  # kable fonksiyonu için paket
+data(mtcars)  # mtcars veri seti yükleme
+# mtcars içeriğini görme
 print(mtcars)
 
 # Özel özet istatistik fonksiyonu
@@ -98,7 +100,7 @@ my_summary_stats <- function(x) {
     Maksimum = max(x, na.rm = TRUE)
   )
 }
-
+# Fonksiyonu Döngü Kullanarak Uygulama:
 # Özet listesi
 summary_list <- list()
 
@@ -111,14 +113,23 @@ for (col_name in names(mtcars)) {
   }
 }
 
+```
+
+### Sonuçları Tablo Şeklinde Görme
+
+```{r}
 # Listeyi data frame haline dönüştürme
 # rbind listedeki her sütunun özetini satırlar halinde birleştirir.
 summary_df <- as.data.frame(do.call(rbind, summary_list))
-#data frame içeriğini görmek için 
+# data frame içeriğini görmek için 
 print (summary_df)
 # Tablo olarak gösterme
 kable(summary_df, caption = "mtcars Veri Seti - Özet İstatistikler", digits = 2)
+```
 
+### apply ile Alternatif Bir Yaklaşım:
+
+```{r}
 # apply ile özet istatistikleri her sütuna uygula
 apply_results <- apply(mtcars, 2, my_summary_stats)
 
@@ -127,13 +138,15 @@ apply_df <- as.data.frame(t(apply_results))
 
 # Tablo olarak yazdır
 kable(apply_df, caption = "apply() ile Hesaplanan Özet İstatistikler", digits = 2)
+
 ```
 
 ## (c)
 
 ```{r}
-# Gerekli paketleri yükleme
+# dslabs paketinden “na_example” veri setinin yüklenmesi.
 library(dslabs)
+# grafik için gerekli paket
 library(ggplot2)
 
 # na_example veri seti yükleme
