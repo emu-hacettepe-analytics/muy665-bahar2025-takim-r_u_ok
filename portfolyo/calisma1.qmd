@@ -1,5 +1,5 @@
 ---
-title: "Çalışma 1: Veri Bilimi Üzerine Sohbetler"
+title: "Çalışma 1"
 bibliography: references.bib
 format:
   html:
@@ -8,9 +8,8 @@ format:
     reference-location: section
 ---
 
-## (a)**Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler - Mustafa Baydoğan & Erdi Daşdemir**
-
-**VERİ BİLİMİ VE ENDÜSTRİ MÜHENDİSLİĞİNDE VERİNİN KULLANIM ETKİLERİ**
+## (a) **Endüstri Mühendisliğinde Verinin Kullanım Etkileri**
+**Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler - Mustafa Baydoğan & Erdi Daşdemir**
 
 Bu çalışmada, Doç. Dr. Mustafa Gökçe Baydoğan ve Erdi Daşdemir'in gerçekleştirdiği söyleşi temel alınarak, veri bilimi ve endüstri mühendisliği alanlarında karar verme süreçlerinde verinin rolü incelenmektedir [@baydogan2023]. Dr. Baydoğan, Boğaziçi Üniversitesi Endüstri Mühendisliği Bölümü'nde öğretim üyesi olup, veri madenciliği, zaman serisi analizi ve optimizasyon problemleri üzerine akademik çalışmalar yürütmektedir. Aynı zamanda Algopoly adlı yazılım ve danışmanlık şirketinin kurucusu olarak, enerji ve lojistik sektörlerinde karşılaşılan veri analitiği problemlerine yönelik çözümler geliştirmektedir.
 
