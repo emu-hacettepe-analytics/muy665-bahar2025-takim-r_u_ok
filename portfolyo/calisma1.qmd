@@ -12,23 +12,17 @@ format:
 
 **VERİ BİLİMİ VE ENDÜSTRİ MÜHENDİSLİĞİNDE VERİNİN KULLANIM ETKİLERİ**
 
-Bu çalışmada, Doç. Dr. Mustafa Gökçe Baydoğan ve Erdi Daşdemir'in gerçekleştirdiği söyleşi temel alınarak, veri bilimi ve endüstri mühendisliği alanlarında karar verme süreçlerinde verinin rolü incelenmektedir. Dr. Baydoğan, Boğaziçi Üniversitesi Endüstri Mühendisliği Bölümü'nde öğretim üyesi olup, veri madenciliği, zaman serisi analizi ve optimizasyon problemleri üzerine akademik çalışmalar yürütmektedir. Aynı zamanda Algopoly adlı yazılım ve danışmanlık şirketinin kurucusu olarak, enerji ve lojistik sektörlerinde karşılaşılan veri analitiği problemlerine yönelik çözümler geliştirmektedir.
+Bu çalışmada, Doç. Dr. Mustafa Gökçe Baydoğan ve Erdi Daşdemir'in gerçekleştirdiği söyleşi temel alınarak, veri bilimi ve endüstri mühendisliği alanlarında karar verme süreçlerinde verinin rolü incelenmektedir [@baydogan2023]. Dr. Baydoğan, Boğaziçi Üniversitesi Endüstri Mühendisliği Bölümü'nde öğretim üyesi olup, veri madenciliği, zaman serisi analizi ve optimizasyon problemleri üzerine akademik çalışmalar yürütmektedir. Aynı zamanda Algopoly adlı yazılım ve danışmanlık şirketinin kurucusu olarak, enerji ve lojistik sektörlerinde karşılaşılan veri analitiği problemlerine yönelik çözümler geliştirmektedir.
 
 **Veriye Dayalı Karar Verme Süreci ve Optimizasyon**
 
-Optimizasyon süreçleri, endüstri mühendisliğinde matematiksel modelleme, simülasyon ve olasılıksal yaklaşımlar gibi çeşitli yöntemler kullanılarak ele alınmaktadır. Bu süreçte, belirli bir problem için veriye dayalı alternatiflerin belirlenmesi, performans değerlendirmesi için karşılaştırmalı ölçütler (benchmarking) geliştirilmesi ve elde edilen sonuçlara dayalı karar mekanizmalarının oluşturulması kritik önem taşımaktadır.
-Bu mekanizmaların olmadığı çalışmalarda hata yapılması ve verimsizlik
-olması çok kuvvetli muhtemeldir.
+Optimizasyon süreçleri, endüstri mühendisliğinde matematiksel modelleme, simülasyon ve olasılıksal yaklaşımlar gibi çeşitli yöntemler kullanılarak ele alınmaktadır. Bu süreçte, belirli bir problem için veriye dayalı alternatiflerin belirlenmesi, performans değerlendirmesi için karşılaştırmalı ölçütler (benchmarking) geliştirilmesi ve elde edilen sonuçlara dayalı karar mekanizmalarının oluşturulması kritik önem taşımaktadır [@vanderAalst2016]. Bu mekanizmaların olmadığı çalışmalarda hata yapılması ve verimsizlik olması çok kuvvetli muhtemeldir.
 
-Baydoğan, geçmiş talep verileri üzerinden tahmin yapılması ile ilgili süreçleri detaylandırarak, bu süreçte çeşitli tahmin yöntemlerinin kullanılabileceğini belirtmektedir. Örneğin, tedarik zinciri optimizasyonu kapsamında, geçmiş satış verilerinin analiz edilmesi ve talep tahminlerinin geliştirilmesi sayesinde ürünlerin depodan mağazalara dağıtım süreci iyileştirilebilmektedir.
-Bir başka örnek olarak firmaların yapacağı yatırımlar kapsamı düşünülebilir. Geçmişte yapılan
-yatırımlardaki bütçe çalışmaları, devreye alma süresi ve sürekliliği sağlama gibi veriler analiz edilir.
-Gelecekte planlanan yatırımlara ne kadar harcanacağı ve nasıl olacağı konusu hakkında fikir sahibi
-olunur ve süreç daha iyi bir hal alır.
+Baydoğan, geçmiş talep verileri üzerinden tahmin yapılması ile ilgili süreçleri detaylandırarak, bu süreçte çeşitli tahmin yöntemlerinin kullanılabileceğini belirtmektedir. Örneğin, tedarik zinciri optimizasyonu kapsamında, geçmiş satış verilerinin analiz edilmesi ve talep tahminlerinin geliştirilmesi sayesinde ürünlerin depodan mağazalara dağıtım süreci iyileştirilebilmektedir. Bir başka örnek olarak firmaların yapacağı yatırımlar kapsamı düşünülebilir. Geçmişte yapılan yatırımlardaki bütçe çalışmaları, devreye alma süresi ve sürekliliği sağlama gibi veriler analiz edilir. Gelecekte planlanan yatırımlara ne kadar harcanacağı ve nasıl olacağı konusu hakkında fikir sahibi olunur ve süreç daha iyi bir hal alır.
 
 **Veri Madenciliği ve Endüstriyel Uygulamalar**
 
-Endüstriyel üretim süreçlerinde veri madenciliği ve makine öğrenmesi uygulamaları, operasyonel verimliliği artırmada kritik bir rol oynamaktadır. Söyleşide ele alınan önemli bir örnek, kereste üretiminde karşılaşılan kalite sorunlarının görsel veri analizi ve makine öğrenmesi teknikleriyle çözülmesi üzerinedir.
+Endüstriyel üretim süreçlerinde veri madenciliği ve makine öğrenmesi uygulamaları, operasyonel verimliliği artırmada kritik bir rol oynamaktadır [@mitchell1997]. Söyleşide ele alınan önemli bir örnek, kereste üretiminde karşılaşılan kalite sorunlarının görsel veri analizi ve makine öğrenmesi teknikleriyle çözülmesi üzerinedir.
 
 Kereste üretim sürecindeki kritik sorunlardan biri, hammaddenin işlenmesi sırasında eğrilik probleminin tespit edilmesi ve önleyici aksiyonların alınmasıdır. Baydoğan’ın doktora çalışmaları sırasında ele aldığı bir problem, yaş kerestenin fotoğraf analizi ile eğrilik tahmininin yapılması üzerine olmuştur.
 
@@ -42,14 +36,13 @@ Bu süreç şu aşamalardan oluşmaktadır:
 
 4.  Sonuç ve Uygulamalar: Öngörülen eğrilik değerleri sayesinde kurutma sürecinde önleyici aksiyonlar alınarak üretim süreçlerinde %5 oranında bir verimlilik artışı sağlanmıştır.
 
-Ayrıca önleyici aksiyonlar almanın birçok yöntemi vardır. Kaizenler, kök neden analizleri, 6sigma,
-neden-neden analizleri kullanılabilir.
+Ayrıca önleyici aksiyonlar almanın birçok yöntemi vardır. Kaizenler, kök neden analizleri, 6sigma, neden-neden analizleri kullanılabilir.
 
 Bu çalışma, veri madenciliği tekniklerinin görsel verilerden anlamlı özniteliklerin çıkarılması ve üretim süreçlerinin iyileştirilmesi açısından nasıl kullanılabileceğini göstermektedir. Söyleşinin bu kısmında; problem, veri, çözüm yöntemi, karar ve etki başlıkları çerçevesinde veri işleme süreçleri ele alınmaktadır. Gabor filtresi, özellikle görüntü işleme alanında kullanılan bir matematiksel operasyon olarak vurgulanmaktadır. Ayrıca, structured data ve unstructured data arasındaki farklar üzerinde durulmuş; resim, haber makaleleri ve metin gibi yapılandırılmamış verilerin işlenmesinde derin öğrenme tekniklerinin önemli bir rol oynadığı belirtilmiştir. Söyleşi, ChatGPT gibi modellerin bu tür verilerle nasıl etkili çalıştığını ve derin öğrenme yöntemlerinin gelişen teknolojilerle birlikte nasıl daha güçlü hale geldiğini açıklamaktadır.
 
 **Makine Öğrenmesi ve Derin Öğrenme Uygulamaları**
 
-Söyleşi kapsamında, geleneksel öğrenme ve derin öğrenme arasındaki farklara değinilmiştir. Geleneksel öğrenme yöntemleri daha çok önceden belirlenmiş kurallar ve özellik mühendisliği gerektirirken, derin öğrenme veriden doğrudan özellikleri öğrenen ve daha karmaşık yapıları modelleyebilen bir yaklaşım sunmaktadır.Derin öğrenmenin büyük veri ile daha iyi çalıştığı, geleneksel yöntemlerin ise daha az veri gerektirdiği ancak bazı karmaşık problemleri çözmede yetersiz kalabileceğiifade edilmiştir.Bu kapsamda, makine öğrenmesi ve derin öğrenme yöntemlerinin elektrik üretim tahminleri, perakende sıralama algoritmaları ve reinforcement learning modelleri gibi çeşitli uygulamalarda nasıl kullanıldığı tartışılmıştır.
+Söyleşi kapsamında, geleneksel öğrenme ve derin öğrenme arasındaki farklara değinilmiştir. Geleneksel öğrenme yöntemleri daha çok önceden belirlenmiş kurallar ve özellik mühendisliği gerektirirken, derin öğrenme veriden doğrudan özellikleri öğrenen ve daha karmaşık yapıları modelleyebilen bir yaklaşım sunmaktadır.Derin öğrenmenin büyük veri ile daha iyi çalıştığı, geleneksel yöntemlerin ise daha az veri gerektirdiği ancak bazı karmaşık problemleri çözmede yetersiz kalabileceğiifade edilmiştir [@chollet2017].Bu kapsamda, makine öğrenmesi ve derin öğrenme yöntemlerinin elektrik üretim tahminleri, perakende sıralama algoritmaları ve reinforcement learning modelleri gibi çeşitli uygulamalarda nasıl kullanıldığı tartışılmıştır.
 
 -   Elektrik Üretim ve Tüketim Tahminleri: Elektrik piyasasında arz-talep dengesinin sağlanması için üreticiler ve tüketiciler tarafından yapılan tahminlerin doğruluğu büyük önem taşımaktadır. Bu tahminlerin yanlış yapılması, ciddi ekonomik kayıplara neden olabilir. Zaman serisi analizi ve regresyon modelleri, elektrik tüketim tahminlerinde yaygın olarak kullanılan yöntemler arasındadır.
 
@@ -57,14 +50,7 @@ Söyleşi kapsamında, geleneksel öğrenme ve derin öğrenme arasındaki farkl
 
 -   Reinforcement Learning: Karar verme süreçlerinde, geçmiş verilerden elde edilen ödülleri maksimize etmek için kullanılan takviyeli öğrenme yöntemleri, özellikle karmaşık optimizasyon problemlerinde etkili olmaktadır.
 
--   Karar verme süreçlerinde tahmin doğruluk için çok önemlidir. Gerçeğe yakın tahminlerin, daha
-etkili kararlar alınmasını sağladığı belirtilmiştir. Ancak karar verme için kullanılan tahminler
-yüzde yüz doğru olmak zorunda değildir.Nokta tahminler yanıltıcı da olabilmektedir.Veri
-eksikliği veya hatalı verilerle çalışmanın, manuel veri işleme ve uzmanlık gereksinimini
-artırdığı belirtilmiştir. Çünkü insanlar bu gibi durumlarda geçmiş tecrübelerini kullanabilirler. Nokta tahminler yanıltıcı da olabilmektedir. İnsan yönlendirmesinin fark yarattığı ve yorumlanabilirliğin karar verme süreçlerinde kritik bir faktör olduğu ifade edilmiştir. Modelin nasıl karar aldığına dair şeffaflığın sağlanması, özellikle yapay zeka destekli sistemlerin benimsenmesi açısından önemli bir konu olarak ele alınmıştır. Son olarak, reinforcement learning yaklaşımlarının karar verme süreçlerinde giderek daha kritik bir rol oynadığı belirtilmiştir. Bu yöntemler, çevresel geri bildirimlere dayanarak optimum kararları almak için kullanılan bir öğrenme stratejisi olarak öne çıkmakta ve özellikle robotik, finans ve otonom sistemler gibi alanlarda karar verme mekanizmalarını geliştirmede büyük bir potansiyel sunmaktadır.
-Özellikle otonom sistemlerde
-süreklilik çok önemlidir. Burada yapılacak ufak bir iyileştirme sistemin devamlılığını sağlamada
-büyük rol oynar.
+-   Karar verme süreçlerinde tahmin doğruluk için çok önemlidir. Gerçeğe yakın tahminlerin, daha etkili kararlar alınmasını sağladığı belirtilmiştir. Ancak karar verme için kullanılan tahminler yüzde yüz doğru olmak zorunda değildir.Nokta tahminler yanıltıcı da olabilmektedir.Veri eksikliği veya hatalı verilerle çalışmanın, manuel veri işleme ve uzmanlık gereksinimini artırdığı belirtilmiştir. Çünkü insanlar bu gibi durumlarda geçmiş tecrübelerini kullanabilirler. Nokta tahminler yanıltıcı da olabilmektedir. İnsan yönlendirmesinin fark yarattığı ve yorumlanabilirliğin karar verme süreçlerinde kritik bir faktör olduğu ifade edilmiştir. Modelin nasıl karar aldığına dair şeffaflığın sağlanması, özellikle yapay zeka destekli sistemlerin benimsenmesi açısından önemli bir konu olarak ele alınmıştır. Son olarak, reinforcement learning yaklaşımlarının karar verme süreçlerinde giderek daha kritik bir rol oynadığı belirtilmiştir. Bu yöntemler, çevresel geri bildirimlere dayanarak optimum kararları almak için kullanılan bir öğrenme stratejisi olarak öne çıkmakta ve özellikle robotik, finans ve otonom sistemler gibi alanlarda karar verme mekanizmalarını geliştirmede büyük bir potansiyel sunmaktadır. Özellikle otonom sistemlerde süreklilik çok önemlidir. Burada yapılacak ufak bir iyileştirme sistemin devamlılığını sağlamada büyük rol oynar.
 
 **Yeni Teknolojiler ve Gelecek Perspektifleri**
 
@@ -88,17 +74,10 @@ Makine öğrenmesi, dinamik sistemleri modelleyerek en uygun çözümleri belirl
 
 Bu yeni yaklaşımlar, makine öğrenmesi modellerinin daha doğru, verimli ve güvenilir hale gelmesi açısından büyük potansiyele sahip olarak değerlendirilmiştir.
 
-Son olarak veri alanında uzmanlaşmak için tavsiye olarak;
-Bu işin yapılarak öğrenildiğinden ve çok fazla farklı uygulama içinde bulunmak gerektiğinden
-bahsediliyor. Uzmanlaşacak olan kişinin mutlaka zaman ayırması gerekmektedir. Çok farklı
-problemlerin içinde bulunmak o kişiyi geliştirecektir. Canlı  yarışmalar, güncel konular ile  insanlar için daha çekici olabilmektedir. En önemli olan noktalardan biri de bilen birisiyle usta-çırak
-ilişkisiyle öğrenmektir. Bu veri alanında veya başka alanlarda da uzmanlaşmak için deneye deneye
-yapılması gerektiği ve sonrasında ortaya çıkan problemlerin nasıl çözüleceğini bulmak gerekmektedir.
-Bu işin içerisine girerken korkulmaması ve yapamam diye düşünülmemesi gerektiği tavsiye
-edilmektedir.
+Son olarak veri alanında uzmanlaşmak için tavsiye olarak; Bu işin yapılarak öğrenildiğinden ve çok fazla farklı uygulama içinde bulunmak gerektiğinden bahsediliyor. Uzmanlaşacak olan kişinin mutlaka zaman ayırması gerekmektedir. Çok farklı problemlerin içinde bulunmak o kişiyi geliştirecektir. Canlı yarışmalar, güncel konular ile insanlar için daha çekici olabilmektedir. En önemli olan noktalardan biri de bilen birisiyle usta-çırak ilişkisiyle öğrenmektir. Bu veri alanında veya başka alanlarda da uzmanlaşmak için deneye deneye yapılması gerektiği ve sonrasında ortaya çıkan problemlerin nasıl çözüleceğini bulmak gerekmektedir. Bu işin içerisine girerken korkulmaması ve yapamam diye düşünülmemesi gerektiği tavsiye edilmektedir.
 
 ::: hidden
-[@baydogan2023] [@bishop2006] [@chollet2017] [@goodfellow2016] [@hastie2009] [@mitchell1997] [@russell2021] [@silver2017] [@vanderAalst2016]
+
 :::
 
 ## Kaynakça
