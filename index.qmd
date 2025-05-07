@@ -25,7 +25,7 @@ MUY660-İş Analitiği iyileştirme çalışmaları (örnek)
 
 ## Proje Konusu
 
-Örnek: Bu projede MUY660-İş Analitiği ders içeriğinin analitik yaklaşımlarla iyileştirilmesini hedefledik. Bu doğrultuda tüm üniversitelerdeki benzer derslerin verisini toplayarak bir veri seti oluşturduk Analiz için ........ yöntemleri kullanarak, ....... çalışmaları yaptık Sonuç olarak, MUY660-İş Analitiği dersinin dünyadaki tüm derslerden daha iyi olduğunu ve bu dersi aldığımız için çok mutlu olduğumuzu tespit ettik.
+Bu projede Türkiye'deki 2025yılının ikinci çeyreğine kadar olan ikinci el araç ilanları hakkında marka,model,yakıt türü,vites tipi ,fiyat,kilometre,motor gücü gibi özelliklerine göre veri analizleri yapmayı hedefledik. Bu doğrultuda Türkiye'deki ikinci el araç satışlarına ait çevrim içi satışları analiz ettik. Analiz için veri okuma yöntemleri medyan analizi kullanarak, marka bazlı fiyat , vites tipine göre fiyat , yakıt tipine göre fiyat çalışmaları yaptık. Sonuç olarak,ortalama ve medyan fiyat karşılaştırmaları,ilanlardaki uç değerlerin bazı şehirlerde fiyat analizini nasıl etkilediğini net şekilde ortaya koymuştur.
 
 ## Veri Seti Hakkında Özet Bilgi
 
