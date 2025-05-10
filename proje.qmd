@@ -1,28 +1,78 @@
 ---
-title: "TÜRKİYE'DEKİ İKİNCİ EL ARAÇ İLANLARI ÜZERİNE VERİ ANALİZİ"
-number-sections: true
+title: "TÜRKİYE İKİNCİ EL ARAÇ İLANLARI ÜZERİNE VERİ ANALİZİ"
+format:html:
+toc: true
 code-fold: true
+number-sections: true
 ---
 
-**Proje sayfamıza hoş geldiniz.**
+# **Proje sayfamıza hoş geldiniz.**
 
 *Projemizle ilgili güncellemelerden haberdar olmak için bu alanı takip edin.*
 
-# Proje Genel Bakış ve Kapsamı
+**Proje Genel Bakış ve Kapsamı**
 
-Bu proje kapsamında analiz edilen veri seti, Türkiye'deki ikinci el araç satışlarına ait çevrim içi ilanlardan elde edilmiştir. Veri, farklı şehirlerdeki araçların marka, model, yakıt türü, vites tipi, fiyat, kilometre, motor gücü gibi özelliklerini içermektedir. Veri seti, Cars.csv dosya formatında R ortamına aktarılmıştır.
+Bu çalışma, 2025 yılı Türkiye ikinci el otomobil pazarı verilerini kullanarak marka ve şehir bazlı benchmark analizi, kapsamlı keşifsel veri analizi (EDA) ve fiyat tahminlemesi (forecasting) gerçekleştirmeyi amaçlamaktadır. Kod, anlatı ve görseller Quarto ile tekrar üretilebilir biçimde hazırlanmıştır.
 
-# Veri
+**Veri**
+
+Bu proje kapsamında analiz edilen veri seti, 2025 yılında Türkiye’deki ikinci el otomobil ilanlarından derlenmiştir. Veriler çevrimiçi bir otomobil satış platformundan (sahibinden.com) 2025 yılı başlarında web kazıma (web scraping) yoluyla elde edilmiştir. Bahri Doğru (2025) tarafından Kaggle üzerinde paylaşılan bu ham veri seti, Türkiye genelinde **6675 adet** ikinci el araç ilanına ait bilgileri içermektedir. Her bir satır bir araç ilanını temsil etmekte ve araçların teknik özelliklerinden satıcı bilgilerine kadar çeşitli değişkenler barındırmaktadır.
+
+**Değişkenler:** Veri setinde toplam 29 sütun (değişken) bulunmaktadır. Önemli değişkenler ve açıklamaları aşağıda verilmiştir:
+
+-    **İlan Başlığı (ListingTitle):** Araç ilanının başlığı (genellikle marka, model ve bazı özellikleri içerir).
+
+-   **Konum (District, City):** İl ve ilçe/mahalle bazında aracın bulunduğu konum. “City” il (örn. İstanbul, Ankara) ve “District” daha spesifik konum bilgisini içerir.
+
+-   **Fiyat (Price(TRY) / Price_Clean):** İlan fiyatı (Türk Lirası cinsinden). `Price(TRY)` metin olarak TL simgesiyle verilirken, `Price_Clean` sayısal olarak fiyat bilgisini içerir.
+
+-   **Marka (Brand), Seri (Series), Model:** Aracın markası (örn. **Renault**, **BMW**), model serisi ve tam model adı
+
+-   **Model Yılı (Year / Year_Clean):** Aracın üretim yılı. (Örn. 2015)
+
+-   **Kilometre (Mileage(km) / Mileage_Clean):** Aracın kullanılmış kilometre bilgisi. `Mileage_Clean` sayısal değeri kilometre cinsinden verir.
+
+-   **Vites Tipi (TransmissionType):** Şanzıman türü (Manuel, Otomatik veya Yarı-Otomatik).
+
+-   **Yakıt Türü (FuelType):** Yakıt tipi (Benzin, Dizel, LPG & Benzin, Hibrit, Elektrik).
+
+-   **Kasa Tipi (BodyType):** Araç gövde tipi (Sedan, Hatchback, SUV, vb.).
+
+-   **Renk (Color):** Aracın rengi (örn. Beyaz, Siyah).
+
+-   **Motor Hacmi (EngineSize(cc) / EngineSize_Clean):** Motor silindir hacmi (cc – santimetreküp cinsinden). Örneğin 1598 cc.
+
+-   **Motor Gücü (EnginePower(HP) / EnginePower_Clean):** Motor gücü (beygir gücü – HP).
+
+-   **Çekiş Tipi (DriveTrain):** Çekiş türü (Önden çekiş – FWD, Arkadan itiş – RWD, Dört çeker – 4WD/AWD).
+
+-   **Boya/Parça Durumu (PaintAndPartsCondition):** Araçta boyalı, değişmiş parça olup olmadığı bilgisi (orijinal, lokal boya, değişen parça gibi ayrıntılar).
+
+-   **Takasa Uygunluk (TradeInAvailable):** İlan sahibinin takas (başka araçla değişim) kabul edip etmediği.
+
+-   **Satıcı Türü (SellerType):** Satıcının tipi (Sahibinden – bireysel, Galeri – bayi, Yetkili bayi, vs.).
+
+-   **MTV (VehicleTax(TRY)):** Aracın yıllık Motorlu Taşıtlar Vergisi tutarı (TL).
+
+-   **Hasar/Tramer Geçmişi (AccidentHistory):** Aracın kaza ve hasar kaydı bilgisi (Tramer kayıtları; örn. “Hasar kaydı yok” veya belli bir tutar).
+
+    Veri setindeki sütun isimleri orijinal ilandan elde edildiği şekildedir. Ancak analizlerde kolaylık olması açısından, `Price_Clean`, `Year_Clean` gibi temizlenmiş sayısal alanlar kullanılmıştır. Bu temizlenmiş değişkenler, ilgili metin alanlarından sayısal değerlerin çıkarılmasıyla oluşturulmuştur. Örneğin **Fiyat (Price)** alanındaki “1.200.000 TL” değeri `Price_Clean` sütununda **1200000** şeklinde yer almaktadır. Benzer şekilde **Motor Hacmi** ve **Motor Gücü** metin karşılıklarından sayılar (cc ve HP) ayıklanarak `EngineSize_Clean` ve `EnginePower_Clean` oluşturulmuştur.
+
+**Eksik Değerler ve Ön İşleme:** Veride bazı eksik değerler sınırlı düzeydedir. Örneğin, `EngineSize_Clean` değişkeninde 191 kayıtta, `EnginePower_Clean` değişkeninde 198 kayıtta eksik bulunmuştur (toplam 6675 gözlemin yaklaşık %3’ü). Fiyat ve kilometre bilgileri ise tüm kayıtlarda mevcuttur. Eksik motor özelliklerine sahip kayıtlar analizlerin ilgili kısımlarında ihmal edilmiş veya gerektiğinde doldurulmuştur. Bunun dışında, uç değer tespitinde **38.500.000 TL** gibi aşırı yüksek fiyatlı bir ilan saptanmıştır (muhtemelen lüks bir araç). Bu tür uç değerler dağılım görselleştirmelerinde grafik okunabilirliğini sağlamak adına ayıklanmıştır. Aykırı değerlerin modele etkisi ayrıca değerlendirilmiştir.
 
 1.Veri Seti: İkinci el araç ilan verisi (Cars.csv)
 
 2.Coğrafi Veri: Türkiye illeri shapefile (tr.shp)
 
-## Veri Kaynağı
+**Veri Kaynağı**
+
+-   
 
 -   <https://www.kaggle.com/datasets/bahridgr/used-car-prices-in-trkiye-2025-entr>
 
-## Veri Hakkında Genel Bilgiler
+-   
+
+**Veri Hakkında Genel Bilgiler**
 
 -Toplam: 6675 satır, 23 sütun
 
@@ -30,170 +80,32 @@ Bu proje kapsamında analiz edilen veri seti, Türkiye'deki ikinci el araç sat�
 
 -Veride eksik gözlemler bulunmakta olup analiz öncesinde ön işlemden geçirilmiştir.
 
-## Tercih Sebebi
+**Tercih Sebebi**
 
--Türkiye merkezli gerçek dünya verisi olması
+R U OK ekibi olarak proje konumuzun Cars Veri Seti olarak seçilmesinin temel nedeni, Cars Veri Seti'nin Türkiye otomotiv pazarına ait gerçek-dünya verileri içeren zengin bir veri seti üzerine kurulması ve bu sayede yapacağımız araştırma sonuçlarının doğrudan sahaya uyarlanabilir olmasına imkan sağlamasıdır. trıca bu veri seti, yerel satış dinamiklerini yansıtan ayrıntılı sayısal ve kategorik değişkenler, pazar eğilimleri, tüketici tercihleri ve rekabet stratejileri hakkında derinlemesine, eyleme dönük içgörüler üretmeye imkân tanımaktadır. Bu veri setinin hacmi ve niteliği, regresyon, makine öğrenimi ile zaman serisi modellemeleri gibi yöntemlerle güvenilir fiyat tahminleri yapılmasını mümkün kılmaktadır; çok boyutlu değişken yapısı ise tanımlayıcı istatistikten kümeleme ve segmentasyona kadar geniş bir analitik yelpazenin uygulanmasına olanak vermektedir.
 
--Araç pazarı ile ilgili güçlü içgörüler barındırması
+**Veri Ön İşleme**
 
--Fiyat tahminlemesi gibi uygulamalara uygun olması
+**Kütüphanelerin Yüklenmesi**
 
--Zengin sayısal ve kategorik değişkenlere sahip olması sayesinde istatistiksel analiz ve görselleştirmeye uygun olması
+{r output=FALSE} library(tidyverse) \# dplyr, ggplot2, readr, tidyr, stringr, purrr, forcats library(janitor) \# Sütun isimlerini temizleme library(naniar) \# Eksik değer görselleştirme library(scales) \# Etiket biçimlendirme (label_number vs.) library(lubridate) \# Tarih işleme library(caret) \# Modelleme ve veri bölme library(randomForest) \# Rastgele orman modeli library(vip) \# Değişken önem grafikleri library(sf) \# Shapefile okuma ve coğrafi veri library(leaflet) \# İnteraktif harita library(TRmaps) \# Türkiye il haritası library(stringi) \# Türkçe karakter dönüştürme için
 
-## Veri Ön İşleme
+**Veri Okuma ve Temizlik**
 
-### Kütüphanelerin Yüklenmesi
+{r message=FALSE, warning=FALSE } \# Veriyi oku cars \<- read_csv("csv/Cars.csv") %\>% clean_names() \# Tüm karakter sütunlarında \\n, \\r, \\t, \_x000D\_ gibi ifadeleri temizle clean_text_columns \<- function(df) { df %\>% mutate(across(where(is.character), \~ gsub("\\\\n\|\\\\r\|\\\\t\|\_x000D\_", " ", .))) %\>% mutate(across(where(is.character), \~ str_trim(.))) } \# Temizleme fonksiyonunu uygula cars \<- clean_text_columns(cars) \# Silinecek sütunlar drop_list \<- c("listing_title", "listing_id") \# Sütunları çıkar ve tekrarlayan satırları sil cars \<- cars %\>% select(-all_of(drop_list)) %\>% distinct() \# Araç yaşı hesapla cars \<- cars %\>% mutate( year_clean = as.numeric(year), age = 2025 - year_clean ) \# car_data'nın ilk 10 satırını tablo olarak bastır knitr::kable(head(cars, 10), caption = "Hazırlanan Veri Setinin İlk 10 Satırı")
 
-```{r output=FALSE}
-library(tidyverse)     # dplyr, ggplot2, readr, tidyr, stringr, purrr, forcats
-library(janitor)       # Sütun isimlerini temizleme
-library(naniar)        # Eksik değer görselleştirme
-library(scales)        # Etiket biçimlendirme (label_number vs.)
-library(lubridate)     # Tarih işleme
-library(caret)         # Modelleme ve veri bölme
-library(randomForest)  # Rastgele orman modeli
-library(vip)           # Değişken önem grafikleri
-library(sf)            # Shapefile okuma ve coğrafi veri
-library(leaflet)       # İnteraktif harita
-library(TRmaps)        # Türkiye il haritası
-library(stringi)       # Türkçe karakter dönüştürme için
+**Eksik Verilerin Doldurulması**
 
-```
+{r output=FALSE} \# Mod hesaplama fonksiyonu mode_impute \<- function(x) { ux \<- na.omit(x) ux\[which.max(tabulate(match(x, ux)))\] } \# Sayısal sütunları medyanla doldur cars \<- cars %\>% mutate( mileage_clean = ifelse(is.na(mileage_clean), median(mileage_clean, na.rm = TRUE), mileage_clean), engine_power_clean = ifelse(is.na(engine_power_clean), median(engine_power_clean, na.rm = TRUE), engine_power_clean), year_clean = ifelse(is.na(year_clean), median(year_clean, na.rm = TRUE), year_clean) ) \# Kategorik sütunları mod ile doldur categorical_cols \<- c("fuel_type", "transmission_type", "seller_type", "accident_history", "color", "drive_train", "body_type") for (col in categorical_cols) { cars\[\[col\]\]\[is.na(cars\[\[col\]\])\] \<- mode_impute(cars\[\[col\]\]) } \# Sayıları karakter içinden ayıkla ve sayıya çevir cars \<- cars %\>% mutate( engine_power_hp = str_extract(engine_power_hp, "\\\\d+") %\>% as.numeric(), engine_size_clean = str_extract(engine_size_clean, "\\\\d+") %\>% as.numeric(), engine_size_cc = parse_number(as.character(engine_size_cc)) ) \# engine_power_hp ve engine_size sütunlarını marka-model bazlı doldur cars \<- cars %\>% group_by(brand, model) %\>% mutate( engine_power_hp = ifelse(is.na(engine_power_hp), round(mean(engine_power_hp, na.rm = TRUE)), engine_power_hp), engine_size_clean = ifelse(is.na(engine_size_clean), round(mean(engine_size_clean, na.rm = TRUE)), engine_size_clean), engine_size_cc = ifelse(is.na(engine_size_cc), round(mean(engine_size_cc, na.rm = TRUE)), engine_size_cc) ) %\>% ungroup() \# Kalan NA’lar için genel medyanla doldurma cars \<- cars %\>% mutate( engine_power_hp = ifelse(is.na(engine_power_hp), median(engine_power_hp, na.rm = TRUE), engine_power_hp), engine_size_clean = ifelse(is.na(engine_size_clean), median(engine_size_clean, na.rm = TRUE), engine_size_clean), engine_size_cc = ifelse(is.na(engine_size_cc), median(engine_size_cc, na.rm = TRUE), engine_size_cc) ) \# Eksik year varsa marka-model ortalaması ile doldur cars \<- cars %\>% group_by(brand, model) %\>% mutate(year = ifelse(is.na(year), round(mean(year, na.rm = TRUE)), year)) %\>% ungroup() \# Araç yaşını yeniden güncelle cars \<- cars %\>% mutate(age = 2025 - year) \# Kullanılmayan sütunları kaldır cars \<- cars %\>% select(-any_of(c("vehicle_tax_try", "trade_in_available"))) \# Kritik alanlarda eksik varsa o satırları sil cars \<- cars %\>% filter(!is.na(year), !is.na(model), !is.na(age)) \# Eksik değerleri görselleştir gg_miss_var(cars)
 
-### Veri Okuma ve Temizlik
-```{r message=FALSE, warning=FALSE }
+{r output=FALSE} cars %\>% summarise(across(everything(), \~ sum(is.na(.)))) %\>% pivot_longer(cols = everything(), names_to = "değişken", values_to = "eksik_sayı") %\>% filter(eksik_sayı \> 0) %\>% arrange(desc(eksik_sayı))
 
+**Analiz**
 
-# Veriyi oku
-cars <- read_csv("csv/Cars.csv") %>% clean_names()
+**Keşifsel Veri Analizi**
 
-# Tüm karakter sütunlarında \n, \r, \t, _x000D_ gibi ifadeleri temizle
-clean_text_columns <- function(df) {
-  df %>%
-    mutate(across(where(is.character), ~ gsub("\\n|\\r|\\t|_x000D_", " ", .))) %>%
-    mutate(across(where(is.character), ~ str_trim(.)))
-}
+{r } cars %\>% summarise( mean_price = mean(price_clean, na.rm = TRUE), mean_km = mean(mileage_clean, na.rm = TRUE), mean_hp = mean(engine_power_clean, na.rm = TRUE) )
 
-# Temizleme fonksiyonunu uygula
-cars <- clean_text_columns(cars)
-
-# Silinecek sütunlar
-drop_list <- c("listing_title", "listing_id")
-
-# Sütunları çıkar ve tekrarlayan satırları sil
-cars <- cars %>%
-  select(-all_of(drop_list)) %>%
-  distinct()
-
-# Araç yaşı hesapla
-cars <- cars %>%
-  mutate(
-    year_clean = as.numeric(year),
-    age = 2025 - year_clean
-  )
-
-# car_data'nın ilk 10 satırını tablo olarak bastır
-knitr::kable(head(cars, 10), caption = "Hazırlanan Veri Setinin İlk 10 Satırı")
-
-
-```
-### Eksik Verilerin Doldurulması
-
-```{r output=FALSE}
-
-# Mod hesaplama fonksiyonu
-mode_impute <- function(x) {
-  ux <- na.omit(x)
-  ux[which.max(tabulate(match(x, ux)))]
-}
-
-# Sayısal sütunları medyanla doldur
-cars <- cars %>%
-  mutate(
-    mileage_clean = ifelse(is.na(mileage_clean), median(mileage_clean, na.rm = TRUE), mileage_clean),
-    engine_power_clean = ifelse(is.na(engine_power_clean), median(engine_power_clean, na.rm = TRUE), engine_power_clean),
-    year_clean = ifelse(is.na(year_clean), median(year_clean, na.rm = TRUE), year_clean)
-  )
-
-# Kategorik sütunları mod ile doldur
-categorical_cols <- c("fuel_type", "transmission_type", "seller_type", "accident_history", "color", "drive_train", "body_type")
-for (col in categorical_cols) {
-  cars[[col]][is.na(cars[[col]])] <- mode_impute(cars[[col]])
-}
-
-# Sayıları karakter içinden ayıkla ve sayıya çevir
-cars <- cars %>%
-  mutate(
-    engine_power_hp = str_extract(engine_power_hp, "\\d+") %>% as.numeric(),
-    engine_size_clean = str_extract(engine_size_clean, "\\d+") %>% as.numeric(),
-    engine_size_cc = parse_number(as.character(engine_size_cc))
-  )
-
-# engine_power_hp ve engine_size sütunlarını marka-model bazlı doldur
-cars <- cars %>%
-  group_by(brand, model) %>%
-  mutate(
-    engine_power_hp = ifelse(is.na(engine_power_hp), round(mean(engine_power_hp, na.rm = TRUE)), engine_power_hp),
-    engine_size_clean = ifelse(is.na(engine_size_clean), round(mean(engine_size_clean, na.rm = TRUE)), engine_size_clean),
-    engine_size_cc = ifelse(is.na(engine_size_cc), round(mean(engine_size_cc, na.rm = TRUE)), engine_size_cc)
-  ) %>%
-  ungroup()
-
-# Kalan NA’lar için genel medyanla doldurma
-cars <- cars %>%
-  mutate(
-    engine_power_hp = ifelse(is.na(engine_power_hp), median(engine_power_hp, na.rm = TRUE), engine_power_hp),
-    engine_size_clean = ifelse(is.na(engine_size_clean), median(engine_size_clean, na.rm = TRUE), engine_size_clean),
-    engine_size_cc = ifelse(is.na(engine_size_cc), median(engine_size_cc, na.rm = TRUE), engine_size_cc)
-  )
-
-# Eksik year varsa marka-model ortalaması ile doldur
-cars <- cars %>%
-  group_by(brand, model) %>%
-  mutate(year = ifelse(is.na(year), round(mean(year, na.rm = TRUE)), year)) %>%
-  ungroup()
-
-# Araç yaşını yeniden güncelle
-cars <- cars %>%
-  mutate(age = 2025 - year)
-
-# Kullanılmayan sütunları kaldır
-cars <- cars %>%
-  select(-any_of(c("vehicle_tax_try", "trade_in_available")))
-
-# Kritik alanlarda eksik varsa o satırları sil
-cars <- cars %>%
-  filter(!is.na(year), !is.na(model), !is.na(age))
-
-# Eksik değerleri görselleştir
-gg_miss_var(cars)
-
-```
-
-```{r output=FALSE}
-
-cars %>%
-  summarise(across(everything(), ~ sum(is.na(.)))) %>%
-  pivot_longer(cols = everything(), names_to = "değişken", values_to = "eksik_sayı") %>%
-  filter(eksik_sayı > 0) %>%
-  arrange(desc(eksik_sayı))
-
-```
-
-
-
-# Analiz
-
-## Keşifsel Veri Analizi
-
-```{r }
-cars %>%
-  summarise(
-    mean_price = mean(price_clean, na.rm = TRUE),
-    mean_km = mean(mileage_clean, na.rm = TRUE),
-    mean_hp = mean(engine_power_clean, na.rm = TRUE)
-  )
-```
 Bu da demektir ki veri setindeki ikinci el araçların ortalama:
 
 Fiyatı yaklaşık 787.000 TL
@@ -202,34 +114,11 @@ Kilometresi 217.000 km
 
 Motor gücü 108 HP
 
+**Marka Bazlı Ortalama Fiyat Dağılımı**
 
-### Marka Bazlı Ortalama Fiyat Dağılımı
+{r, message=FALSE, warning=FALSE} \# Marka bazlı ortalama fiyat ve ilan sayısı brand_summary \<- cars %\>% group_by(brand) %\>% summarise( mean_price = mean(price_clean, na.rm = TRUE), count = n() ) %\>% filter(count \> 30) %\>% \# Çok az gözleme sahip markaları filtrele (isteğe bağlı) arrange(desc(mean_price)) \# Görselleştirme ggplot(brand_summary, aes(x = reorder(brand, mean_price), y = mean_price)) + geom_col(fill = "darkblue") + coord_flip() + scale_y_continuous(labels = label_number(suffix = " TL", big.mark = ".", decimal.mark = ",")) + labs( title = "Markalara Göre Ortalama Araç Fiyatları", x = "Marka", y = "Ortalama Fiyat (TL)" ) + theme_minimal(base_size = 14)
 
-```{r, message=FALSE, warning=FALSE}
-# Marka bazlı ortalama fiyat ve ilan sayısı
-brand_summary <- cars %>%
-  group_by(brand) %>%
-  summarise(
-    mean_price = mean(price_clean, na.rm = TRUE),
-    count = n()
-  ) %>%
-  filter(count > 30) %>%  # Çok az gözleme sahip markaları filtrele (isteğe bağlı)
-  arrange(desc(mean_price))
-
-# Görselleştirme
-ggplot(brand_summary, aes(x = reorder(brand, mean_price), y = mean_price)) +
-  geom_col(fill = "darkblue") +
-  coord_flip() +
-  scale_y_continuous(labels = label_number(suffix = " TL", big.mark = ".", decimal.mark = ",")) +
-  labs(
-    title = "Markalara Göre Ortalama Araç Fiyatları",
-    x = "Marka",
-    y = "Ortalama Fiyat (TL)"
-  ) +
-  theme_minimal(base_size = 14)
-
-```
-Markalara Göre Ortalama Araç Fiyatları 
+Markalara Göre Ortalama Araç Fiyatları
 
 Mercedes-Benz, açık ara farkla en yüksek ortalama ikinci el araç fiyatına sahip markadır. Bu, markanın genellikle lüks segmentte konumlanmasından ve daha yeni modellerin piyasada yoğun olmasından kaynaklanıyor olabilir.
 
@@ -239,107 +128,37 @@ Honda, Volkswagen ve Toyota gibi markalar orta segmentte konumlanırken; Fiat, R
 
 Listenin alt sıralarında yer alan markalar, daha uygun fiyatlı ve/veya daha eski model araçlara sahip olabilirler.
 
-### Vites Tipine Göre Fiyat
-```{r, message=FALSE, warning= FALSE }
-cars %>%
-  filter(!is.na(transmission_type), !is.na(price_clean), price_clean > 0) %>%
-  ggplot(aes(x = transmission_type, y = log10(price_clean))) +
-  geom_boxplot(fill = "lightgreen", outlier.color = "darkred", outlier.size = 1.2) +
-  labs(
-    title = "Vites Tipine Göre Log10(Fiyat) Dağılımı",
-    x = "Vites Tipi",
-    y = "log10(Fiyat) (TL)"
-  ) +
-  theme_minimal()
-```
+**Vites Tipine Göre Fiyat**
 
- Vites Tipine Göre Fiyat Dağılımı 
- Automatic
-Medyan (orta çizgi) log10(fiyat) değeri en yüksek olan grup.
+{r, message=FALSE, warning= FALSE } cars %\>% filter(!is.na(transmission_type), !is.na(price_clean), price_clean \> 0) %\>% ggplot(aes(x = transmission_type, y = log10(price_clean))) + geom_boxplot(fill = "lightgreen", outlier.color = "darkred", outlier.size = 1.2) + labs( title = "Vites Tipine Göre Log10(Fiyat) Dağılımı", x = "Vites Tipi", y = "log10(Fiyat) (TL)" ) + theme_minimal()
+
+Vites Tipine Göre Fiyat Dağılımı Automatic Medyan (orta çizgi) log10(fiyat) değeri en yüksek olan grup.
 
 Fiyat dağılımı geniş ve üst uçta birçok lüks fiyatlı araç (outlier) mevcut.
 
 Bu, otomatik vitesli araçların genelde daha pahalı olduğunu ve aralarında lüks segmentlerin de bulunduğunu gösterir.
 
- Manual
-Medyan fiyatı en düşük olan grup.
+Manual Medyan fiyatı en düşük olan grup.
 
 Dağılım daha dar ve genellikle düşük fiyatlı araçlar bu grupta yer alıyor.
 
 Daha az lüks model içeren ekonomik seçeneklerin bu grupta yoğunlaştığı anlaşılıyor.
 
- Semi-Automatic
-Medyan değeri, otomatikten düşük ama manuele göre daha yüksek.
+Semi-Automatic Medyan değeri, otomatikten düşük ama manuele göre daha yüksek.
 
 Yayılım dar, yani fiyatlar bu grupta daha homojen.
 
 Genellikle orta segmentte yer alan araçlar bu grupta olabilir.
 
-```{r, message=FALSE, warning=FALSE}
-# Önce city_stats oluştur
-city_stats <- cars %>%
-  filter(!is.na(city), !is.na(price_clean)) %>%
-  group_by(city) %>%
-  summarise(
-    mean_price = mean(price_clean, na.rm = TRUE),
-    count = n()
-  )
+{r, message=FALSE, warning=FALSE} \# Önce city_stats oluştur city_stats \<- cars %\>% filter(!is.na(city), !is.na(price_clean)) %\>% group_by(city) %\>% summarise( mean_price = mean(price_clean, na.rm = TRUE), count = n() ) \# Bar chart city_stats %\>% filter(count \>= 30) %\>% ggplot(aes(x = fct_reorder(city, mean_price), y = mean_price)) + geom_col(fill = "darkcyan", width = 0.7) + coord_flip() + scale_y_continuous( labels = label_number(suffix = " TL", big.mark = ".", decimal.mark = ","), expand = expansion(mult = c(0, 0.1)) ) + labs( title = "Ortalama Fiyatı En Yüksek Şehirler (Min. 30 İlan)", x = "Şehir", y = "Ortalama Fiyat" ) + theme_minimal(base_size = 10)
 
-# Bar chart
-city_stats %>%
-  filter(count >= 30) %>%
-  ggplot(aes(x = fct_reorder(city, mean_price), y = mean_price)) +
-  geom_col(fill = "darkcyan", width = 0.7) +
-  coord_flip() +
-  scale_y_continuous(
-    labels = label_number(suffix = " TL", big.mark = ".", decimal.mark = ","),
-    expand = expansion(mult = c(0, 0.1))
-  ) +
-  labs(
-    title = "Ortalama Fiyatı En Yüksek Şehirler (Min. 30 İlan)",
-    x = "Şehir",
-    y = "Ortalama Fiyat"
-  ) +
-  theme_minimal(base_size = 10)
+{r, message=FALSE, warning=FALSE} \# Ortalama ve Medyan Fiyatları Hazırla fiyat_ozet \<- cars %\>% filter(!is.na(city), !is.na(price_clean)) %\>% group_by(city) %\>% filter(n() \>= 30) %\>% summarise( Ortalama = mean(price_clean, na.rm = TRUE), Medyan = median(price_clean, na.rm = TRUE) ) %\>% pivot_longer(cols = c("Ortalama", "Medyan"), names_to = "FiyatTürü", values_to = "Fiyat") %\>% mutate(city = fct_reorder(city, Fiyat)) \# Facet Wrap ile Görselleştir ggplot(fiyat_ozet, aes(x = city, y = Fiyat)) + geom_col(fill = "darkcyan") + coord_flip() + facet_wrap(\~ FiyatTürü, scales = "free_x") + scale_y_continuous(labels = label_number(suffix = " TL", big.mark = ".", decimal.mark = ",")) + labs( title = "Şehir Bazlı Ortalama ve Medyan Fiyat Karşılaştırması", x = "Şehir", y = "Fiyat" ) + theme_minimal(base_size = 9)
 
-```
-```{r, message=FALSE, warning=FALSE}
-
-# Ortalama ve Medyan Fiyatları Hazırla
-fiyat_ozet <- cars %>%
-  filter(!is.na(city), !is.na(price_clean)) %>%
-  group_by(city) %>%
-  filter(n() >= 30) %>%
-  summarise(
-    Ortalama = mean(price_clean, na.rm = TRUE),
-    Medyan = median(price_clean, na.rm = TRUE)
-  ) %>%
-  pivot_longer(cols = c("Ortalama", "Medyan"), names_to = "FiyatTürü", values_to = "Fiyat") %>%
-  mutate(city = fct_reorder(city, Fiyat))
-
-# Facet Wrap ile Görselleştir
-ggplot(fiyat_ozet, aes(x = city, y = Fiyat)) +
-  geom_col(fill = "darkcyan") +
-  coord_flip() +
-  facet_wrap(~ FiyatTürü, scales = "free_x") +
-  scale_y_continuous(labels = label_number(suffix = " TL", big.mark = ".", decimal.mark = ",")) +
-  labs(
-    title = "Şehir Bazlı Ortalama ve Medyan Fiyat Karşılaştırması",
-    x = "Şehir",
-    y = "Fiyat"
-  ) +
-  theme_minimal(base_size = 9)
-
-
-```
-
-Ortalama Fiyat Paneli (Sağ)
-Uç değerler hesaba katıldığı için bazı şehirlerde fiyatlar yüksek çıkmaktadır.
+Ortalama Fiyat Paneli (Sağ) Uç değerler hesaba katıldığı için bazı şehirlerde fiyatlar yüksek çıkmaktadır.
 
 Örneğin: İstanbul, Muğla gibi şehirlerde bazı çok pahalı araçlar ortalamayı yukarı çekmiş.
 
-Medyan Fiyat Paneli (Sol)
-Medyan, fiyatların tam ortasında yer alan değerdir ve uç fiyatlardan etkilenmez.
+Medyan Fiyat Paneli (Sol) Medyan, fiyatların tam ortasında yer alan değerdir ve uç fiyatlardan etkilenmez.
 
 İstanbul yine en üstte olsa da, bazı şehirlerde medyan fiyatın ortalamadan çok daha düşük olduğu gözlemleniyor → bu da ilanlarda çok pahalı araçlar olduğunu gösterir (muhtemelen lüks ilanlar etkiliyor).
 
@@ -349,78 +168,31 @@ Muğla, Antalya, Batman gibi şehirlerde ortalama → medyandan çok büyük, ya
 
 Daha homojen pazarlarda (örneğin Adıyaman, Tokat) ortalama ve medyan birbirine daha yakın.
 
-
-```{r, message=FALSE, warning=FALSE}
-cars %>%
-  group_by(fuel_type) %>%
-  summarise(mean_price = mean(price_clean, na.rm = TRUE)) %>%
-  ggplot(aes(x = reorder(fuel_type, mean_price), y = mean_price)) +
-  geom_col(fill = "darkgreen") +
-  coord_flip() +
-  scale_y_continuous(labels = scales::label_number(suffix = " TL", big.mark = ".", decimal.mark = ",")) +
-  labs(
-    title = "Yakıt Tipine Göre Ortalama Araç Fiyatları",
-    x = "Yakıt Türü",
-    y = "Ortalama Fiyat (TL)"
-  ) +
-  theme_minimal(base_size = 13)
-
-```
+{r, message=FALSE, warning=FALSE} cars %\>% group_by(fuel_type) %\>% summarise(mean_price = mean(price_clean, na.rm = TRUE)) %\>% ggplot(aes(x = reorder(fuel_type, mean_price), y = mean_price)) + geom_col(fill = "darkgreen") + coord_flip() + scale_y_continuous(labels = scales::label_number(suffix = " TL", big.mark = ".", decimal.mark = ",")) + labs( title = "Yakıt Tipine Göre Ortalama Araç Fiyatları", x = "Yakıt Türü", y = "Ortalama Fiyat (TL)" ) + theme_minimal(base_size = 13)
 
 Bu grafikte, Türkiye’deki ikinci el araç pazarında kullanılan yakıt türlerinin ortalama araç fiyatlarına etkisi incelenmektedir.
 
- Benzinli Araçlar
-En yaygın yakıt türlerinden biridir.
+Benzinli Araçlar En yaygın yakıt türlerinden biridir.
 
 Ortalama fiyatı genellikle orta seviyede kalmaktadır.
 
 Geniş fiyat aralığına sahip, hem ekonomik hem de premium modellerde tercih edilmektedir.
 
- Elektrikli Araçlar
-Ortalama fiyatı en yüksek olan gruptur.
+Elektrikli Araçlar Ortalama fiyatı en yüksek olan gruptur.
 
 Bunun nedeni, Türkiye’de elektrikli araçların henüz yaygın olmaması ve çoğunun yeni teknolojiye sahip pahalı modeller olmasıdır.
 
-Dizel Araçlar
-Ortalama fiyatları benzinli araçlara benzer seviyededir ya da biraz daha yüksektir.
+Dizel Araçlar Ortalama fiyatları benzinli araçlara benzer seviyededir ya da biraz daha yüksektir.
 
 Özellikle yüksek kilometreli araçlarda tercih edilse de, motor ömrü uzun olduğu için fiyatları belirli bir seviyede korunmaktadır.
 
- Hibrit (Hybrid)
-Elektrik-benzin kombinasyonuna sahip bu araçlar genelde yeni teknolojiye sahip oldukları için ortalama fiyatları da yüksek çıkmaktadır.
+Hibrit (Hybrid) Elektrik-benzin kombinasyonuna sahip bu araçlar genelde yeni teknolojiye sahip oldukları için ortalama fiyatları da yüksek çıkmaktadır.
 
-Yakıt tasarrufu ve çevreci özellikleri fiyatlarına yansımaktadır.
-X
-## Trend Analizi
+Yakıt tasarrufu ve çevreci özellikleri fiyatlarına yansımaktadır. X \## Trend Analizi
 
-### Araç Yaşı ile Fiyat İlişkisi
-```{r,message= FALSE, warning= FALSE }
+**Araç Yaşı ile Fiyat İlişkisi**
 
-# Outlier'ları filtrele (örnek: 1. ve 99. persentil arası tut)
-q_low <- quantile(cars$mileage_clean, 0.01, na.rm = TRUE)
-q_high <- quantile(cars$mileage_clean, 0.99, na.rm = TRUE)
-
-cars_filtered <- cars %>%
-  filter(
-    mileage_clean >= q_low,
-    mileage_clean <= q_high,
-    price_clean <= quantile(price_clean, 0.99, na.rm = TRUE)
-  )
-
-# Grafik
-ggplot(data = cars_filtered, aes(x = mileage_clean, y = price_clean)) +
-  geom_point(color = "mediumorchid", alpha = 0.4) +
-  geom_smooth(method = "lm", se = FALSE, color = "black", linewidth = 1.1) +
-  labs(
-    title = "Kilometre ile Fiyat Arasındaki İlişki (Outlier'sız)",
-    x = "Kilometre",
-    y = "Fiyat (TL)"
-  ) +
-scale_y_continuous(labels = label_number(big.mark = ".", decimal.mark = ",", suffix = " TL")) +
-scale_x_continuous(labels = label_number(big.mark = ".", decimal.mark = ",", suffix = " km"))
-  invisible(theme_minimal())
-
-```
+{r,message= FALSE, warning= FALSE } \# Outlier'ları filtrele (örnek: 1. ve 99. persentil arası tut) q_low \<- quantile(cars\$mileage_clean, 0.01, na.rm = TRUE) q_high \<- quantile(cars\$mileage_clean, 0.99, na.rm = TRUE) cars_filtered \<- cars %\>% filter( mileage_clean \>= q_low, mileage_clean \<= q_high, price_clean \<= quantile(price_clean, 0.99, na.rm = TRUE) ) \# Grafik ggplot(data = cars_filtered, aes(x = mileage_clean, y = price_clean)) + geom_point(color = "mediumorchid", alpha = 0.4) + geom_smooth(method = "lm", se = FALSE, color = "black", linewidth = 1.1) + labs( title = "Kilometre ile Fiyat Arasındaki İlişki (Outlier'sız)", x = "Kilometre", y = "Fiyat (TL)" ) + scale_y_continuous(labels = label_number(big.mark = ".", decimal.mark = ",", suffix = " TL")) + scale_x_continuous(labels = label_number(big.mark = ".", decimal.mark = ",", suffix = " km")) invisible(theme_minimal())
 
 Negatif Korelasyon (Eğim Azalan):
 
@@ -442,32 +214,13 @@ Bu da piyasadaki en yaygın ikinci el araç kitlesini gösteriyor.
 
 Aykırı Değerlerin Etkisi Azalmış:
 
-İlk grafiğe göre çok uç fiyatlar (>30.000.000 TL gibi) çıkarıldığı için regresyon çizgisi daha gerçekçi bir eğilim gösteriyor.
+İlk grafiğe göre çok uç fiyatlar (\>30.000.000 TL gibi) çıkarıldığı için regresyon çizgisi daha gerçekçi bir eğilim gösteriyor.
 
+Kilometre arttıkça araç fiyatı genellikle düşmektedir. Özellikle 150.000 km üzerindeki araçlar belirgin şekilde daha ucuzdur. Ancak düşük kilometreli araçların fiyatları çok değişken olup bazı modellerde yüksek fiyatlara ulaşabilmektedir.
 
-Kilometre arttıkça araç fiyatı genellikle düşmektedir.
-Özellikle 150.000 km üzerindeki araçlar belirgin şekilde daha ucuzdur.
-Ancak düşük kilometreli araçların fiyatları çok değişken olup bazı modellerde yüksek fiyatlara ulaşabilmektedir.
+**Araç Yaşı ve Ortalama Fiyat**
 
-### Araç Yaşı ve Ortalama Fiyat
-```{r, message=FALSE, warning=FALSE }
-cars %>%
-  group_by(age) %>%
-  summarise(mean_price = mean(price_clean, na.rm = TRUE)) %>%
-  ggplot(aes(x = age, y = mean_price)) +
-  geom_line(color = "red", size = 1.2) +
-  geom_point(color = "black") +
-  scale_x_continuous(breaks = pretty_breaks()) +
-  scale_y_continuous(labels = label_number(suffix = " Tl", big.mark = ".", decimal.mark = ",")) +
-  labs(
-    title = "Araç Yaşına Göre Ortalama Fiyat",
-    x = "Araç Yaşı",
-    y = "Ortalama Fiyat"
-  ) +
-  theme_minimal()
-
-```
-
+{r, message=FALSE, warning=FALSE } cars %\>% group_by(age) %\>% summarise(mean_price = mean(price_clean, na.rm = TRUE)) %\>% ggplot(aes(x = age, y = mean_price)) + geom_line(color = "red", size = 1.2) + geom_point(color = "black") + scale_x_continuous(breaks = pretty_breaks()) + scale_y_continuous(labels = label_number(suffix = " Tl", big.mark = ".", decimal.mark = ",")) + labs( title = "Araç Yaşına Göre Ortalama Fiyat", x = "Araç Yaşı", y = "Ortalama Fiyat" ) + theme_minimal()
 
 Genel Eğilim (Azalan Trend):
 
@@ -481,177 +234,43 @@ Fiyat Düşüş Hızı:
 
 Bu, ikinci el piyasasında ilk yıllarda değer kaybının daha yüksek olduğunu gösteriyor (araba değer kaybı eğrisi).
 
+{r, message=FALSE, warning=FALSE} \# Türkiye shapefile'ını oku turkiye_il \<- st_read("csv/tr_shp/tr.shp", quiet = TRUE) \# Türkçe karakterleri düzleştiren yardımcı fonksiyon normalize_city \<- function(x) { x %\>% stri_trans_general("Latin-ASCII") %\>% \# Türkçe karakterleri dönüştür (İ→I, Ş→S, Ü→U) toupper() %\>% trimws() } \# Ortalama fiyatları hesapla (ilan sayısı 30'dan büyük olanlar) fiyatlar \<- cars %\>% filter(!is.na(city), !is.na(price_clean)) %\>% group_by(city) %\>% summarise( mean_price = mean(price_clean, na.rm = TRUE), ilan_sayisi = n() ) %\>% filter(ilan_sayisi \>= 30) %\>% mutate(city_clean = normalize_city(city)) \# Harita verisini temizle turkiye_il \<- turkiye_il %\>% mutate(city_clean = normalize_city(name)) \# name yerine IL_ADI kullanıyorsan onu yaz \# Join işlemi turkiye_il \<- turkiye_il %\>% left_join(fiyatlar, by = "city_clean") \# Harita paleti pal \<- colorNumeric(palette = "YlOrRd", domain = turkiye_il\$mean_price, na.color = "gray90") \# Harita çizimi leaflet(data = turkiye_il) %\>% addTiles() %\>% addPolygons( fillColor = \~pal(mean_price), weight = 1, opacity = 1, color = "white", dashArray = "3", fillOpacity = 0.7, label = \~paste0(name, ": ₺", format(round(mean_price), big.mark = ".", decimal.mark = ",")), highlightOptions = highlightOptions( weight = 3, color = "#666", fillOpacity = 0.9, bringToFront = TRUE ) ) %\>% addLegend(pal = pal, values = \~mean_price, opacity = 0.7, title = "Ortalama Fiyat (₺)", position = "bottomright")
 
-```{r, message=FALSE, warning=FALSE}
+**Model Uydurma**
 
-# Türkiye shapefile'ını oku
-turkiye_il <- st_read("csv/tr_shp/tr.shp", quiet = TRUE)
+**Modelin Performansı**
 
-# Türkçe karakterleri düzleştiren yardımcı fonksiyon
-normalize_city <- function(x) {
-  x %>%
-    stri_trans_general("Latin-ASCII") %>% # Türkçe karakterleri dönüştür (İ→I, Ş→S, Ü→U)
-    toupper() %>%
-    trimws()
-}
+**Model için Veri Setinin Hazırlanması**
 
-# Ortalama fiyatları hesapla (ilan sayısı 30'dan büyük olanlar)
-fiyatlar <- cars %>%
-  filter(!is.na(city), !is.na(price_clean)) %>%
-  group_by(city) %>%
-  summarise(
-    mean_price = mean(price_clean, na.rm = TRUE),
-    ilan_sayisi = n()
-  ) %>%
-  filter(ilan_sayisi >= 30) %>%
-  mutate(city_clean = normalize_city(city))
+{r} \# Temizlenmiş veri üzerinden model veri seti oluşturuluyor car_data \<- cars %\>% filter( !is.na(price_clean), !is.na(year_clean), !is.na(mileage_clean), !is.na(engine_power_clean), !is.na(fuel_type), !is.na(transmission_type), !is.na(brand), !is.na(body_type) ) %\>% mutate( price_log = log10(price_clean), \# log dönüşümü ile daha iyi dağılım across(c(fuel_type, transmission_type, brand, body_type), as.factor) ) %\>% select(price_log, year_clean, mileage_clean, engine_power_clean, fuel_type, transmission_type, brand, body_type) \# car_data'nın ilk 10 satırını tablo olarak bastır knitr::kable(head(car_data, 10), caption = "Modelleme için Hazırlanan Veri Setinin İlk 10 Satırı")
 
-# Harita verisini temizle
-turkiye_il <- turkiye_il %>%
-  mutate(city_clean = normalize_city(name))  # name yerine IL_ADI kullanıyorsan onu yaz
+**Modelin Eğitilmesi ve Test Edilmesi**
 
-# Join işlemi
-turkiye_il <- turkiye_il %>%
-  left_join(fiyatlar, by = "city_clean")
+{r message=FALSE, warning=FALSE} set.seed(123) split \<- createDataPartition(car_data\$price_log, p = 0.8, list = FALSE) train_set \<- car_data\[split, \] test_set \<- car_data\[-split, \] rf_model \<- randomForest( price_log \~ ., data = train_set, ntree = 100, importance = TRUE ) \# Tahmin yap predicted \<- predict(rf_model, newdata = test_set) actual \<- test_set\$price_log \# Performans metrikleri (log10 dönüşümlü) rmse \<- sqrt(mean((predicted - actual)\^2)) mae \<- mean(abs(predicted - actual)) cat("RMSE (log10):", round(rmse, 3), "\\n") cat("MAE (log10):", round(mae, 3), "\\n") \# Gerçek ölçekte hata tahmini (yüzdelik) relative_error \<- (10\^rmse - 1) \* 100 cat("Tahmini Ortalama Hata (%):", round(relative_error, 1), "%")
 
-# Harita paleti
-pal <- colorNumeric(palette = "YlOrRd", domain = turkiye_il$mean_price, na.color = "gray90")
-
-# Harita çizimi
-leaflet(data = turkiye_il) %>%
-  addTiles() %>%
-  addPolygons(
-    fillColor = ~pal(mean_price),
-    weight = 1,
-    opacity = 1,
-    color = "white",
-    dashArray = "3",
-    fillOpacity = 0.7,
-    label = ~paste0(name, ": ₺", format(round(mean_price), big.mark = ".", decimal.mark = ",")),
-    highlightOptions = highlightOptions(
-      weight = 3,
-      color = "#666",
-      fillOpacity = 0.9,
-      bringToFront = TRUE
-    )
-  ) %>%
-  addLegend(pal = pal, values = ~mean_price, opacity = 0.7,
-            title = "Ortalama Fiyat (₺)",
-            position = "bottomright")
-
-```
-
-
-## Model Uydurma
-
-## Modelin Performansı
-
-### Model için Veri Setinin Hazırlanması
-
-```{r}
-# Temizlenmiş veri üzerinden model veri seti oluşturuluyor
-
-car_data <- cars %>%
-  filter(
-    !is.na(price_clean),
-    !is.na(year_clean),
-    !is.na(mileage_clean),
-    !is.na(engine_power_clean),
-    !is.na(fuel_type),
-    !is.na(transmission_type),
-    !is.na(brand),
-    !is.na(body_type)
-  ) %>%
-  mutate(
-    price_log = log10(price_clean),  # log dönüşümü ile daha iyi dağılım
-    across(c(fuel_type, transmission_type, brand, body_type), as.factor)
-  ) %>%
-  select(price_log, year_clean, mileage_clean, engine_power_clean, fuel_type, transmission_type, brand, body_type)
-
-# car_data'nın ilk 10 satırını tablo olarak bastır
-knitr::kable(head(car_data, 10), caption = "Modelleme için Hazırlanan Veri Setinin İlk 10 Satırı")
-
-```
-
-### Modelin Eğitilmesi ve Test Edilmesi
-
-```{r message=FALSE, warning=FALSE}
-set.seed(123)
-
-split <- createDataPartition(car_data$price_log, p = 0.8, list = FALSE)
-train_set <- car_data[split, ]
-test_set <- car_data[-split, ]
-
-rf_model <- randomForest(
-  price_log ~ ., 
-  data = train_set,
-  ntree = 100,
-  importance = TRUE
-)
-
-# Tahmin yap
-predicted <- predict(rf_model, newdata = test_set)
-actual <- test_set$price_log
-
-# Performans metrikleri (log10 dönüşümlü)
-rmse <- sqrt(mean((predicted - actual)^2))
-mae <- mean(abs(predicted - actual))
-
-cat("RMSE (log10):", round(rmse, 3), "\n")
-cat("MAE (log10):", round(mae, 3), "\n")
-
-# Gerçek ölçekte hata tahmini (yüzdelik)
-relative_error <- (10^rmse - 1) * 100
-cat("Tahmini Ortalama Hata (%):", round(relative_error, 1), "%")
-
-
-```
-### Tahmin Doğruluğu ve Yorum
+**Tahmin Doğruluğu ve Yorum**
 
 -RMSE (log10): 0.071
 
 -MAE (log10): 0.051
 
--Tahmini Ortalama Hata (%): ~17.8%
+-Tahmini Ortalama Hata (%): \~17.8%
 
 Bu sonuçlar, modelin ikinci el araç fiyatlarını oldukça başarılı şekilde tahmin ettiğini göstermektedir. Özellikle ikinci el araç piyasasındaki dalgalanma, marka ve model çeşitliliği göz önüne alındığında, bu hata oranı güçlü bir performansa işaret eder.
 
 Model, fiyatların %80’inden fazlasını gerçek değerin ±%18’lik bir aralığında öngörebilmiştir.
 
+**Önemli Değişkenler**
 
-### Önemli Değişkenler
+{r } vip(rf_model, num_features = 10)
 
-```{r }
-vip(rf_model, num_features = 10)
+**Gerçek Fiyat ile Tahmin Edilen Fiyat Karşılaştırması**
 
-```
+{r } \# Test veri seti üzerinde tahmin yap ve hata metriklerini hesapla tahmin_df \<- test_set %\>% mutate( tahmin_log = predict(rf_model, newdata = .), \# Log10 tahmini tahmin_fiyat = 10\^tahmin_log, \# Gerçek ölçekli tahmin gercek_fiyat = 10\^price_log, \# Gerçek fiyat (log'dan çıkarıldı) hata = abs(tahmin_fiyat - gercek_fiyat), \# Mutlak hata hata_orani = round((hata / gercek_fiyat) \* 100, 1) \# Yüzde hata ) %\>% select(brand, year_clean, mileage_clean, engine_power_clean, fuel_type, transmission_type, body_type, gercek_fiyat, tahmin_fiyat, hata, hata_orani) \# En başarılı tahmin edilen 10 örneği görüntüle knitr::kable(head(tahmin_df %\>% arrange(hata_orani), 10), caption = "En Düşük Hatalı 10 Fiyat Tahmini")
 
-### Gerçek Fiyat ile Tahmin Edilen Fiyat Karşılaştırması
+**Sonuçlar**
 
-```{r }
-# Test veri seti üzerinde tahmin yap ve hata metriklerini hesapla
-tahmin_df <- test_set %>%
-  mutate(
-    tahmin_log = predict(rf_model, newdata = .),            # Log10 tahmini
-    tahmin_fiyat = 10^tahmin_log,                           # Gerçek ölçekli tahmin
-    gercek_fiyat = 10^price_log,                            # Gerçek fiyat (log'dan çıkarıldı)
-    hata = abs(tahmin_fiyat - gercek_fiyat),                # Mutlak hata
-    hata_orani = round((hata / gercek_fiyat) * 100, 1)      # Yüzde hata
-  ) %>%
-  select(brand, year_clean, mileage_clean, engine_power_clean,
-         fuel_type, transmission_type, body_type,
-         gercek_fiyat, tahmin_fiyat, hata, hata_orani)
-
-# En başarılı tahmin edilen 10 örneği görüntüle
-  knitr::kable(head(tahmin_df %>% arrange(hata_orani), 10), caption = "En Düşük Hatalı 10 Fiyat Tahmini")
-
-
-```
-
-
-## Sonuçlar
-
-# Sonuçlar ve Ana Çıkarımlar
+**Sonuçlar ve Ana Çıkarımlar**
 
 -İkinci el araç pazarında en yüksek ortalama fiyatlara sahip şehirler İstanbul, Muğla ve İzmir olarak öne çıkmaktadır. Bu şehirlerdeki ilanlarda lüks segment araçların yoğunluğu fiyatları yukarı çekmektedir.
 
@@ -664,5 +283,3 @@ tahmin_df <- test_set %>%
 -Random Forest modeli ile oluşturulan fiyat tahmin modeli, log10 dönüşümlü fiyatlar üzerinde %80’in üzerinde doğruluk sağlamıştır. Bu da modelin güçlü bir öngörü kabiliyeti sunduğunu göstermektedir.
 
 -Ortalama ve medyan fiyat karşılaştırmaları, ilanlardaki uç değerlerin bazı şehirlerde fiyat analizini nasıl etkilediğini net şekilde ortaya koymuştur. Medyan analizinin kullanımı, ortalamaların yanıltıcı olabileceği durumlarda daha gerçekçi içgörüler sağlamaktadır.
-
-
