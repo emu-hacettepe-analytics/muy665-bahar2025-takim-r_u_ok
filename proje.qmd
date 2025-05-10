@@ -10,7 +10,7 @@ code-fold: true
 
 # Proje Genel Bakış ve Kapsamı
 
-Bu proje kapsamında analiz edilen veri seti, Türkiye'deki ikinci el araç satışlarına ait çevrim içi ilanlardan elde edilmiştir. Veri, farklı şehirlerdeki araçların marka, model, yakıt türü, vites tipi, fiyat, kilometre, motor gücü gibi özelliklerini içermektedir. Veri seti, Cars.csv dosya formatında R ortamına aktarılmıştır.
+Bu çalışma, 2025 yılı Türkiye ikinci el otomobil pazarı verilerini kullanarak marka ve şehir bazlı benchmark analizi, kapsamlı keşifsel veri analizi (EDA) ve fiyat tahminlemesi (forecasting) gerçekleştirmeyi amaçlamaktadır. Kod, anlatı ve görseller Quarto ile tekrar üretilebilir biçimde hazırlanmıştır.
 
 # Veri
 
@@ -61,6 +61,7 @@ library(stringi)       # Türkçe karakter dönüştürme için
 ```
 
 ### Veri Okuma ve Temizlik
+
 ```{r message=FALSE, warning=FALSE }
 
 
@@ -97,6 +98,7 @@ knitr::kable(head(cars, 10), caption = "Hazırlanan Veri Setinin İlk 10 Satır�
 
 
 ```
+
 ### Eksik Verilerin Doldurulması
 
 ```{r output=FALSE}
@@ -180,8 +182,6 @@ cars %>%
 
 ```
 
-
-
 # Analiz
 
 ## Keşifsel Veri Analizi
@@ -194,6 +194,7 @@ cars %>%
     mean_hp = mean(engine_power_clean, na.rm = TRUE)
   )
 ```
+
 Bu da demektir ki veri setindeki ikinci el araçların ortalama:
 
 Fiyatı yaklaşık 787.000 TL
@@ -201,7 +202,6 @@ Fiyatı yaklaşık 787.000 TL
 Kilometresi 217.000 km
 
 Motor gücü 108 HP
-
 
 ### Marka Bazlı Ortalama Fiyat Dağılımı
 
@@ -229,7 +229,8 @@ ggplot(brand_summary, aes(x = reorder(brand, mean_price), y = mean_price)) +
   theme_minimal(base_size = 14)
 
 ```
-Markalara Göre Ortalama Araç Fiyatları 
+
+Markalara Göre Ortalama Araç Fiyatları
 
 Mercedes-Benz, açık ara farkla en yüksek ortalama ikinci el araç fiyatına sahip markadır. Bu, markanın genellikle lüks segmentte konumlanmasından ve daha yeni modellerin piyasada yoğun olmasından kaynaklanıyor olabilir.
 
@@ -240,6 +241,7 @@ Honda, Volkswagen ve Toyota gibi markalar orta segmentte konumlanırken; Fiat, R
 Listenin alt sıralarında yer alan markalar, daha uygun fiyatlı ve/veya daha eski model araçlara sahip olabilirler.
 
 ### Vites Tipine Göre Fiyat
+
 ```{r, message=FALSE, warning= FALSE }
 cars %>%
   filter(!is.na(transmission_type), !is.na(price_clean), price_clean > 0) %>%
@@ -253,23 +255,19 @@ cars %>%
   theme_minimal()
 ```
 
- Vites Tipine Göre Fiyat Dağılımı 
- Automatic
-Medyan (orta çizgi) log10(fiyat) değeri en yüksek olan grup.
+Vites Tipine Göre Fiyat Dağılımı Automatic Medyan (orta çizgi) log10(fiyat) değeri en yüksek olan grup.
 
 Fiyat dağılımı geniş ve üst uçta birçok lüks fiyatlı araç (outlier) mevcut.
 
 Bu, otomatik vitesli araçların genelde daha pahalı olduğunu ve aralarında lüks segmentlerin de bulunduğunu gösterir.
 
- Manual
-Medyan fiyatı en düşük olan grup.
+Manual Medyan fiyatı en düşük olan grup.
 
 Dağılım daha dar ve genellikle düşük fiyatlı araçlar bu grupta yer alıyor.
 
 Daha az lüks model içeren ekonomik seçeneklerin bu grupta yoğunlaştığı anlaşılıyor.
 
- Semi-Automatic
-Medyan değeri, otomatikten düşük ama manuele göre daha yüksek.
+Semi-Automatic Medyan değeri, otomatikten düşük ama manuele göre daha yüksek.
 
 Yayılım dar, yani fiyatlar bu grupta daha homojen.
 
@@ -303,6 +301,7 @@ city_stats %>%
   theme_minimal(base_size = 10)
 
 ```
+
 ```{r, message=FALSE, warning=FALSE}
 
 # Ortalama ve Medyan Fiyatları Hazırla
@@ -333,13 +332,11 @@ ggplot(fiyat_ozet, aes(x = city, y = Fiyat)) +
 
 ```
 
-Ortalama Fiyat Paneli (Sağ)
-Uç değerler hesaba katıldığı için bazı şehirlerde fiyatlar yüksek çıkmaktadır.
+Ortalama Fiyat Paneli (Sağ) Uç değerler hesaba katıldığı için bazı şehirlerde fiyatlar yüksek çıkmaktadır.
 
 Örneğin: İstanbul, Muğla gibi şehirlerde bazı çok pahalı araçlar ortalamayı yukarı çekmiş.
 
-Medyan Fiyat Paneli (Sol)
-Medyan, fiyatların tam ortasında yer alan değerdir ve uç fiyatlardan etkilenmez.
+Medyan Fiyat Paneli (Sol) Medyan, fiyatların tam ortasında yer alan değerdir ve uç fiyatlardan etkilenmez.
 
 İstanbul yine en üstte olsa da, bazı şehirlerde medyan fiyatın ortalamadan çok daha düşük olduğu gözlemleniyor → bu da ilanlarda çok pahalı araçlar olduğunu gösterir (muhtemelen lüks ilanlar etkiliyor).
 
@@ -348,7 +345,6 @@ Uç değerlerin fiyat analizini nasıl etkilediğini görebiliyoruz.
 Muğla, Antalya, Batman gibi şehirlerde ortalama → medyandan çok büyük, yani lüks ilanlar fiyatları şişiriyor.
 
 Daha homojen pazarlarda (örneğin Adıyaman, Tokat) ortalama ve medyan birbirine daha yakın.
-
 
 ```{r, message=FALSE, warning=FALSE}
 cars %>%
@@ -369,31 +365,26 @@ cars %>%
 
 Bu grafikte, Türkiye’deki ikinci el araç pazarında kullanılan yakıt türlerinin ortalama araç fiyatlarına etkisi incelenmektedir.
 
- Benzinli Araçlar
-En yaygın yakıt türlerinden biridir.
+Benzinli Araçlar En yaygın yakıt türlerinden biridir.
 
 Ortalama fiyatı genellikle orta seviyede kalmaktadır.
 
 Geniş fiyat aralığına sahip, hem ekonomik hem de premium modellerde tercih edilmektedir.
 
- Elektrikli Araçlar
-Ortalama fiyatı en yüksek olan gruptur.
+Elektrikli Araçlar Ortalama fiyatı en yüksek olan gruptur.
 
 Bunun nedeni, Türkiye’de elektrikli araçların henüz yaygın olmaması ve çoğunun yeni teknolojiye sahip pahalı modeller olmasıdır.
 
-Dizel Araçlar
-Ortalama fiyatları benzinli araçlara benzer seviyededir ya da biraz daha yüksektir.
+Dizel Araçlar Ortalama fiyatları benzinli araçlara benzer seviyededir ya da biraz daha yüksektir.
 
 Özellikle yüksek kilometreli araçlarda tercih edilse de, motor ömrü uzun olduğu için fiyatları belirli bir seviyede korunmaktadır.
 
- Hibrit (Hybrid)
-Elektrik-benzin kombinasyonuna sahip bu araçlar genelde yeni teknolojiye sahip oldukları için ortalama fiyatları da yüksek çıkmaktadır.
+Hibrit (Hybrid) Elektrik-benzin kombinasyonuna sahip bu araçlar genelde yeni teknolojiye sahip oldukları için ortalama fiyatları da yüksek çıkmaktadır.
 
-Yakıt tasarrufu ve çevreci özellikleri fiyatlarına yansımaktadır.
-X
-## Trend Analizi
+Yakıt tasarrufu ve çevreci özellikleri fiyatlarına yansımaktadır. X \## Trend Analizi
 
 ### Araç Yaşı ile Fiyat İlişkisi
+
 ```{r,message= FALSE, warning= FALSE }
 
 # Outlier'ları filtrele (örnek: 1. ve 99. persentil arası tut)
@@ -442,14 +433,12 @@ Bu da piyasadaki en yaygın ikinci el araç kitlesini gösteriyor.
 
 Aykırı Değerlerin Etkisi Azalmış:
 
-İlk grafiğe göre çok uç fiyatlar (>30.000.000 TL gibi) çıkarıldığı için regresyon çizgisi daha gerçekçi bir eğilim gösteriyor.
+İlk grafiğe göre çok uç fiyatlar (\>30.000.000 TL gibi) çıkarıldığı için regresyon çizgisi daha gerçekçi bir eğilim gösteriyor.
 
-
-Kilometre arttıkça araç fiyatı genellikle düşmektedir.
-Özellikle 150.000 km üzerindeki araçlar belirgin şekilde daha ucuzdur.
-Ancak düşük kilometreli araçların fiyatları çok değişken olup bazı modellerde yüksek fiyatlara ulaşabilmektedir.
+Kilometre arttıkça araç fiyatı genellikle düşmektedir. Özellikle 150.000 km üzerindeki araçlar belirgin şekilde daha ucuzdur. Ancak düşük kilometreli araçların fiyatları çok değişken olup bazı modellerde yüksek fiyatlara ulaşabilmektedir.
 
 ### Araç Yaşı ve Ortalama Fiyat
+
 ```{r, message=FALSE, warning=FALSE }
 cars %>%
   group_by(age) %>%
@@ -468,7 +457,6 @@ cars %>%
 
 ```
 
-
 Genel Eğilim (Azalan Trend):
 
 Grafik kırmızı bir çizgiyle, araç yaşı arttıkça ortalama fiyatın düştüğünü net şekilde gösteriyor.
@@ -480,7 +468,6 @@ Fiyat Düşüş Hızı:
 İlk 3–4 yıl içinde fiyatlar daha hızlı düşerken, 7 yaşından sonra düşüş hızı yavaşlıyor ve daha durağan hale geliyor.
 
 Bu, ikinci el piyasasında ilk yıllarda değer kaybının daha yüksek olduğunu gösteriyor (araba değer kaybı eğrisi).
-
 
 ```{r, message=FALSE, warning=FALSE}
 
@@ -540,7 +527,6 @@ leaflet(data = turkiye_il) %>%
             position = "bottomright")
 
 ```
-
 
 ## Model Uydurma
 
@@ -606,18 +592,18 @@ cat("Tahmini Ortalama Hata (%):", round(relative_error, 1), "%")
 
 
 ```
+
 ### Tahmin Doğruluğu ve Yorum
 
 -RMSE (log10): 0.071
 
 -MAE (log10): 0.051
 
--Tahmini Ortalama Hata (%): ~17.8%
+-Tahmini Ortalama Hata (%): \~17.8%
 
 Bu sonuçlar, modelin ikinci el araç fiyatlarını oldukça başarılı şekilde tahmin ettiğini göstermektedir. Özellikle ikinci el araç piyasasındaki dalgalanma, marka ve model çeşitliliği göz önüne alındığında, bu hata oranı güçlü bir performansa işaret eder.
 
 Model, fiyatların %80’inden fazlasını gerçek değerin ±%18’lik bir aralığında öngörebilmiştir.
-
 
 ### Önemli Değişkenler
 
@@ -648,7 +634,6 @@ tahmin_df <- test_set %>%
 
 ```
 
-
 ## Sonuçlar
 
 # Sonuçlar ve Ana Çıkarımlar
@@ -664,5 +649,3 @@ tahmin_df <- test_set %>%
 -Random Forest modeli ile oluşturulan fiyat tahmin modeli, log10 dönüşümlü fiyatlar üzerinde %80’in üzerinde doğruluk sağlamıştır. Bu da modelin güçlü bir öngörü kabiliyeti sunduğunu göstermektedir.
 
 -Ortalama ve medyan fiyat karşılaştırmaları, ilanlardaki uç değerlerin bazı şehirlerde fiyat analizini nasıl etkilediğini net şekilde ortaya koymuştur. Medyan analizinin kullanımı, ortalamaların yanıltıcı olabileceği durumlarda daha gerçekçi içgörüler sağlamaktadır.
-
-
