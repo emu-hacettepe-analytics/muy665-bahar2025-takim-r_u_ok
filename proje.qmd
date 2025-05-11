@@ -3,6 +3,7 @@ title: "TÜRKİYE'DEKİ İKİNCİ EL ARAÇ İLANLARI ÜZERİNE VERİ ANALİZİ"
 number-sections: true
 code-fold: true
 ---
+
 ![](images/484681339013201.gif)
 
 **Proje sayfamıza hoş geldiniz.**
@@ -13,15 +14,32 @@ code-fold: true
 
 Bu çalışma, 2025 yılı Türkiye ikinci el otomobil pazarı verilerini kullanarak marka ve şehir bazlı benchmark analizi, kapsamlı keşifsel veri analizi (EDA) ve fiyat tahminlemesi (forecasting) gerçekleştirmeyi amaçlamaktadır. Kod, anlatı ve görseller Quarto ile tekrar üretilebilir biçimde hazırlanmıştır.
 
-# Veri
+# Veri Seti Hakkında Bilgi 
 
-1.Veri Seti: İkinci el araç ilan verisi (Cars.csv)
+Bu projede kullanılan veri seti, Türkiye’deki popüler bir çevrimiçi araç ilan platformundan 2025 yılında web kazıma yoluyla elde edilmiş kapsamlı ikinci el otomobil ilan verilerini içermektedir \[1\]. Veri setinde farklı marka ve modellerdeki araçların; üretim yılı, kilometre bilgisi, satış fiyatı, yakıt tipi (benzin, dizel, LPG, hibrit, elektrik), vites tipi (manuel, otomatik), bulunduğu şehir (il) ve benzeri özellikleri kayıt altına alınmıştır. Toplamda on binlerce ilana ait verinin yer aldığı bu veri seti, Türkiye ikinci el otomobil piyasasının güncel durumunu yansıtacak şekilde zengin ve çeşitli bir örneklem sunmaktadır. Analiz için veri Kaggle üzerinden temin edilip (bahridgr, 2025), uygun biçimde temizlenerek R programlama diline aktarılmıştır. Veri ön işleme aşamasında eksik ya da tutarsız gözlemler elenmiş, kategorik değişkenler analiz amaçlarına uygun olarak yeniden düzenlenmiştir. Örneğin, araç “yaşı” üretim yılından hesaplanmış, fiyatlar gerekli durumlarda aşırı uç değerlerin etkisini azaltmak için logaritmik dönüşümle incelenmiştir.
 
-2.Coğrafi Veri: Türkiye illeri shapefile (tr.shp)
+Veri analizi ve görselleştirme işlemleri **R** dili kullanılarak ve **Quarto** ile tekrarlanabilir bir raporlama formatında yürütülmüştür \[2\]. Veri manipülasyonu ve grafik çizimleri için geniş ölçüde **tidyverse** paket ailesinden yararlanılmıştır \[3\]. Özellikle `dplyr` ve `readr` ile veri işlemleri gerçekleştirilirken, görselleştirmeler için `ggplot2` kullanılmıştır \[4\]. Coğrafi analizlerde Türkiye’nin il sınırları verisini işlemek ve harita çizimleri yapmak amacıyla **sf** paketi tercih edilmiştir \[5\]. Ayrıca, modelleme ve doğrulama aşamalarında **caret** paketi kullanılarak farklı makine öğrenmesi algoritmalarının uygulanması ve karşılaştırılması sağlanmıştır; bu kapsamda özellikle **randomForest** paketinden faydalanılmıştır \[6,7\]. Tüm bu araçlar ve yöntemler, çalışmanın şeffaf ve yeniden üretilebilir olmasını temin etmektedir.\
+\
+\[1\] bahridgr. (2025). *Used Car Prices in Türkiye 2025 (EN/TR)* \[Data set\]. Kaggle.\
+<https://www.kaggle.com/datasets/bahridgr/used-car-prices-in-trkiye-2025-entr>
 
-## Veri Kaynağı
+\[2\] R Core Team. (2023). *R: A language and environment for statistical computing* (Version 4.x) \[Computer software\]. R Foundation for Statistical Computing.\
+<https://www.R-project.org/>
 
--   <https://www.kaggle.com/datasets/bahridgr/used-car-prices-in-trkiye-2025-entr>
+\[3\] Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., … Yutani, H. (2019). Welcome to the **tidyverse**. *Journal of Open Source Software, 4*(43), 1686.\
+<https://doi.org/10.21105/joss.01686>
+
+\[4\] Wickham, H. (2016). *ggplot2: Elegant graphics for data analysis*. Springer.\
+<https://doi.org/10.1007/978-3-319-24277-4>
+
+\[5\] Pebesma, E. (2018). Simple features for R: Standardized support for spatial vector data. *The R Journal, 10*(1), 439–446.\
+<https://doi.org/10.32614/RJ-2018-009>
+
+\[6\] Kuhn, M. (2008). Building predictive models in R using the **caret** package. *Journal of Statistical Software, 28*(5), 1–26.\
+<https://doi.org/10.18637/jss.v028.i05>
+
+\[7\] Liaw, A., & Wiener, M. (2002). Classification and regression by **randomForest**. *R News, 2*(3), 18–22.\
+<https://CRAN.R-project.org/doc/Rnews/>
 
 ## Veri Hakkında Genel Bilgiler
 
@@ -242,6 +260,7 @@ Honda, Volkswagen ve Toyota gibi markalar orta segmentte konumlanırken; Fiat, R
 Listenin alt sıralarında yer alan markalar, daha uygun fiyatlı ve/veya daha eski model araçlara sahip olabilirler.
 
 ### Vites Tipine Göre Fiyat
+
 ```{r, message=FALSE, warning= FALSE }
 cars %>%
   filter(!is.na(transmission_type), !is.na(price_clean), price_clean > 0) %>%
@@ -255,22 +274,13 @@ cars %>%
   theme_minimal()
 ```
 
- Vites Tipine Göre Fiyat Dağılımı<br>
- 
- Automatic<br>
- Medyan (orta çizgi) log10(fiyat) değeri en yüksek olan grup.
- Fiyat dağılımı geniş ve üst uçta birçok lüks fiyatlı araç (outlier) mevcut.
- Bu, otomatik vitesli araçların genelde daha pahalı olduğunu ve aralarında lüks segmentlerin de bulunduğunu    gösterir.
+Vites Tipine Göre Fiyat Dağılımı<br>
 
- Manual<br>
- Medyan fiyatı en düşük olan grup.
- Dağılım daha dar ve genellikle düşük fiyatlı araçlar bu grupta yer alıyor.
- Daha az lüks model içeren ekonomik seçeneklerin bu grupta yoğunlaştığı anlaşılıyor.
+Automatic<br> Medyan (orta çizgi) log10(fiyat) değeri en yüksek olan grup. Fiyat dağılımı geniş ve üst uçta birçok lüks fiyatlı araç (outlier) mevcut. Bu, otomatik vitesli araçların genelde daha pahalı olduğunu ve aralarında lüks segmentlerin de bulunduğunu gösterir.
 
- Semi-Automatic<br>
- Medyan değeri, otomatikten düşük ama manuele göre daha yüksek.
- Yayılım dar, yani fiyatlar bu grupta daha homojen.
- Genellikle orta segmentte yer alan araçlar bu grupta olabilir.
+Manual<br> Medyan fiyatı en düşük olan grup. Dağılım daha dar ve genellikle düşük fiyatlı araçlar bu grupta yer alıyor. Daha az lüks model içeren ekonomik seçeneklerin bu grupta yoğunlaştığı anlaşılıyor.
+
+Semi-Automatic<br> Medyan değeri, otomatikten düşük ama manuele göre daha yüksek. Yayılım dar, yani fiyatlar bu grupta daha homojen. Genellikle orta segmentte yer alan araçlar bu grupta olabilir.
 
 ```{r, message=FALSE, warning=FALSE}
 # Önce city_stats oluştur
@@ -339,10 +349,9 @@ Ortalama ve medyan arasındaki farkın İstanbul’da yaklaşık 380 000 TL, Mu�
 
 Medyanı 600–700 000 TL arasında değişen Konya, Mersin, Adana ve Sakarya gibi iller geniş bir kitleye hitap ederken, fiyatların ne aşırı oynak ne de tamamen durağan olduğu dengeli bir pazar yapısı sunuyor. Öte yandan Kahramanmaraş, Zonguldak, Yozgat, Sivas ve Çorum’da hem medyan hem de ortalama fiyatlar 500 000 TL’nin altında seyrediyor. Uç fiyat ilanlarının nispeten sınırlı kaldığı bu bölgeler daha “ölçülü” bir piyasa yapısına sahip.
 
-Genel olarak, medyan fiyatın yüksek olduğu bir ilde tipik bir satışın bile ülke ortalamasının üstünde gerçekleştiği; düşük medyanlı bölgelerde ise çoğu ilanın makul sınırlarda seyrettiği söylenebilir. 
+Genel olarak, medyan fiyatın yüksek olduğu bir ilde tipik bir satışın bile ülke ortalamasının üstünde gerçekleştiği; düşük medyanlı bölgelerde ise çoğu ilanın makul sınırlarda seyrettiği söylenebilir.
 
 Yatırım ya da satın alma stratejisi belirlenirken, uç fiyatların yanıltıcı etkisinden kaçınmak için ortalama yerine medyan değere odaklanmak daha gerçekçi bir bakış açısı sağlayacaktır. Ayrıca, medyan değeri yüksek ancak ortalama ile arasındaki makasın görece dar olduğu Batman veya Diyarbakır gibi iller, lüks segmente kapı aralarken aşırı fiyat dalgalanmalarından da uzak kalmak isteyen alıcılar için cazip seçenekler sunabilir.
-
 
 ### Türkiye’deki illerin ortalama ikinci el araç fiyatlarının harita üzerinde gösterimi
 
@@ -425,25 +434,19 @@ cars %>%
 
 Bu grafikte, Türkiye’deki ikinci el araç pazarında kullanılan yakıt türlerinin ortalama araç fiyatlarına etkisi incelenmektedir <br>
 
- Benzinli Araçlar <br>
-En yaygın yakıt türlerinden biridir.
+Benzinli Araçlar <br> En yaygın yakıt türlerinden biridir.
 
 Ortalama fiyatı genellikle orta seviyede kalmaktadır.
 
 Geniş fiyat aralığına sahip, hem ekonomik hem de premium modellerde tercih edilmektedir.
 
- Elektrikli Araçlar <br>
-Ortalama fiyatı en yüksek olan gruptur.
+Elektrikli Araçlar <br> Ortalama fiyatı en yüksek olan gruptur.
 
 Bunun nedeni, Türkiye’de elektrikli araçların henüz yaygın olmaması ve çoğunun yeni teknolojiye sahip pahalı modeller olmasıdır.
 
- Dizel Araçlar <br>
-Ortalama fiyatları benzinli araçlara benzer seviyededir ya da biraz daha yüksektir.
-Özellikle yüksek kilometreli araçlarda tercih edilse de, motor ömrü uzun olduğu için fiyatları belirli bir seviyede korunmaktadır.
+Dizel Araçlar <br> Ortalama fiyatları benzinli araçlara benzer seviyededir ya da biraz daha yüksektir. Özellikle yüksek kilometreli araçlarda tercih edilse de, motor ömrü uzun olduğu için fiyatları belirli bir seviyede korunmaktadır.
 
- Hibrit (Hybrid) <br>
-Elektrik-benzin kombinasyonuna sahip bu araçlar genelde yeni teknolojiye sahip oldukları için ortalama fiyatları da yüksek çıkmaktadır.
-Yakıt tasarrufu ve çevreci özellikleri fiyatlarına yansımaktadır.
+Hibrit (Hybrid) <br> Elektrik-benzin kombinasyonuna sahip bu araçlar genelde yeni teknolojiye sahip oldukları için ortalama fiyatları da yüksek çıkmaktadır. Yakıt tasarrufu ve çevreci özellikleri fiyatlarına yansımaktadır.
 
 ## Trend Analizi
 
@@ -532,7 +535,6 @@ Fiyat Düşüş Hızı:
 İlk 3–4 yıl içinde fiyatlar daha hızlı düşerken, 7 yaşından sonra düşüş hızı yavaşlıyor ve daha durağan hale geliyor.
 
 Bu, ikinci el piyasasında ilk yıllarda değer kaybının daha yüksek olduğunu gösteriyor (araba değer kaybı eğrisi).
-
 
 ## Model Uydurma
 
@@ -639,7 +641,6 @@ tahmin_df <- test_set %>%
 
 
 ```
-
 
 ### En Çok Fahiş Fiyatlı İlan Bulunan Markalar ve Fahiş İlanlarda Hata Oranı Dağılımı Analizi
 
@@ -756,40 +757,34 @@ ggplot(fahis_oran_df, aes(x = reorder(seller_type, oran), y = oran)) +
 
 
 ```
-Fiyatlar Tahmin Modeline Uygun:
-Authorized Dealer ilanları, genellikle profesyonel fiyatlama stratejileri ile yayımlandığından tahmin modelimizin öngördüğü fiyatlara oldukça yakındır. Bu durum, bu grubun fahiş fiyatlı ilan üretme eğiliminin düşük olduğunu göstermektedir.
 
+Fiyatlar Tahmin Modeline Uygun: Authorized Dealer ilanları, genellikle profesyonel fiyatlama stratejileri ile yayımlandığından tahmin modelimizin öngördüğü fiyatlara oldukça yakındır. Bu durum, bu grubun fahiş fiyatlı ilan üretme eğiliminin düşük olduğunu göstermektedir.
 
 ## Sonuçlar
 
 # Sonuçlar ve Ana Çıkarımlar
 
-1. Türkiye’deki İkinci El Araç Pazarının Genel Yapısı
-Veri setindeki ikinci el araçların ortalama fiyatı yaklaşık 787.000 TL, ortalama kilometresi ise 217.000 km olarak belirlenmiştir.
+1.  Türkiye’deki İkinci El Araç Pazarının Genel Yapısı Veri setindeki ikinci el araçların ortalama fiyatı yaklaşık 787.000 TL, ortalama kilometresi ise 217.000 km olarak belirlenmiştir.
 
 Araçların ortalama motor gücü 108 HP civarındadır.
 
 Bu değerler, Türkiye ikinci el pazarında ağırlıklı olarak orta segment araçların bulunduğuna işaret etmektedir.
 
-2. Marka Bazlı Fiyat Dağılımı
-Mercedes-Benz, Audi ve BMW, en yüksek ortalama fiyatlara sahip markalardır; bu durum bu markaların ağırlıklı olarak lüks segmentte yer almasından kaynaklanmaktadır.
+2.  Marka Bazlı Fiyat Dağılımı Mercedes-Benz, Audi ve BMW, en yüksek ortalama fiyatlara sahip markalardır; bu durum bu markaların ağırlıklı olarak lüks segmentte yer almasından kaynaklanmaktadır.
 
 Fiat, Renault ve Opel gibi markalar, daha düşük fiyatlı modelleriyle ekonomik segmentte yer almakta; geniş kitlelere hitap etmektedir.
 
-3. Vites Tipine Göre Fiyat Analizi
-Otomatik vitesli araçlar, tüm gruplar içinde en yüksek medyan fiyata sahiptir. Bu durum, otomatik araçlara olan talep ve sundukları konforun fiyatlara yansımasını göstermektedir.
+3.  Vites Tipine Göre Fiyat Analizi Otomatik vitesli araçlar, tüm gruplar içinde en yüksek medyan fiyata sahiptir. Bu durum, otomatik araçlara olan talep ve sundukları konforun fiyatlara yansımasını göstermektedir.
 
 Manuel vitesli araçlar, daha düşük fiyatlı ve ekonomik araç grubunu temsil etmektedir.
 
 Yarı otomatik vitesli araçlar, fiyat ve donanım açısından orta segmentte konumlanmaktadır.
 
-4. Yakıt Türüne Göre Fiyat Karşılaştırması
-Elektrikli ve hibrit araçlar, en yüksek medyan fiyatlara sahiptir. Bunun başlıca nedeni, bu araçların henüz yaygın olmaması ve piyasada yer alan modellerin çoğunun yeni ve teknolojik açıdan donanımlı olmasıdır.
+4.  Yakıt Türüne Göre Fiyat Karşılaştırması Elektrikli ve hibrit araçlar, en yüksek medyan fiyatlara sahiptir. Bunun başlıca nedeni, bu araçların henüz yaygın olmaması ve piyasada yer alan modellerin çoğunun yeni ve teknolojik açıdan donanımlı olmasıdır.
 
 Dizel ve benzinli araçlar, ortalama fiyat seviyesinde yer almakta; LPG'li araçlar ise en ekonomik seçenekleri oluşturmaktadır.
 
-5. Şehir Bazlı Fiyat Analizi
-İstanbul, Muğla ve Antalya, ortalama ve medyan fiyat açısından Türkiye’nin en pahalı ikinci el pazarlarına sahiptir.
+5.  Şehir Bazlı Fiyat Analizi İstanbul, Muğla ve Antalya, ortalama ve medyan fiyat açısından Türkiye’nin en pahalı ikinci el pazarlarına sahiptir.
 
 Bu şehirlerdeki fiyat düzeyi; turizm, lüks araç talebi ve yüksek gelir gruplarının etkisiyle yükselmektedir.
 
@@ -797,29 +792,25 @@ Batman, Diyarbakır gibi şehirler, medyan fiyat açısından yüksek ancak orta
 
 Zonguldak, Sivas ve Yozgat gibi şehirler ise düşük fiyat düzeyleriyle ölçülü pazar yapısı sergilemektedir.
 
-6. Araç Yaşı ve Kilometreye Göre Fiyat İlişkisi
-Araç yaşı ile fiyat arasında negatif yönlü bir ilişki gözlenmiştir. İlk 3–5 yıl içerisinde araçlar hızlı değer kaybederken, 7 yaşından sonra bu düşüş daha yavaş ilerlemektedir.
+6.  Araç Yaşı ve Kilometreye Göre Fiyat İlişkisi Araç yaşı ile fiyat arasında negatif yönlü bir ilişki gözlenmiştir. İlk 3–5 yıl içerisinde araçlar hızlı değer kaybederken, 7 yaşından sonra bu düşüş daha yavaş ilerlemektedir.
 
 Benzer şekilde, kilometre arttıkça fiyatlar düşmektedir. 150.000 km üzeri araçlar, genellikle daha düşük fiyat segmentinde yer almaktadır.
 
 Düşük kilometreli araçların fiyatları ise daha değişken olup, marka ve donanım özelliklerine göre geniş bir fiyat aralığında seyretmektedir.
 
-7. Satıcı Türüne Göre Fiyat Dağılımı
-Yetkili satıcılar (Authorized Dealer), en yüksek medyan fiyata sahip olsalar da fiyatlandırmaları oldukça tutarlıdır.
+7.  Satıcı Türüne Göre Fiyat Dağılımı Yetkili satıcılar (Authorized Dealer), en yüksek medyan fiyata sahip olsalar da fiyatlandırmaları oldukça tutarlıdır.
 
 Galericiler (Dealer), fiyat açısından daha geniş bir aralık sunmakta; zaman zaman uç fiyatlandırmalar gözlenmektedir.
 
 Bireysel satıcılar (Private Seller), en düşük medyan fiyata sahip olmakla birlikte fiyat çeşitliliği en yüksek gruptur.
 
-8. Fahiş Fiyatlı İlan Analizi (Hata Oranı > %30)
-En çok fahiş fiyatlı ilanlar, Renault, Fiat, Opel ve Hyundai gibi markalarda tespit edilmiştir. Bu durum, bazı satıcıların ekonomik segmentteki araçları piyasa değerinin oldukça üzerinde fiyatlandırdığını göstermektedir.
+8.  Fahiş Fiyatlı İlan Analizi (Hata Oranı \> %30) En çok fahiş fiyatlı ilanlar, Renault, Fiat, Opel ve Hyundai gibi markalarda tespit edilmiştir. Bu durum, bazı satıcıların ekonomik segmentteki araçları piyasa değerinin oldukça üzerinde fiyatlandırdığını göstermektedir.
 
 İstanbul, Ankara, İzmir, Gaziantep ve Bursa, en fazla fahiş fiyatlı ilana sahip şehirlerdir. Bu şehirlerdeki yüksek rekabet ve talep, fiyatların şişirilmesine yol açmaktadır.
 
 Fahiş fiyatlı ilanların büyük çoğunluğu bireysel satıcılar tarafından yayımlanmıştır. Yetkili satıcıların ise bu alanda neredeyse hiç yer almaması, profesyonel fiyatlama politikalarının etkili olduğunu göstermektedir.
 
-9. Fiyat Tahmin Modeli Performansı
-Random Forest algoritması kullanılarak geliştirilen fiyat tahmin modeli, log dönüşümlü veri üzerinde aşağıdaki performansı göstermiştir:
+9.  Fiyat Tahmin Modeli Performansı Random Forest algoritması kullanılarak geliştirilen fiyat tahmin modeli, log dönüşümlü veri üzerinde aşağıdaki performansı göstermiştir:
 
 RMSE (log10): 0.071
 
@@ -831,8 +822,7 @@ Bu sonuçlar, modelin ikinci el araç fiyatlarını yüksek doğrulukla tahmin e
 
 En önemli tahminleyici değişkenler: Motor gücü, kilometre, araç yaşı, vites tipi ve yakıt türü olarak belirlenmiştir.
 
-10. Genel Değerlendirme
-Bu çalışma, gerçek dünya verisiyle desteklenen çok boyutlu bir analiz sunarak, Türkiye’deki ikinci el araç piyasasında:
+10. Genel Değerlendirme Bu çalışma, gerçek dünya verisiyle desteklenen çok boyutlu bir analiz sunarak, Türkiye’deki ikinci el araç piyasasında:
 
 Fiyat belirleyicilerini,
 
