@@ -598,7 +598,7 @@ Veri Dağılımı:
 
 Yoğunluk:
 
-En yoğun noktalar (mor kümeler) 50.000 – 150.000 km arası ve 500.000 – 1.500.000 TL fiyat aralığında toplanıyor.
+En yoğun noktalar 50.000 – 150.000 km arası ve 500.000 – 1.500.000 TL fiyat aralığında toplanıyor.
 
 Bu da piyasadaki en yaygın ikinci el araç kitlesini gösteriyor.
 
