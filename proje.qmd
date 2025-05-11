@@ -424,21 +424,12 @@ cars %>%
   theme_minimal(base_size = 13)
 ```
 
-Bu grafikte, Türkiye’deki ikinci el araç pazarında kullanılan yakıt türlerinin ortalama araç fiyatlarına etkisi incelenmektedir <br>
+Yakıt tipi, bir aracın kullanım maliyetini ve teknolojisini belirleyen önemli bir özelliktir ve ikinci el piyasa değerine de yansımaktadır. Veri setimizde araçlar **Benzin**, **Dizel**, **LPG** (sadece LPG ya da LPG & Benzin) ve **Hibrit/Elektrik** yakıt seçeneklerine sahiptir. Yaptığımız analiz, yakıt tipine göre medyan fiyatlarda belirgin farklar olduğunu ortaya koymuştur. En yüksek medyan fiyata sahip grup, beklendiği üzere **elektrikli araçlar** olmuştur: Elektrikli araçların ortalama ikinci el fiyatı yaklaşık 3.94 milyon TL ile diğer tüm grupları açık ara geride bırakmaktadır. Bunu, nispeten yeni teknolojiye sahip **hibrit araçlar** takip etmektedir; hibrit araçların medyan fiyatı yaklaşık 1.27 milyon TL civarındadır. **Benzinli** araçlar için medyan fiyat yaklaşık 825 bin TL olarak bulunurken, **dizel** araçların medyanı yaklaşık 610 bin TL ile biraz daha düşük çıkmıştır. En düşük medyan fiyat ise **LPG’li** (ya da LPG dönüşümü yapılmış) araçlardadır; bu grupta medyan fiyat yaklaşık olarak 360 bin TL seviyesindedir.
 
-Benzinli Araçlar <br> En yaygın yakıt türlerinden biridir.
-
-Ortalama fiyatı genellikle orta seviyede kalmaktadır.
-
-Geniş fiyat aralığına sahip, hem ekonomik hem de premium modellerde tercih edilmektedir.
-
-Elektrikli Araçlar <br> Ortalama fiyatı en yüksek olan gruptur.
-
-Bunun nedeni, Türkiye’de elektrikli araçların henüz yaygın olmaması ve çoğunun yeni teknolojiye sahip pahalı modeller olmasıdır.
-
-Dizel Araçlar <br> Ortalama fiyatları benzinli araçlara benzer seviyededir ya da biraz daha yüksektir. Özellikle yüksek kilometreli araçlarda tercih edilse de, motor ömrü uzun olduğu için fiyatları belirli bir seviyede korunmaktadır.
-
-Hibrit (Hybrid) <br> Elektrik-benzin kombinasyonuna sahip bu araçlar genelde yeni teknolojiye sahip oldukları için ortalama fiyatları da yüksek çıkmaktadır. Yakıt tasarrufu ve çevreci özellikleri fiyatlarına yansımaktadır.
+Bu bulgular, farklı yakıt türlerinin ikinci el piyasada farklı segmentlere karşılık geldiğini göstermektedir. **Elektrikli araçlar**, genellikle premium fiyatlı yeni teknoloji araçlar olduğundan ikinci elde de yüksek fiyatlanmaktadır. **Hibritler** de benzer şekilde yeni ve pahalı araçlardır. **Benzinli** ve **Dizel** araçlar ise çok daha geniş bir yelpazeye yayılmıştır; ekonomik küçük arabalardan lüks segment araçlara kadar benzinli/dizel birçok model bulunduğundan, medyan değerleri orta sıralarda yer almaktadır. Dizel araçların medyanının benzinli araçlardan düşük çıkması, dizel araçların genelde yüksek kilometre yapmış veya ticari amaçla kullanılmış olmasıyla ilişkilendirilebilir. Oysa 2000’lerde yapılan bir çalışmada, dizel motorun ikinci el fiyatı artıran bir unsur olduğu belirtilmiştir \[8\]. Erdem ve Şentürk (2009) o dönemde dizel motorlu olmanın fiyatı pozitif etkilediğini bulmuşlardır; muhtemelen yakıt ekonomisi nedeniyle dizel araçlara talep güçlüydü.\
+2025’e gelindiğinde ise benzinli motorlar teknolojik olarak verimli hale gelmiş, dizel motorlar emisyon regülasyonlarıyla pazar payı kaybetmeye başlamıştır. Bu değişim, dizel araçların ikinci el değerine de yansımış olabilir. Yine de, yakıt tipi genel olarak fiyatı etkileyen önemli bir faktördür ve farklı yakıt türleri arasında ciddi fiyat medyan farkları oluşmaktadır.\
+\
+\[8\] Erdem, C., & Şentürk, İ. (2009). *A hedonic analysis of used car prices in Turkey*. *International Journal of Economic Perspectives, 3*(2), 141–149.
 
 ## Trend Analizi
 
@@ -520,13 +511,11 @@ Genel Eğilim (Azalan Trend):
 
 Grafik kırmızı bir çizgiyle, araç yaşı arttıkça ortalama fiyatın düştüğünü net şekilde gösteriyor.
 
-Özellikle 0–5 yaş arası araçlarda fiyatlar oldukça yüksek. Bu yaş aralığında araçlar en yeni ve en pahalı olanlar.
+İkinci el araç fiyatlarını belirleyen en önemli unsurlardan biri araçların model yılı, yani yaşlarıdır. Genel kural olarak, bir araç trafiğe çıktığı andan itibaren her yıl değer kaybeder (*depreciation*). Literatürde yeni bir otomobilin ilk yılında değerinin %15-30’unu, sonraki her yıl ise ortalama %10-15’ini kaybettiği sıkça belirtilir \[9\]. Bizim veri setimiz de bu eğilimi doğrular niteliktedir. Model yılı arttıkça (araç daha yeni oldukça) ikinci el fiyatın belirgin biçimde yükseldiği görülmüştür. Örneğin 2022, 2023 ve 2024 model araçların medyan fiyatları 1 milyon TL’nin üzerinde seyretmekteyken, 2010’lu yılların başına ait araçların medyanları bunun çok altındadır. Hatta 1990’lı, 2000’li yıllara ait eski araçlar için ikinci el fiyatları yüz bin TL mertebelerine kadar düşebilmektedir. Analizimizde aracın **model yılı** ile ikinci el fiyatı arasında pozitif yönlü orta kuvvette bir korelasyon saptanmıştır (Pearson korelasyonu ≈ 0.39). Bu, daha yeni araçların daha pahalı olduğunu sayısal olarak da teyit etmektedir. Bununla birlikte, her model yılı için fiyat dağılımının geniş bir aralıkta olabileceği unutulmamalıdır; zira marka ve donanım farklılıkları, iki aynı model yılındaki araç arasında bile ciddi fiyat farklarına yol açabilir. Örneğin 2015 model bir lüks araç, 2020 model bir ekonomik araçtan pahalı olabilir. Dolayısıyla yaş tek başına değil, diğer özelliklerle birlikte değerlendirilmelidir. Yine de, genel trend olarak **“araç yaşlandıkça ucuzlar”** prensibi verimizde açıkça görülmüştür. Bu da beklentilerle uyumludur ve hedonik model perspektifinden bakıldığında, üretim yılı fiyatı belirleyen en temel niteliklerden biridir \[10\].
 
-Fiyat Düşüş Hızı:
+\[9\] Bankrate. (n.d.). *Car depreciation: What it is and how it works*. Bankrate. Erişim tarihi 11 Mayıs 2025, <https://www.bankrate.com/insurance/car/understanding-car-depreciation/>
 
-İlk 3–4 yıl içinde fiyatlar daha hızlı düşerken, 7 yaşından sonra düşüş hızı yavaşlıyor ve daha durağan hale geliyor.
-
-Bu, ikinci el piyasasında ilk yıllarda değer kaybının daha yüksek olduğunu gösteriyor (araba değer kaybı eğrisi).
+\[10\] Özçalıcı, M. (2017). Predicting second-hand car sales price using decision trees and genetic algorithms. *Alphanumeric Journal, 5*(1), 103–114. <https://doi.org/10.17093/alphanumeric.323836>
 
 ## Model Uydurma
 
