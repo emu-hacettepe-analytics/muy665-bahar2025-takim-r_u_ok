@@ -43,11 +43,7 @@ Veri analizi ve görselleştirme işlemleri **R** dili kullanılarak ve **Quarto
 
 ## Veri Hakkında Genel Bilgiler
 
--Toplam: 6675 satır, 23 sütun
-
--Temel sütunlar: city, brand, model, price, mileage, engine_power, fuel_type, transmission_type, body_type, accident_history
-
--Veride eksik gözlemler bulunmakta olup analiz öncesinde ön işlemden geçirilmiştir.
+Veri seti CSV formatında olup yaklaşık 6.675 araç ilanına ilişkin kayıtlar ve 29 değişken barındırmaktadır. Her bir kayıt, araç ilan başlığı, il-ilçe bilgisi, fiyat, ilan tarihi, araç markası, seri ve modeli, üretim yılı, kilometre, vites tipi (manuel, otomatik vb.), yakıt türü (benzin, dizel, hibrit, elektrikli, LPG), kasa tipi (sedan, hatchback, SUV vb.), renk, motor hacmi (cc), motor gücü (HP), çekiş türü (önden, arkadan, 4x4), boya-değişen durumu, takas imkanı, satıcı türü (galeri veya bireysel), araç vergisi ve kaza geçmişi gibi kapsamlı özellikleri içermektedir. Ayrıca veri setinde, ham metin şeklindeki bazı alanların (ör. fiyat ve kilometre) temizlenmiş ve sayısal hale getirilmiş versiyonları (`Price_Clean`, `Mileage_Clean` vb.) de yer almaktadır.
 
 ## Tercih Sebebi
 
@@ -202,6 +198,8 @@ cars %>%
 ```
 
 # Analiz
+
+Veri hazırlandıktan sonra, proje kapsamında çeşitli analiz adımları gerçekleştirilmiştir. İlk olarak **Keşifsel Veri Analizi (Exploratory Data Analysis - EDA)** ile verinin genel özellikleri ve önemli paternleri incelenmiştir. EDA kapsamında, ortalama fiyatların marka bazında dağılımı, farklı vites ve yakıt tiplerinde fiyat farklılıkları, şehirler bazında bölgesel fiyat değişimleri gibi sorular görselleştirmelerle ele alınmıştır. Ardından **Trend Analizi** başlığı altında, zaman boyutunda (piyasa eğilimleri ve araç yaşı etkisi gibi) fiyat değişimleri değerlendirilmiştir. Sonraki adımda, **Model Uyarlama** bölümünde ikinci el araç fiyatlarını öngörmeye yönelik istatistiksel bir model kurulmuş; bu model ile verideki ilişkilerin nicel olarak ifade edilmesi ve yeni gözlemler için fiyat tahminlerinin elde edilmesi amaçlanmıştır. Modelin başarı durumu **Modelin Performansı** kısmında ölçütlerle tartışılmıştır. Son olarak, **Sonuçlar** kısmında analiz bulguları özetlenmiş ve genel çıkarımlar sunulmuştur. Aşağıda, bu analiz adımlarının detayları sırasıyla ele alınmaktadır.
 
 ## Keşifsel Veri Analizi
 
