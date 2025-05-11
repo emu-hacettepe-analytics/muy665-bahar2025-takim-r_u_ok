@@ -31,4 +31,32 @@ Bu projede Türkiye'deki 2025yılının ikinci çeyreğine kadar olan ikinci el 
 
 ## Sonuçlar
 
-Burada key takeways verilmelidir. En az 3 en fazla 5 madde ile çarpıcı sonuçlar sunulmalıdır.
+### **1. Lüks Segment ve Metropoller Fiyatları Zirveye Taşıyor**
+
+İstanbul, Muğla ve Antalya; lüks segment ilanların yoğunluğu, turistik talep ve yüksek gelir grubu etkisiyle **en yüksek ortalama fiyatlara** sahip iller. İstanbul’da ortalama fiyat 1.150.000 TL’yi aşarken, medyanla ortalama arasındaki farkın büyük olması uç fiyatların etkisini ortaya koyuyor.
+
+------------------------------------------------------------------------
+
+### **2. Otomatik Vites ve Yeni Teknoloji, Piyasayı Yukarı Çekiyor**
+
+Otomatik vitesli araçlar, manuel viteslilere göre ortalama **%20–30 daha pahalı**. Ayrıca **hibrit ve elektrikli araçlar**, teknolojik yenilik ve az bulunurluk nedeniyle fiyat skalasının en üstünde yer alıyor.
+
+------------------------------------------------------------------------
+
+### **3. Yaş ve Kilometre, Fiyatı Belirleyen En Kritik Etkenler**
+
+Araç yaşı ve kilometre arttıkça fiyat düşüyor. Özellikle **ilk 5 yılda hızlı değer kaybı** (%25–35) ve **150.000 km üzerindeki araçlarda ortalama fiyatın ciddi düşüşü** gözlemleniyor. Bu iki değişken, modelin en önemli öngörü girdilerinden.
+
+------------------------------------------------------------------------
+
+### **4. Fahiş Fiyatlar En Çok Ekonomik Segmentte Görülüyor**
+
+Fahiş fiyatlı ilanlar (modelin tahminine göre %30’dan fazla sapma) en çok Renault, Fiat ve Opel gibi **ekonomik markalarda** yer alıyor. Düşük değerli araçların abartılı fiyatla listelenmesi bu markalarda daha yaygın.
+
+------------------------------------------------------------------------
+
+### **5. Fahiş İlanların %65’i Bireysel Satıcılardan**
+
+Private Seller (bireysel satıcı) grubu, fahiş fiyatlı ilanların büyük kısmını oluşturuyor. Profesyonel satıcılar daha tutarlı fiyatlar sunarken, bireysel ilanlar piyasa gerçekliğinden kopabiliyor.
+
+------------------------------------------------------------------------

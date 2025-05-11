@@ -3,6 +3,7 @@ title: "TÜRKİYE'DEKİ İKİNCİ EL ARAÇ İLANLARI ÜZERİNE VERİ ANALİZİ"
 number-sections: true
 code-fold: true
 ---
+![](images/484681339013201.gif)
 
 **Proje sayfamıza hoş geldiniz.**
 
@@ -241,7 +242,6 @@ Honda, Volkswagen ve Toyota gibi markalar orta segmentte konumlanırken; Fiat, R
 Listenin alt sıralarında yer alan markalar, daha uygun fiyatlı ve/veya daha eski model araçlara sahip olabilirler.
 
 ### Vites Tipine Göre Fiyat
-
 ```{r, message=FALSE, warning= FALSE }
 cars %>%
   filter(!is.na(transmission_type), !is.na(price_clean), price_clean > 0) %>%
@@ -255,23 +255,22 @@ cars %>%
   theme_minimal()
 ```
 
-Vites Tipine Göre Fiyat Dağılımı Automatic Medyan (orta çizgi) log10(fiyat) değeri en yüksek olan grup.
+ Vites Tipine Göre Fiyat Dağılımı<br>
+ 
+ Automatic<br>
+ Medyan (orta çizgi) log10(fiyat) değeri en yüksek olan grup.
+ Fiyat dağılımı geniş ve üst uçta birçok lüks fiyatlı araç (outlier) mevcut.
+ Bu, otomatik vitesli araçların genelde daha pahalı olduğunu ve aralarında lüks segmentlerin de bulunduğunu    gösterir.
 
-Fiyat dağılımı geniş ve üst uçta birçok lüks fiyatlı araç (outlier) mevcut.
+ Manual<br>
+ Medyan fiyatı en düşük olan grup.
+ Dağılım daha dar ve genellikle düşük fiyatlı araçlar bu grupta yer alıyor.
+ Daha az lüks model içeren ekonomik seçeneklerin bu grupta yoğunlaştığı anlaşılıyor.
 
-Bu, otomatik vitesli araçların genelde daha pahalı olduğunu ve aralarında lüks segmentlerin de bulunduğunu gösterir.
-
-Manual Medyan fiyatı en düşük olan grup.
-
-Dağılım daha dar ve genellikle düşük fiyatlı araçlar bu grupta yer alıyor.
-
-Daha az lüks model içeren ekonomik seçeneklerin bu grupta yoğunlaştığı anlaşılıyor.
-
-Semi-Automatic Medyan değeri, otomatikten düşük ama manuele göre daha yüksek.
-
-Yayılım dar, yani fiyatlar bu grupta daha homojen.
-
-Genellikle orta segmentte yer alan araçlar bu grupta olabilir.
+ Semi-Automatic<br>
+ Medyan değeri, otomatikten düşük ama manuele göre daha yüksek.
+ Yayılım dar, yani fiyatlar bu grupta daha homojen.
+ Genellikle orta segmentte yer alan araçlar bu grupta olabilir.
 
 ```{r, message=FALSE, warning=FALSE}
 # Önce city_stats oluştur
@@ -332,56 +331,121 @@ ggplot(fiyat_ozet, aes(x = city, y = Fiyat)) +
 
 ```
 
-Ortalama Fiyat Paneli (Sağ) Uç değerler hesaba katıldığı için bazı şehirlerde fiyatlar yüksek çıkmaktadır.
+Türkiye genelinde medyan fiyat açısından Muğla, yaklaşık 780 000 TL ile birinci sırada yer alırken, İstanbul 770 000 TL civarıyla ikinci ve Batman 760 000 TL dolaylarıyla üçüncü konumda bulunuyor. Ortalama fiyatlarda ise İstanbul, yaklaşık 1 150 000 TL ile açık ara liderliğini koruyor; Muğla (≈ 950 000 TL) ve Antalya (≈ 900 000 TL) ise İstanbul’u izliyor. Bu durum, pazardaki yüksek fiyatlı ilanların ortalamayı ciddi biçimde yukarı çektiğini gösteriyor.
 
-Örneğin: İstanbul, Muğla gibi şehirlerde bazı çok pahalı araçlar ortalamayı yukarı çekmiş.
+Turistik destinasyonlar başta olmak üzere Muğla ve Antalya’da hem medyan hem de ortalama fiyatların görece yüksek olması, Bodrum, Fethiye ve Marmaris gibi ilçelere yönelik güçlü talebin ve bölge ekonomisinin ikinci el piyasasını üst segmente doğru kaydırdığını ortaya koyuyor. İstanbul ise büyük metropol olmanın getirdiği nüfus yoğunluğu, iş imkânları ve lüks araç arz-talep dengesiyle ortalama fiyat bakımından zirvede yer alıyor.
 
-Medyan Fiyat Paneli (Sol) Medyan, fiyatların tam ortasında yer alan değerdir ve uç fiyatlardan etkilenmez.
+Ortalama ve medyan arasındaki farkın İstanbul’da yaklaşık 380 000 TL, Muğla’da ise 170 000 TL civarında seyretmesi, bu illerdeki pahalı ilan hacminin fazlalığına işaret ediyor. Yani yüksek gelir grubuna mensup alıcılar bu piyasalarda belirgin ağırlıkta.
 
-İstanbul yine en üstte olsa da, bazı şehirlerde medyan fiyatın ortalamadan çok daha düşük olduğu gözlemleniyor → bu da ilanlarda çok pahalı araçlar olduğunu gösterir (muhtemelen lüks ilanlar etkiliyor).
+Medyanı 600–700 000 TL arasında değişen Konya, Mersin, Adana ve Sakarya gibi iller geniş bir kitleye hitap ederken, fiyatların ne aşırı oynak ne de tamamen durağan olduğu dengeli bir pazar yapısı sunuyor. Öte yandan Kahramanmaraş, Zonguldak, Yozgat, Sivas ve Çorum’da hem medyan hem de ortalama fiyatlar 500 000 TL’nin altında seyrediyor. Uç fiyat ilanlarının nispeten sınırlı kaldığı bu bölgeler daha “ölçülü” bir piyasa yapısına sahip.
 
-Uç değerlerin fiyat analizini nasıl etkilediğini görebiliyoruz.
+Genel olarak, medyan fiyatın yüksek olduğu bir ilde tipik bir satışın bile ülke ortalamasının üstünde gerçekleştiği; düşük medyanlı bölgelerde ise çoğu ilanın makul sınırlarda seyrettiği söylenebilir. 
 
-Muğla, Antalya, Batman gibi şehirlerde ortalama → medyandan çok büyük, yani lüks ilanlar fiyatları şişiriyor.
+Yatırım ya da satın alma stratejisi belirlenirken, uç fiyatların yanıltıcı etkisinden kaçınmak için ortalama yerine medyan değere odaklanmak daha gerçekçi bir bakış açısı sağlayacaktır. Ayrıca, medyan değeri yüksek ancak ortalama ile arasındaki makasın görece dar olduğu Batman veya Diyarbakır gibi iller, lüks segmente kapı aralarken aşırı fiyat dalgalanmalarından da uzak kalmak isteyen alıcılar için cazip seçenekler sunabilir.
 
-Daha homojen pazarlarda (örneğin Adıyaman, Tokat) ortalama ve medyan birbirine daha yakın.
+
+### Türkiye’deki illerin ortalama ikinci el araç fiyatlarının harita üzerinde gösterimi
+
+```{r, message=FALSE, warning=FALSE}
+
+# Türkiye shapefile'ını oku
+turkiye_il <- st_read("csv/tr_shp/tr.shp", quiet = TRUE)
+
+# Türkçe karakterleri düzleştiren yardımcı fonksiyon
+normalize_city <- function(x) {
+  x %>%
+    stri_trans_general("Latin-ASCII") %>% # Türkçe karakterleri dönüştür (İ→I, Ş→S, Ü→U)
+    toupper() %>%
+    trimws()
+}
+
+# Ortalama fiyatları hesapla (ilan sayısı 30'dan büyük olanlar)
+fiyatlar <- cars %>%
+  filter(!is.na(city), !is.na(price_clean)) %>%
+  group_by(city) %>%
+  summarise(
+    mean_price = mean(price_clean, na.rm = TRUE),
+    ilan_sayisi = n()
+  ) %>%
+  filter(ilan_sayisi >= 30) %>%
+  mutate(city_clean = normalize_city(city))
+
+# Harita verisini temizle
+turkiye_il <- turkiye_il %>%
+  mutate(city_clean = normalize_city(name))  # name yerine IL_ADI kullanıyorsan onu yaz
+
+# Join işlemi
+turkiye_il <- turkiye_il %>%
+  left_join(fiyatlar, by = "city_clean")
+
+# Harita paleti
+pal <- colorNumeric(palette = "YlOrRd", domain = turkiye_il$mean_price, na.color = "gray90")
+
+# Harita çizimi
+leaflet(data = turkiye_il) %>%
+  addTiles() %>%
+  addPolygons(
+    fillColor = ~pal(mean_price),
+    weight = 1,
+    opacity = 1,
+    color = "white",
+    dashArray = "3",
+    fillOpacity = 0.7,
+    label = ~paste0(name, ": ₺", format(round(mean_price), big.mark = ".", decimal.mark = ",")),
+    highlightOptions = highlightOptions(
+      weight = 3,
+      color = "#666",
+      fillOpacity = 0.9,
+      bringToFront = TRUE
+    )
+  ) %>%
+  addLegend(pal = pal, values = ~mean_price, opacity = 0.7,
+            title = "Ortalama Fiyat (₺)",
+            position = "bottomright")
+
+```
+
+### Yakıt Tipine Göre Medyan Araç Fiyatları
 
 ```{r, message=FALSE, warning=FALSE}
 cars %>%
   group_by(fuel_type) %>%
-  summarise(mean_price = mean(price_clean, na.rm = TRUE)) %>%
-  ggplot(aes(x = reorder(fuel_type, mean_price), y = mean_price)) +
-  geom_col(fill = "darkgreen") +
+  summarise(median_price = median(price_clean, na.rm = TRUE)) %>%
+  ggplot(aes(x = reorder(fuel_type, median_price), y = median_price)) +
+  geom_col(fill = "steelblue") +
   coord_flip() +
   scale_y_continuous(labels = scales::label_number(suffix = " TL", big.mark = ".", decimal.mark = ",")) +
   labs(
-    title = "Yakıt Tipine Göre Ortalama Araç Fiyatları",
+    title = "Yakıt Tipine Göre Medyan Araç Fiyatları",
     x = "Yakıt Türü",
-    y = "Ortalama Fiyat (TL)"
+    y = "Medyan Fiyat (TL)"
   ) +
   theme_minimal(base_size = 13)
-
 ```
 
-Bu grafikte, Türkiye’deki ikinci el araç pazarında kullanılan yakıt türlerinin ortalama araç fiyatlarına etkisi incelenmektedir.
+Bu grafikte, Türkiye’deki ikinci el araç pazarında kullanılan yakıt türlerinin ortalama araç fiyatlarına etkisi incelenmektedir <br>
 
-Benzinli Araçlar En yaygın yakıt türlerinden biridir.
+ Benzinli Araçlar <br>
+En yaygın yakıt türlerinden biridir.
 
 Ortalama fiyatı genellikle orta seviyede kalmaktadır.
 
 Geniş fiyat aralığına sahip, hem ekonomik hem de premium modellerde tercih edilmektedir.
 
-Elektrikli Araçlar Ortalama fiyatı en yüksek olan gruptur.
+ Elektrikli Araçlar <br>
+Ortalama fiyatı en yüksek olan gruptur.
 
 Bunun nedeni, Türkiye’de elektrikli araçların henüz yaygın olmaması ve çoğunun yeni teknolojiye sahip pahalı modeller olmasıdır.
 
-Dizel Araçlar Ortalama fiyatları benzinli araçlara benzer seviyededir ya da biraz daha yüksektir.
-
+ Dizel Araçlar <br>
+Ortalama fiyatları benzinli araçlara benzer seviyededir ya da biraz daha yüksektir.
 Özellikle yüksek kilometreli araçlarda tercih edilse de, motor ömrü uzun olduğu için fiyatları belirli bir seviyede korunmaktadır.
 
-Hibrit (Hybrid) Elektrik-benzin kombinasyonuna sahip bu araçlar genelde yeni teknolojiye sahip oldukları için ortalama fiyatları da yüksek çıkmaktadır.
+ Hibrit (Hybrid) <br>
+Elektrik-benzin kombinasyonuna sahip bu araçlar genelde yeni teknolojiye sahip oldukları için ortalama fiyatları da yüksek çıkmaktadır.
+Yakıt tasarrufu ve çevreci özellikleri fiyatlarına yansımaktadır.
 
-Yakıt tasarrufu ve çevreci özellikleri fiyatlarına yansımaktadır. X \## Trend Analizi
+## Trend Analizi
 
 ### Araç Yaşı ile Fiyat İlişkisi
 
@@ -469,64 +533,6 @@ Fiyat Düşüş Hızı:
 
 Bu, ikinci el piyasasında ilk yıllarda değer kaybının daha yüksek olduğunu gösteriyor (araba değer kaybı eğrisi).
 
-```{r, message=FALSE, warning=FALSE}
-
-# Türkiye shapefile'ını oku
-turkiye_il <- st_read("csv/tr_shp/tr.shp", quiet = TRUE)
-
-# Türkçe karakterleri düzleştiren yardımcı fonksiyon
-normalize_city <- function(x) {
-  x %>%
-    stri_trans_general("Latin-ASCII") %>% # Türkçe karakterleri dönüştür (İ→I, Ş→S, Ü→U)
-    toupper() %>%
-    trimws()
-}
-
-# Ortalama fiyatları hesapla (ilan sayısı 30'dan büyük olanlar)
-fiyatlar <- cars %>%
-  filter(!is.na(city), !is.na(price_clean)) %>%
-  group_by(city) %>%
-  summarise(
-    mean_price = mean(price_clean, na.rm = TRUE),
-    ilan_sayisi = n()
-  ) %>%
-  filter(ilan_sayisi >= 30) %>%
-  mutate(city_clean = normalize_city(city))
-
-# Harita verisini temizle
-turkiye_il <- turkiye_il %>%
-  mutate(city_clean = normalize_city(name))  # name yerine IL_ADI kullanıyorsan onu yaz
-
-# Join işlemi
-turkiye_il <- turkiye_il %>%
-  left_join(fiyatlar, by = "city_clean")
-
-# Harita paleti
-pal <- colorNumeric(palette = "YlOrRd", domain = turkiye_il$mean_price, na.color = "gray90")
-
-# Harita çizimi
-leaflet(data = turkiye_il) %>%
-  addTiles() %>%
-  addPolygons(
-    fillColor = ~pal(mean_price),
-    weight = 1,
-    opacity = 1,
-    color = "white",
-    dashArray = "3",
-    fillOpacity = 0.7,
-    label = ~paste0(name, ": ₺", format(round(mean_price), big.mark = ".", decimal.mark = ",")),
-    highlightOptions = highlightOptions(
-      weight = 3,
-      color = "#666",
-      fillOpacity = 0.9,
-      bringToFront = TRUE
-    )
-  ) %>%
-  addLegend(pal = pal, values = ~mean_price, opacity = 0.7,
-            title = "Ortalama Fiyat (₺)",
-            position = "bottomright")
-
-```
 
 ## Model Uydurma
 
@@ -614,7 +620,7 @@ vip(rf_model, num_features = 10)
 
 ### Gerçek Fiyat ile Tahmin Edilen Fiyat Karşılaştırması
 
-```{r }
+```{r, message=FALSE, warning=FALSE}
 # Test veri seti üzerinde tahmin yap ve hata metriklerini hesapla
 tahmin_df <- test_set %>%
   mutate(
@@ -634,18 +640,206 @@ tahmin_df <- test_set %>%
 
 ```
 
+
+### En Çok Fahiş Fiyatlı İlan Bulunan Markalar ve Fahiş İlanlarda Hata Oranı Dağılımı Analizi
+
+```{r, message=FALSE, warning=FALSE}
+library(dplyr)
+library(ggplot2)
+
+# tahmin_df ve test_set için ID ekleme
+tahmin_df <- tahmin_df %>%
+  mutate(id = row_number())
+
+test_set <- test_set %>%
+  mutate(id = row_number())
+
+# Fahiş fiyatlı ilanları belirle (hata oranı > %30)
+fahis_df <- tahmin_df %>%
+  filter(hata_orani > 30) %>%
+  select(id, hata_orani)
+
+# Fahiş ilanların orijinal bilgilerini test_set ile birleştir
+fahis_detayli <- test_set %>%
+  inner_join(fahis_df, by = "id")
+
+# cars datasından seller_type ve city gibi bilgileri ekleyelim
+ilan_fahis_detay <- fahis_detayli %>%
+  left_join(cars %>%
+              mutate(price_log = log10(price_clean)) %>%
+              select(price_log, brand, model, year_clean, mileage_clean, engine_power_clean, city, seller_type),
+            by = c("price_log", "brand"))
+
+# Marka bazlı en çok fahiş ilan (Top 10 marka)
+marka_fahis <- ilan_fahis_detay %>%
+  count(brand, sort = TRUE) %>%
+  top_n(10, wt = n)
+
+# Satıcı türüne göre fahiş ilan dağılımı
+satici_fahis <- ilan_fahis_detay %>%
+  count(seller_type, sort = TRUE)
+
+# Şehir bazında fahiş ilan dağılımı
+sehir_fahis <- ilan_fahis_detay %>%
+  count(city, sort = TRUE) %>%
+  top_n(10, wt = n)
+
+
+# Görselleştirme (örnek)
+ggplot(marka_fahis, aes(x = reorder(brand, n), y = n)) +
+  geom_col(fill = "steelblue") +
+  coord_flip() +
+  labs(title = "En Çok Fahiş Fiyatlı İlan Bulunan Markalar", x = "Marka", y = "İlan Sayısı")
+
+ggplot(ilan_fahis_detay, aes(x = hata_orani)) +
+  geom_histogram(fill = "tomato", bins = 30) +
+  labs(title = "Fahiş İlanlarda Hata Oranı Dağılımı", x = "% Hata", y = "İlan Sayısı")
+
+```
+
+En Çok Fahiş Fiyatlı İlan Bulunan Markalar grafiği, ikinci el araç piyasasında tahmin edilen piyasa değerine kıyasla %30’dan fazla sapma gösteren (yani fahiş fiyatlı olarak nitelendirilebilecek) ilanların, marka bazında dağılımını göstermektedir.
+
+Analiz sonucuna göre, Renault markası en fazla fahiş fiyatlı ilanla ilk sırada yer almakta, onu Fiat ve Opel markaları takip etmektedir. Bu durum, söz konusu markaların Türkiye genelinde yaygın olarak tercih edilmesi ve ikinci el piyasasında yüksek ilan hacmine sahip olmalarıyla ilişkilendirilebilir. Ayrıca, bazı kullanıcıların bu markalara yönelik talep avantajını fırsata çevirmeye çalışarak, piyasa değerinin üzerinde fiyatlandırmalar yaptığı değerlendirilmektedir.
+
+Peugeot, Hyundai ve BMW gibi diğer markalar da fahiş fiyatlı ilanlar açısından dikkat çekmekle birlikte, premium segmentte yer alan Mercedes-Benz ve Audi gibi markalar, daha düşük sayıda fahiş fiyatlı ilanla listenin son sıralarında yer almıştır. Bu durum, yüksek segment araçlarda fiyat algısının daha dengeli oluştuğunu ve piyasa değerinden sapmaların nispeten daha az yaşandığını göstermektedir.
+
+Sonuç olarak, elde edilen bulgular, ikinci el araç piyasasında bazı markalarda piyasa değerinin üzerinde fiyatlandırmaların yoğunlaştığını ortaya koymakta ve bu durumun marka bazında farklılık gösterdiğine işaret etmektedir.
+
+Grafik Yorumu – Fahiş İlanlarda Hata Oranı Dağılımı
+
+%30–50 aralığında hata oranına sahip ilanlar en yoğun grubu oluşturmaktadır. Bu durum, piyasadaki fahiş fiyatlı ilanların büyük çoğunluğunun, piyasa değerine kıyasla %30 ila %50 daha yüksek fiyatlandırıldığını göstermektedir.
+
+Özellikle %35 civarındaki hata oranı, en fazla ilan sayısının gözlendiği bölgeyi temsil etmektedir.
+
+%70 ve üzeri hata oranına sahip ilanlar, çok daha düşük sıklıkta görülmekte olup uç değerleri temsil etmektedir.
+
+%100’ün üzerinde hata oranına sahip az sayıda ilan bulunması, bazı ilanların gerçek piyasa değerinin iki katına varan fiyatlarla listelendiğini ortaya koymaktadır.
+
+### Satıcı Türüne Göre Fahiş Fiyat Eğilimi
+
+```{r, message=FALSE, warning=FALSE}
+library(dplyr)
+library(ggplot2)
+
+# Fahiş fiyatlı ilanları hata oranı > 30 olarak kabul et
+fahis_analiz <- tahmin_df %>%
+  mutate(price_log = log10(gercek_fiyat)) %>%
+  filter(hata_orani > 30) %>%
+  left_join(cars %>% 
+              mutate(price_log = log10(price_clean)) %>% 
+              select(price_log, seller_type),
+            by = "price_log")
+
+# Toplam ve fahiş ilan sayısını hesapla
+fahis_oran_df <- cars %>%
+  count(seller_type, name = "toplam") %>%
+  left_join(
+    fahis_analiz %>%
+      count(seller_type, name = "fahis"),
+    by = "seller_type"
+  ) %>%
+  mutate(
+    fahis = replace_na(fahis, 0),
+    oran = round((fahis / toplam) * 100, 1)
+  )
+
+# Görselleştir
+ggplot(fahis_oran_df, aes(x = reorder(seller_type, oran), y = oran)) +
+  geom_col(fill = "darkred") +
+  coord_flip() +
+  labs(
+    title = "Satıcı Tipine Göre Fahiş Fiyatlı İlan Oranı",
+    x = "Satıcı Tipi",
+    y = "Fahiş İlan Oranı (%)"
+  ) +
+  theme_minimal()
+
+
+```
+Fiyatlar Tahmin Modeline Uygun:
+Authorized Dealer ilanları, genellikle profesyonel fiyatlama stratejileri ile yayımlandığından tahmin modelimizin öngördüğü fiyatlara oldukça yakındır. Bu durum, bu grubun fahiş fiyatlı ilan üretme eğiliminin düşük olduğunu göstermektedir.
+
+
 ## Sonuçlar
 
 # Sonuçlar ve Ana Çıkarımlar
 
--İkinci el araç pazarında en yüksek ortalama fiyatlara sahip şehirler İstanbul, Muğla ve İzmir olarak öne çıkmaktadır. Bu şehirlerdeki ilanlarda lüks segment araçların yoğunluğu fiyatları yukarı çekmektedir.
+1. Türkiye’deki İkinci El Araç Pazarının Genel Yapısı
+Veri setindeki ikinci el araçların ortalama fiyatı yaklaşık 787.000 TL, ortalama kilometresi ise 217.000 km olarak belirlenmiştir.
 
--Otomatik vitesli araçların fiyatları, manuel ve yarı otomatik araçlara kıyasla belirgin şekilde daha yüksektir. Bu durum, otomatik araçlara olan talebin ve sundukları konforun fiyatlara yansımasını göstermektedir.
+Araçların ortalama motor gücü 108 HP civarındadır.
 
--Araç yaşı ile fiyat arasında negatif bir ilişki gözlemlenmiştir. Özellikle ilk 5 yıl içerisinde araçlar önemli bir değer kaybı yaşamaktadır. Bu da ikinci el pazarda araçların ilk yıllarındaki amortisman etkisini doğrulamaktadır.
+Bu değerler, Türkiye ikinci el pazarında ağırlıklı olarak orta segment araçların bulunduğuna işaret etmektedir.
 
--150.000 km üzeri kilometreye sahip araçlarda, fiyatların ortalamaya göre ciddi ölçüde düştüğü görülmektedir. Yüksek kilometre, alıcı açısından risk olarak değerlendirildiği için bu düşüş beklenen bir durumdur.
+2. Marka Bazlı Fiyat Dağılımı
+Mercedes-Benz, Audi ve BMW, en yüksek ortalama fiyatlara sahip markalardır; bu durum bu markaların ağırlıklı olarak lüks segmentte yer almasından kaynaklanmaktadır.
 
--Random Forest modeli ile oluşturulan fiyat tahmin modeli, log10 dönüşümlü fiyatlar üzerinde %80’in üzerinde doğruluk sağlamıştır. Bu da modelin güçlü bir öngörü kabiliyeti sunduğunu göstermektedir.
+Fiat, Renault ve Opel gibi markalar, daha düşük fiyatlı modelleriyle ekonomik segmentte yer almakta; geniş kitlelere hitap etmektedir.
 
--Ortalama ve medyan fiyat karşılaştırmaları, ilanlardaki uç değerlerin bazı şehirlerde fiyat analizini nasıl etkilediğini net şekilde ortaya koymuştur. Medyan analizinin kullanımı, ortalamaların yanıltıcı olabileceği durumlarda daha gerçekçi içgörüler sağlamaktadır.
+3. Vites Tipine Göre Fiyat Analizi
+Otomatik vitesli araçlar, tüm gruplar içinde en yüksek medyan fiyata sahiptir. Bu durum, otomatik araçlara olan talep ve sundukları konforun fiyatlara yansımasını göstermektedir.
+
+Manuel vitesli araçlar, daha düşük fiyatlı ve ekonomik araç grubunu temsil etmektedir.
+
+Yarı otomatik vitesli araçlar, fiyat ve donanım açısından orta segmentte konumlanmaktadır.
+
+4. Yakıt Türüne Göre Fiyat Karşılaştırması
+Elektrikli ve hibrit araçlar, en yüksek medyan fiyatlara sahiptir. Bunun başlıca nedeni, bu araçların henüz yaygın olmaması ve piyasada yer alan modellerin çoğunun yeni ve teknolojik açıdan donanımlı olmasıdır.
+
+Dizel ve benzinli araçlar, ortalama fiyat seviyesinde yer almakta; LPG'li araçlar ise en ekonomik seçenekleri oluşturmaktadır.
+
+5. Şehir Bazlı Fiyat Analizi
+İstanbul, Muğla ve Antalya, ortalama ve medyan fiyat açısından Türkiye’nin en pahalı ikinci el pazarlarına sahiptir.
+
+Bu şehirlerdeki fiyat düzeyi; turizm, lüks araç talebi ve yüksek gelir gruplarının etkisiyle yükselmektedir.
+
+Batman, Diyarbakır gibi şehirler, medyan fiyat açısından yüksek ancak ortalama ile farkı dar olan dengeli pazarlardır.
+
+Zonguldak, Sivas ve Yozgat gibi şehirler ise düşük fiyat düzeyleriyle ölçülü pazar yapısı sergilemektedir.
+
+6. Araç Yaşı ve Kilometreye Göre Fiyat İlişkisi
+Araç yaşı ile fiyat arasında negatif yönlü bir ilişki gözlenmiştir. İlk 3–5 yıl içerisinde araçlar hızlı değer kaybederken, 7 yaşından sonra bu düşüş daha yavaş ilerlemektedir.
+
+Benzer şekilde, kilometre arttıkça fiyatlar düşmektedir. 150.000 km üzeri araçlar, genellikle daha düşük fiyat segmentinde yer almaktadır.
+
+Düşük kilometreli araçların fiyatları ise daha değişken olup, marka ve donanım özelliklerine göre geniş bir fiyat aralığında seyretmektedir.
+
+7. Satıcı Türüne Göre Fiyat Dağılımı
+Yetkili satıcılar (Authorized Dealer), en yüksek medyan fiyata sahip olsalar da fiyatlandırmaları oldukça tutarlıdır.
+
+Galericiler (Dealer), fiyat açısından daha geniş bir aralık sunmakta; zaman zaman uç fiyatlandırmalar gözlenmektedir.
+
+Bireysel satıcılar (Private Seller), en düşük medyan fiyata sahip olmakla birlikte fiyat çeşitliliği en yüksek gruptur.
+
+8. Fahiş Fiyatlı İlan Analizi (Hata Oranı > %30)
+En çok fahiş fiyatlı ilanlar, Renault, Fiat, Opel ve Hyundai gibi markalarda tespit edilmiştir. Bu durum, bazı satıcıların ekonomik segmentteki araçları piyasa değerinin oldukça üzerinde fiyatlandırdığını göstermektedir.
+
+İstanbul, Ankara, İzmir, Gaziantep ve Bursa, en fazla fahiş fiyatlı ilana sahip şehirlerdir. Bu şehirlerdeki yüksek rekabet ve talep, fiyatların şişirilmesine yol açmaktadır.
+
+Fahiş fiyatlı ilanların büyük çoğunluğu bireysel satıcılar tarafından yayımlanmıştır. Yetkili satıcıların ise bu alanda neredeyse hiç yer almaması, profesyonel fiyatlama politikalarının etkili olduğunu göstermektedir.
+
+9. Fiyat Tahmin Modeli Performansı
+Random Forest algoritması kullanılarak geliştirilen fiyat tahmin modeli, log dönüşümlü veri üzerinde aşağıdaki performansı göstermiştir:
+
+RMSE (log10): 0.071
+
+MAE (log10): 0.051
+
+Ortalama tahmin hatası: yaklaşık %17.8
+
+Bu sonuçlar, modelin ikinci el araç fiyatlarını yüksek doğrulukla tahmin ettiğini ve piyasa analizlerinde etkili bir araç olarak kullanılabileceğini göstermektedir.
+
+En önemli tahminleyici değişkenler: Motor gücü, kilometre, araç yaşı, vites tipi ve yakıt türü olarak belirlenmiştir.
+
+10. Genel Değerlendirme
+Bu çalışma, gerçek dünya verisiyle desteklenen çok boyutlu bir analiz sunarak, Türkiye’deki ikinci el araç piyasasında:
+
+Fiyat belirleyicilerini,
+
+Bölgesel farklılıkları,
+
+Fahiş fiyat eğilimlerini,
+
+Satıcı profili etkilerini,
+
+Ve fiyat tahmin modelinin başarısını bütüncül bir biçimde ortaya koymuştur.
