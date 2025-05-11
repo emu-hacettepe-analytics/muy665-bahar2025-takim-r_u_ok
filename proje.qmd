@@ -249,13 +249,9 @@ ggplot(brand_summary, aes(x = reorder(brand, mean_price), y = mean_price)) +
 
 Markalara Göre Ortalama Araç Fiyatları
 
-Mercedes-Benz, açık ara farkla en yüksek ortalama ikinci el araç fiyatına sahip markadır. Bu, markanın genellikle lüks segmentte konumlanmasından ve daha yeni modellerin piyasada yoğun olmasından kaynaklanıyor olabilir.
+Veri setindeki her bir aracın markasına göre ortalama ikinci el satış fiyatı hesaplanarak markalar bazında bir karşılaştırma yapılmıştır. Elde edilen sonuçlar, markalar arasında belirgin fiyat farklılıkları olduğunu göstermektedir. **Lüks segmentteki markalar** ortalama fiyatları en yüksek olan grubu oluşturmaktadır. Bu markaların ikinci el araçlarının ortalama fiyatları milyon TL seviyelerine yaklaşabilmekte ya da bu eşiği aşabilmektedir. **Ekonomi segmentindeki markalar** ise çok daha düşük ortalama fiyatlara sahiptir. Örneğin, Tofaş markalı eski model araçların ilanları genellikle ortalama birkaç yüz bin TL’nin altında seyrederken, Mercedes gibi markaların ikinci el piyasadaki ortalamaları bunların katbekat üzerindedir.
 
-Onu Audi ve BMW takip etmektedir. Bu üç marka, genellikle premium algısı olan ve fiyat aralığı yüksek modeller sunan üreticilerdir.
-
-Honda, Volkswagen ve Toyota gibi markalar orta segmentte konumlanırken; Fiat, Renault, Opel gibi markalar ise genellikle daha erişilebilir fiyatlara sahip modelleriyle öne çıkmaktadır.
-
-Listenin alt sıralarında yer alan markalar, daha uygun fiyatlı ve/veya daha eski model araçlara sahip olabilirler.
+Marka bazlı fiyat dağılım grafikleri, bazı markaların fiyat dağılımının da geniş olduğunu göstermektedir. Özellikle hem düşük sınıf hem de üst sınıf modeller üreten markalarda ikinci el fiyatlarında geniş bir yayılım görülür. Bu durum, aynı markanın farklı modelleri arasındaki fiyat uçurumundan kaynaklanmaktadır. Buna karşılık, ultra lüks markaların ikinci el ilanları az sayıda olsa da ortalama olarak en yüksek fiyatlara sahip olup dağılımları nispeten homojendir. Genel olarak, **marka** faktörünün ikinci el araç değerlemesinde son derece belirleyici olduğu teyit edilmiştir. Tüketiciler, iyi bilinen ve prestijli markalara ikinci el olsa dahi yüksek bedeller ödemeye razı olabilmektedirler. Bu bulgu, marka algısının fiyat üzerindeki etkisine dair literatürdeki bilgilerle de uyumludur; marka değeri yüksek olan araçlar, ikinci el piyasasında da bu değeri paraya dönüştürebilmektedir.
 
 ### Vites Tipine Göre Fiyat
 
@@ -274,11 +270,9 @@ cars %>%
 
 Vites Tipine Göre Fiyat Dağılımı<br>
 
-Automatic<br> Medyan (orta çizgi) log10(fiyat) değeri en yüksek olan grup. Fiyat dağılımı geniş ve üst uçta birçok lüks fiyatlı araç (outlier) mevcut. Bu, otomatik vitesli araçların genelde daha pahalı olduğunu ve aralarında lüks segmentlerin de bulunduğunu gösterir.
+İkinci el araç ilanları, **vites tipine** göre temelde **manuel** ve **otomatik** olarak iki sınıfa ayrılabilir (bazı ilanlarda “yarı otomatik” ayrı bir kategori olarak belirtilse de yaygınlık manuel/otomatik kadar değildir). Analizler, otomatik vitesli araçların ikinci el fiyatlarının, benzer koşullardaki manuel vitesli araçlara kıyasla daha yüksek olduğunu göstermektedir. Örneğin, veriye göre otomatik vitesli araçların medyan fiyatı, manuel vitesli araçların medyan fiyatının belirgin biçimde üzerindedir. Farklı sınıf ve segmentlerde bu farkın büyüklüğü değişebilse de yönü tutarlıdır: aynı model ve benzer yaşta bir aracın otomatik versiyonu, manuel versiyonuna göre genellikle daha pahalıya satılmaktadır.
 
-Manual<br> Medyan fiyatı en düşük olan grup. Dağılım daha dar ve genellikle düşük fiyatlı araçlar bu grupta yer alıyor. Daha az lüks model içeren ekonomik seçeneklerin bu grupta yoğunlaştığı anlaşılıyor.
-
-Semi-Automatic<br> Medyan değeri, otomatikten düşük ama manuele göre daha yüksek. Yayılım dar, yani fiyatlar bu grupta daha homojen. Genellikle orta segmentte yer alan araçlar bu grupta olabilir.
+Bu durumun birden çok olası nedeni vardır. Öncelikle, otomatik vites genellikle daha yeni ve yüksek donanım seviyesine sahip araçlarda bulunmaktadır; dolayısıyla otomatik vitesli ikinci el araçlar ortalama olarak daha yeni modelleri temsil eder. İkincisi, özellikle büyük şehir trafiğinde otomatik vites kullanımının rahatlığı nedeniyle talep daha yüksektir. Artan talep, ikinci el piyasada otomatik araçların fiyatlarının yüksek kalmasına katkıda bulunur. Buna karşın manuel vitesli araçlar, Türkiye’de uzun yıllar standart olmakla birlikte, günümüzde daha çok ekonomik veya eski model araçlarda görüldüğü için fiyatları görece düşüktür. Analizde dikkat çeken bir diğer nokta, vites tipine bağlı fiyat farkının bazı markalarda daha belirgin olmasıdır. Lüks markaların hemen tüm araçları otomatik vitese sahipken, ekonomik markalarda manuel vitesli araç oranı daha yüksektir. Bu da veride gözlemlenen fiyat farkını kısmen açıklamaktadır: lüks markalar (zaten pahalı olan) otomatik araçlar üretirken, manuel vitesli araçlar çoğunlukla düşük fiyat segmentinde kalmaktadır. Sonuç olarak, **vites tipi** başlı başına fiyatı belirleyen bir özellik olmayıp, diğer özelliklerle (model, donanım, segment) etkileşimli biçimde etkisini göstermektedir. Yine de, ortalama olarak **otomatik vitesli araçlar ikinci elde daha yüksek fiyatla listelenmektedir**, bu da piyasanın teknoloji ve konfor için ek bir bedel ödemeye istekli olduğunu göstermektedir.
 
 ```{r, message=FALSE, warning=FALSE}
 # Önce city_stats oluştur
