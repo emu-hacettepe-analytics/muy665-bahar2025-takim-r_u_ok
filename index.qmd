@@ -40,8 +40,6 @@ Değişken Sayısı: 26 sütun
 
 Veri Türü: Sayısal ve kategorik karışık yapı
 
-Kapsam: Tüm Türkiye genelindeki şehirler, marka ve modeller
-
 Temel Değişkenler:
 
 ```{r }
