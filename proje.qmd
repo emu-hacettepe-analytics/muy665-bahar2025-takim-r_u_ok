@@ -16,9 +16,9 @@ Bu çalışma, 2025 yılı Türkiye ikinci el otomobil pazarı verilerini kullan
 
 # Veri Seti Hakkında Bilgi 
 
-Bu projede kullanılan veri seti, Türkiye’deki popüler bir çevrimiçi araç ilan platformundan 2025 yılında web kazıma yoluyla elde edilmiş kapsamlı ikinci el otomobil ilan verilerini içermektedir \[1\]. Veri setinde farklı marka ve modellerdeki araçların; üretim yılı, kilometre bilgisi, satış fiyatı, yakıt tipi (benzin, dizel, LPG, hibrit, elektrik), vites tipi (manuel, otomatik), bulunduğu şehir (il) ve benzeri özellikleri kayıt altına alınmıştır. Toplamda on binlerce ilana ait verinin yer aldığı bu veri seti, Türkiye ikinci el otomobil piyasasının güncel durumunu yansıtacak şekilde zengin ve çeşitli bir örneklem sunmaktadır. Analiz için veri Kaggle üzerinden temin edilip (bahridgr, 2025), uygun biçimde temizlenerek R programlama diline aktarılmıştır. Veri ön işleme aşamasında eksik ya da tutarsız gözlemler elenmiş, kategorik değişkenler analiz amaçlarına uygun olarak yeniden düzenlenmiştir. Örneğin, araç “yaşı” üretim yılından hesaplanmış, fiyatlar gerekli durumlarda aşırı uç değerlerin etkisini azaltmak için logaritmik dönüşümle incelenmiştir.
+Bu projede kullanılan veri seti, Türkiye’deki popüler bir çevrimiçi araç ilan platformundan 2025 yılında web kazıma yoluyla elde edilmiş kapsamlı ikinci el otomobil ilan verilerini içermektedir \[1\]. Veri setinde farklı marka ve modellerdeki araçların; üretim yılı, kilometre bilgisi, satış fiyatı, yakıt tipi (benzin, dizel, LPG, hibrit, elektrik), vites tipi (manuel, otomatik), bulunduğu şehir (il) ve benzeri özellikleri kayıt altına alınmıştır. Toplamda on binlerce ilana ait verinin yer aldığı bu veri seti, Türkiye ikinci el otomobil piyasasının güncel durumunu yansıtacak şekilde zengin ve çeşitli bir örneklem sunmaktadır. Analiz için veri Kaggle üzerinden temin edilip (bahridgr, 2025), uygun biçimde temizlenerek R programlama diline aktarılmıştır. Veri ön işleme aşamasında eksik ya da tutarsız gözlemler elenmiş, kategorik değişkenler analiz amaçlarına uygun olarak yeniden düzenlenmiştir. Örneğin, araç yaşı üretim yılından hesaplanmış, fiyatlar gerekli durumlarda aşırı uç değerlerin etkisini azaltmak için logaritmik dönüşümle incelenmiştir.
 
-Veri analizi ve görselleştirme işlemleri **R** dili kullanılarak ve **Quarto** ile tekrarlanabilir bir raporlama formatında yürütülmüştür \[2\]. Veri manipülasyonu ve grafik çizimleri için geniş ölçüde **tidyverse** paket ailesinden yararlanılmıştır \[3\]. Özellikle `dplyr` ve `readr` ile veri işlemleri gerçekleştirilirken, görselleştirmeler için `ggplot2` kullanılmıştır \[4\]. Coğrafi analizlerde Türkiye’nin il sınırları verisini işlemek ve harita çizimleri yapmak amacıyla **sf** paketi tercih edilmiştir \[5\]. Ayrıca, modelleme ve doğrulama aşamalarında **caret** paketi kullanılarak farklı makine öğrenmesi algoritmalarının uygulanması ve karşılaştırılması sağlanmıştır; bu kapsamda özellikle **randomForest** paketinden faydalanılmıştır \[6,7\]. Tüm bu araçlar ve yöntemler, çalışmanın şeffaf ve yeniden üretilebilir olmasını temin etmektedir.\
+Veri analizi ve görselleştirme işlemleri **R** dili kullanılarak ve **Quarto** ile tekrarlanabilir bir raporlama formatında yürütülmüştür \[2\]. Veri manipülasyonu ve grafik çizimleri için geniş ölçüde **tidyverse** paket ailesinden yararlanılmıştır \[3\]. Özellikle 'dplyr' ve 'readr' ile veri işlemleri gerçekleştirilirken, görselleştirmeler için `ggplot2` kullanılmıştır \[4\]. Coğrafi analizlerde Türkiye’nin il sınırları verisini işlemek ve harita çizimleri yapmak amacıyla **sf** paketi tercih edilmiştir \[5\]. Ayrıca, modelleme ve doğrulama aşamalarında **caret** paketi kullanılarak farklı makine öğrenmesi algoritmalarının uygulanması ve karşılaştırılması sağlanmıştır; bu kapsamda özellikle **randomForest** paketinden faydalanılmıştır \[6,7\]. Tüm bu araçlar ve yöntemler, çalışmanın şeffaf ve yeniden üretilebilir olmasını temin etmektedir.\
 \
 \[1\] bahridgr. (2025). *Used Car Prices in Türkiye 2025 (EN/TR)* \[Data set\]. Kaggle.\
 <https://www.kaggle.com/datasets/bahridgr/used-car-prices-in-trkiye-2025-entr>
@@ -43,7 +43,7 @@ Veri analizi ve görselleştirme işlemleri **R** dili kullanılarak ve **Quarto
 
 ## Veri Hakkında Genel Bilgiler
 
-Veri seti CSV formatında olup yaklaşık 6.675 araç ilanına ilişkin kayıtlar ve 29 değişken barındırmaktadır. Her bir kayıt, araç ilan başlığı, il-ilçe bilgisi, fiyat, ilan tarihi, araç markası, seri ve modeli, üretim yılı, kilometre, vites tipi (manuel, otomatik vb.), yakıt türü (benzin, dizel, hibrit, elektrikli, LPG), kasa tipi (sedan, hatchback, SUV vb.), renk, motor hacmi (cc), motor gücü (HP), çekiş türü (önden, arkadan, 4x4), boya-değişen durumu, takas imkanı, satıcı türü (galeri veya bireysel), araç vergisi ve kaza geçmişi gibi kapsamlı özellikleri içermektedir. Ayrıca veri setinde, ham metin şeklindeki bazı alanların (ör. fiyat ve kilometre) temizlenmiş ve sayısal hale getirilmiş versiyonları (`Price_Clean`, `Mileage_Clean` vb.) de yer almaktadır.\
+Veri seti CSV formatında olup yaklaşık 6.672 araç ilanına ilişkin kayıtlar ve 26 değişken barındırmaktadır. Her bir kayıt, araç ilan başlığı, il-ilçe bilgisi, fiyat, ilan tarihi, araç markası, seri ve modeli, üretim yılı, kilometre, vites tipi (manuel, otomatik vb.), yakıt türü (benzin, dizel, hibrit, elektrikli, LPG), kasa tipi (sedan, hatchback, SUV vb.), renk, motor hacmi (cc), motor gücü (HP), çekiş türü (önden, arkadan, 4x4), boya-değişen durumu, takas imkanı, satıcı türü (galeri veya bireysel), araç vergisi ve kaza geçmişi gibi kapsamlı özellikleri içermektedir. Ayrıca veri setinde, ham metin şeklindeki bazı alanların (ör. fiyat ve kilometre) temizlenmiş ve sayısal hale getirilmiş versiyonları (`Price_Clean`, `Mileage_Clean` vb.) de yer almaktadır.\
 \
 Veri setindeki ilan tarihlerine bakıldığında 30 Aralık 2024 ile 17 Nisan 2025 arasındaki dönemi kapsadığı görülmektedir.
 
@@ -236,16 +236,26 @@ brand_summary <- cars %>%
   arrange(desc(mean_price))
 
 # Görselleştirme
-ggplot(brand_summary, aes(x = reorder(brand, mean_price), y = mean_price)) +
-  geom_col(fill = "darkblue") +
+
+ggplot(brand_summary, aes(x = reorder(brand, mean_price), y = mean_price, fill = mean_price)) +
+  geom_col() +
+  geom_text(aes(label = paste0(format(round(mean_price, 0), big.mark = "."), " TL")),
+            hjust = 1.1, color = "white", size = 3.5) +  # hjust < 1 → dışta, > 1 → içte
   coord_flip() +
-  scale_y_continuous(labels = label_number(suffix = " TL", big.mark = ".", decimal.mark = ",")) +
+  scale_fill_gradient(low = "lightblue", high = "darkblue", guide = "none") +
+  scale_y_continuous(
+    limits = c(0, NA),
+    labels = label_number(suffix = " TL", big.mark = ".", decimal.mark = ",")
+  ) +
   labs(
     title = "Markalara Göre Ortalama Araç Fiyatları",
     x = "Marka",
     y = "Ortalama Fiyat (TL)"
   ) +
   theme_minimal(base_size = 14)
+
+
+
 
 ```
 
@@ -277,6 +287,12 @@ Vites Tipine Göre Fiyat Dağılımı<br>
 Bu durumun birden çok olası nedeni vardır. Öncelikle, otomatik vites genellikle daha yeni ve yüksek donanım seviyesine sahip araçlarda bulunmaktadır; dolayısıyla otomatik vitesli ikinci el araçlar ortalama olarak daha yeni modelleri temsil eder. İkincisi, özellikle büyük şehir trafiğinde otomatik vites kullanımının rahatlığı nedeniyle talep daha yüksektir. Artan talep, ikinci el piyasada otomatik araçların fiyatlarının yüksek kalmasına katkıda bulunur. Buna karşın manuel vitesli araçlar, Türkiye’de uzun yıllar standart olmakla birlikte, günümüzde daha çok ekonomik veya eski model araçlarda görüldüğü için fiyatları görece düşüktür. Analizde dikkat çeken bir diğer nokta, vites tipine bağlı fiyat farkının bazı markalarda daha belirgin olmasıdır. Lüks markaların hemen tüm araçları otomatik vitese sahipken, ekonomik markalarda manuel vitesli araç oranı daha yüksektir. Bu da veride gözlemlenen fiyat farkını kısmen açıklamaktadır: lüks markalar (zaten pahalı olan) otomatik araçlar üretirken, manuel vitesli araçlar çoğunlukla düşük fiyat segmentinde kalmaktadır. Sonuç olarak, **vites tipi** başlı başına fiyatı belirleyen bir özellik olmayıp, diğer özelliklerle (model, donanım, segment) etkileşimli biçimde etkisini göstermektedir. Yine de, ortalama olarak **otomatik vitesli araçlar ikinci elde daha yüksek fiyatla listelenmektedir**, bu da piyasanın teknoloji ve konfor için ek bir bedel ödemeye istekli olduğunu göstermektedir.
 
 ```{r, message=FALSE, warning=FALSE}
+
+library(ggplot2)
+library(scales)
+library(forcats)
+library(RColorBrewer)
+
 # Önce city_stats oluştur
 city_stats <- cars %>%
   filter(!is.na(city), !is.na(price_clean)) %>%
@@ -286,52 +302,98 @@ city_stats <- cars %>%
     count = n()
   )
 
-# Bar chart
-city_stats %>%
-  filter(count >= 30) %>%
-  ggplot(aes(x = fct_reorder(city, mean_price), y = mean_price)) +
-  geom_col(fill = "darkcyan", width = 0.7) +
+# Şehir bazlı ilk 15 şehri alalım (çok kalabalık olmasın)
+city_top <- city_stats %>%
+  filter(count >= 40) %>%
+  top_n(15, mean_price)
+
+city_colors <- RColorBrewer::brewer.pal(n = 9, name = "YlGnBu")
+
+ggplot(city_top, aes(x = fct_reorder(city, mean_price), y = mean_price, fill = city)) +
+  geom_col(width = 0.7, color = "white", show.legend = FALSE) +
+  geom_text(
+    aes(label = paste0(format(round(mean_price, 0), big.mark = "."), " TL")),
+    hjust = 1.1, color = "white", size = 3.5
+  ) +
   coord_flip() +
+  scale_fill_manual(values = colorRampPalette(city_colors)(length(unique(city_top$city)))) +
   scale_y_continuous(
+    limits = c(0, NA),
     labels = label_number(suffix = " TL", big.mark = ".", decimal.mark = ","),
-    expand = expansion(mult = c(0, 0.1))
+    expand = expansion(mult = c(0, 0.05))
   ) +
   labs(
-    title = "Ortalama Fiyatı En Yüksek Şehirler (Min. 30 İlan)",
+    title = "Ortalama Fiyatı En Yüksek Şehirler (İlk 15 - Min. 30 İlan)",
     x = "Şehir",
     y = "Ortalama Fiyat"
   ) +
-  theme_minimal(base_size = 10)
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold", size = 14),
+    axis.text.y = element_text(face = "bold"),
+    panel.grid.major.y = element_blank()
+  )
+
 
 ```
 
 ```{r, message=FALSE, warning=FALSE}
 
-# Ortalama ve Medyan Fiyatları Hazırla
+library(ggplot2)
+library(scales)
+library(forcats)
+library(dplyr)
+library(tidyr)
+library(RColorBrewer)
+
+# Ortalama ve medyan fiyatları hesapla (ilk 12 şehir)
 fiyat_ozet <- cars %>%
   filter(!is.na(city), !is.na(price_clean)) %>%
   group_by(city) %>%
-  filter(n() >= 30) %>%
+  filter(n() >= 40) %>%
   summarise(
     Ortalama = mean(price_clean, na.rm = TRUE),
-    Medyan = median(price_clean, na.rm = TRUE)
+    Medyan = median(price_clean, na.rm = TRUE),
+    count = n()
   ) %>%
+  arrange(desc(Ortalama)) %>%
+  head(12) %>%
   pivot_longer(cols = c("Ortalama", "Medyan"), names_to = "FiyatTürü", values_to = "Fiyat") %>%
   mutate(city = fct_reorder(city, Fiyat))
 
-# Facet Wrap ile Görselleştir
-ggplot(fiyat_ozet, aes(x = city, y = Fiyat)) +
-  geom_col(fill = "darkcyan") +
-  coord_flip() +
-  facet_wrap(~ FiyatTürü, scales = "free_x") +
-  scale_y_continuous(labels = label_number(suffix = " TL", big.mark = ".", decimal.mark = ",")) +
-  labs(
-    title = "Şehir Bazlı Ortalama ve Medyan Fiyat Karşılaştırması",
-    x = "Şehir",
-    y = "Fiyat"
-  ) +
-  theme_minimal(base_size = 9)
+# Grafik
 
+gradient_colors <- colorRampPalette(c("#f9c5d1", "#de7fa3", "#7b2c5c"))(2)
+
+# Grafik
+ggplot(fiyat_ozet, aes(x = city, y = Fiyat, fill = FiyatTürü)) +
+  geom_col(position = position_dodge(width = 0.7), width = 0.6) +
+  geom_text(
+    aes(label = paste0(format(round(Fiyat, 0), big.mark = "."), " TL")),
+    position = position_dodge(width = 0.7),
+    hjust = 1.05, size = 3.2, color = "white"
+  ) +
+  coord_flip() +
+  scale_fill_manual(
+    values = setNames(gradient_colors, c("Ortalama", "Medyan"))
+  ) +
+  scale_y_continuous(
+    limits = c(0, NA),
+    labels = label_number(suffix = " TL", big.mark = ".", decimal.mark = ","),
+    expand = expansion(mult = c(0, 0.05))
+  ) +
+  labs(
+    title = "İlk 12 Şehirde Ortalama ve Medyan Fiyat Karşılaştırması",
+    x = "Şehir",
+    y = "Fiyat (TL)",
+    fill = "Fiyat Türü"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold", size = 14, color = "#581845"),
+    axis.text.y = element_text(face = "bold"),
+    legend.position = "bottom"
+  )
 
 ```
 
@@ -411,19 +473,42 @@ leaflet(data = turkiye_il) %>%
 ### Yakıt Tipine Göre Medyan Araç Fiyatları
 
 ```{r, message=FALSE, warning=FALSE}
-cars %>%
+library(ggplot2)
+library(dplyr)
+library(scales)
+
+# Grafik verisi
+fuel_prices <- cars %>%
   group_by(fuel_type) %>%
   summarise(median_price = median(price_clean, na.rm = TRUE)) %>%
-  ggplot(aes(x = reorder(fuel_type, median_price), y = median_price)) +
-  geom_col(fill = "steelblue") +
+  arrange(median_price)
+
+# Grafik
+ggplot(fuel_prices, aes(x = reorder(fuel_type, median_price), y = median_price, fill = fuel_type)) +
+  geom_col(width = 0.65, show.legend = FALSE) +
+  geom_text(
+    aes(label = paste0(format(round(median_price), big.mark = "."), " TL")),
+    hjust = -0.1, size = 3.5, color = "black"
+  ) +
+  scale_fill_brewer(palette = "Set2") +  # Şık, pastel renk geçişleri
   coord_flip() +
-  scale_y_continuous(labels = scales::label_number(suffix = " TL", big.mark = ".", decimal.mark = ",")) +
+  scale_y_continuous(
+    limits = c(0, NA),
+    labels = label_number(suffix = " TL", big.mark = ".", decimal.mark = ","),
+    expand = expansion(mult = c(0, 0.2))
+  ) +
   labs(
     title = "Yakıt Tipine Göre Medyan Araç Fiyatları",
     x = "Yakıt Türü",
     y = "Medyan Fiyat (TL)"
   ) +
-  theme_minimal(base_size = 13)
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold", size = 14, color = "#374151"),
+    axis.text.y = element_text(face = "bold"),
+    panel.grid.major.y = element_blank()
+  )
+
 ```
 
 Yakıt tipi, bir aracın kullanım maliyetini ve teknolojisini belirleyen önemli bir özelliktir ve ikinci el piyasa değerine de yansımaktadır. Veri setimizde araçlar **Benzin**, **Dizel**, **LPG** (sadece LPG ya da LPG & Benzin) ve **Hibrit/Elektrik** yakıt seçeneklerine sahiptir. Yaptığımız analiz, yakıt tipine göre medyan fiyatlarda belirgin farklar olduğunu ortaya koymuştur. En yüksek medyan fiyata sahip grup, beklendiği üzere **elektrikli araçlar** olmuştur: Elektrikli araçların ortalama ikinci el fiyatı yaklaşık 3.94 milyon TL ile diğer tüm grupları açık ara geride bırakmaktadır. Bunu, nispeten yeni teknolojiye sahip **hibrit araçlar** takip etmektedir; hibrit araçların medyan fiyatı yaklaşık 1.27 milyon TL civarındadır. **Benzinli** araçlar için medyan fiyat yaklaşık 825 bin TL olarak bulunurken, **dizel** araçların medyanı yaklaşık 610 bin TL ile biraz daha düşük çıkmıştır. En düşük medyan fiyat ise **LPG’li** (ya da LPG dönüşümü yapılmış) araçlardadır; bu grupta medyan fiyat yaklaşık olarak 360 bin TL seviyesindedir.
@@ -438,8 +523,15 @@ Bu bulgular, farklı yakıt türlerinin ikinci el piyasada farklı segmentlere k
 ### Araç Yaşı ile Fiyat İlişkisi
 
 ```{r,message= FALSE, warning= FALSE }
+# Bilimsel gösterimi kapat
+options(scipen = 999)
 
-# Outlier'ları filtrele (örnek: 1. ve 99. persentil arası tut)
+
+library(ggplot2)
+library(scales)
+library(dplyr)
+
+# Outlier'ları filtrele
 q_low <- quantile(cars$mileage_clean, 0.01, na.rm = TRUE)
 q_high <- quantile(cars$mileage_clean, 0.99, na.rm = TRUE)
 
@@ -450,18 +542,45 @@ cars_filtered <- cars %>%
     price_clean <= quantile(price_clean, 0.99, na.rm = TRUE)
   )
 
-# Grafik
-ggplot(data = cars_filtered, aes(x = mileage_clean, y = price_clean)) +
-  geom_point(color = "mediumorchid", alpha = 0.4) +
-  geom_smooth(method = "lm", se = FALSE, color = "black", linewidth = 1.1) +
+# Grafik çizimi
+ggplot(cars_filtered, aes(x = mileage_clean, y = price_clean)) +
+
+  geom_point(
+    aes(color = price_clean),
+    alpha = 0.7,
+    size = 2.2
+  ) +
+
+  geom_smooth(
+    method = "lm",
+    se = FALSE,
+    color = "#9c0d38",
+    linewidth = 1.5
+  ) +
+
+  scale_color_gradientn(
+    colours = c("#ffdde1", "#faa2c1", "#f75c88", "#c9184a"),
+    name = "Fiyat (TL)"
+  ) +
+  scale_y_continuous(
+    labels = label_number(big.mark = ".", decimal.mark = ",", suffix = " TL")
+  ) +
+  scale_x_continuous(
+    labels = label_number(big.mark = ".", decimal.mark = ",", suffix = " km")
+  ) +
   labs(
-    title = "Kilometre ile Fiyat Arasındaki İlişki (Outlier'sız)",
+    title = "Kilometre ile Fiyat Arasındaki İlişki",
     x = "Kilometre",
     y = "Fiyat (TL)"
   ) +
-scale_y_continuous(labels = label_number(big.mark = ".", decimal.mark = ",", suffix = " TL")) +
-scale_x_continuous(labels = label_number(big.mark = ".", decimal.mark = ",", suffix = " km"))
-  invisible(theme_minimal())
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold", size = 14, color = "#9c0d38"),
+    axis.text = element_text(face = "bold"),
+    legend.position = "right",
+    panel.grid.minor = element_blank()
+  )
+
 
 ```
 

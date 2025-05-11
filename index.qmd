@@ -1,6 +1,7 @@
 ---
 title: "Takım: R U OK ?"
 sidebar: false 
+code-fold: true
 ---
 
 ![](images/ruok_uploaded_boomerang.gif)
@@ -25,9 +26,78 @@ MUY660-İş Analitiği iyileştirme çalışmaları (örnek)
 
 ## Proje Konusu
 
-Bu projede Türkiye'deki 2025yılının ikinci çeyreğine kadar olan ikinci el araç ilanları hakkında marka,model,yakıt türü,vites tipi ,fiyat,kilometre,motor gücü gibi özelliklerine göre veri analizleri yapmayı hedefledik. Bu doğrultuda Türkiye'deki ikinci el araç satışlarına ait çevrim içi satışları analiz ettik. Analiz için veri okuma yöntemleri medyan analizi kullanarak, marka bazlı fiyat , vites tipine göre fiyat , yakıt tipine göre fiyat çalışmaları yaptık. Sonuç olarak,ortalama ve medyan fiyat karşılaştırmaları,ilanlardaki uç değerlerin bazı şehirlerde fiyat analizini nasıl etkilediğini net şekilde ortaya koymuştur.
+Bu projede, Türkiye'deki 2025 yılının ikinci çeyreğine kadar yayımlanmış olan ikinci el araç ilanlarını analiz etmeyi hedefledik. Çalışmamızda; marka, model, yakıt türü, vites tipi, fiyat, kilometre ve motor gücü gibi temel araç özelliklerine odaklanılmıştır.
+
+Bu kapsamda, Türkiye'deki çevrim içi ikinci el araç satış verileri kullanılarak kapsamlı bir veri analizi gerçekleştirilmiştir. Analiz sürecinde veri okuma, ön işleme ve temizleme adımlarının ardından; medyan analizi, marka bazlı fiyat karşılaştırmaları, vites tipine göre fiyat dağılımı ve yakıt türüne göre fiyat analizi gibi temel yöntemler uygulanmıştır.
 
 ## Veri Seti Hakkında Özet Bilgi
+
+Bu çalışmada kullanılan veri seti, 2025 yılına ait Türkiye’deki ikinci el otomobil ilanlarını kapsamaktadır. Veri, Kaggle platformu üzerinden temin edilmiş ve gerçek ilan verilerine dayanmaktadır.
+
+Toplam Gözlem Sayısı: 6.672 satır
+
+Değişken Sayısı: 26 sütun
+
+Veri Türü: Sayısal ve kategorik karışık yapı
+
+Kapsam: Tüm Türkiye genelindeki şehirler, marka ve modeller
+
+Temel Değişkenler:
+
+```{r }
+library(knitr)
+
+# Temel değişkenlerin açıklamalarını içeren veri çerçevesi
+degiskenler <- tibble::tibble(
+  `Sütun Adı` = c(
+    "district", "city", "price_try", "listing_date", "brand", "series", "model", "year", 
+    "mileage_km", "transmission_type", "fuel_type", "body_type", "color", 
+    "engine_size_cc", "engine_power_hp", "drive_train", "paint_and_parts_condition", 
+    "seller_type", "accident_history", "price_clean", "mileage_clean", "engine_size_clean", 
+    "engine_power_clean", "year_clean", "listing_date_clean", "age"
+  ),
+  Açıklama = c(
+    "İlanın verildiği mahalle veya ilçe",
+    "İlanın verildiği şehir",
+    "İlan edilen ham fiyat (karakter formatında)",
+    "İlanın yayınlandığı tarih",
+    "Araç markası",
+    "Model serisi veya donanım paketi",
+    "Araç modeli",
+    "Araç üretim yılı (ham değer)",
+    "Aracın kilometresi (karakter, 'km' içerir)",
+    "Vites tipi (Otomatik, Manuel vb.)",
+    "Yakıt türü (Benzin, Dizel, Hibrit vb.)",
+    "Kasa tipi (Sedan, Hatchback vb.)",
+    "Araç rengi",
+    "Motor hacmi (örneğin: '1598 cc')",
+    "Motor gücü (örneğin: '110 hp')",
+    "Çekiş tipi (FWD, AWD vb.)",
+    "Araçta boya/değişen geçmişi bilgisi",
+    "Satıcı türü (bireysel, galerici, bayi)",
+    "Kaza geçmişi bilgisi",
+    "Sayısal olarak temizlenmiş fiyat (TL)",
+    "Sayısal olarak temizlenmiş kilometre",
+    "Temizlenmiş motor hacmi (cc)",
+    "Temizlenmiş motor gücü (hp)",
+    "Düzenlenmiş üretim yılı",
+    "Düzenlenmiş ilan tarihi",
+    "Araç yaşı (2025 - yıl)"
+  )
+)
+
+# knitr ile tabloyu yazdır
+kable(degiskenler, caption = "Veri Setindeki Temel Değişkenler ve Açıklamaları", align = "ll")
+```
+
+ Veri Ön İşleme Adımları:
+ 
+Eksik ve hatalı gözlemler temizlenmiş,
+Metinsel veriler düzenlenmiş ve sadeleştirilmiş,
+Sayısal sütunlarda eksik değerler medyan ile doldurulmuş,
+Kategorik sütunlarda eksikler mod ile tamamlanmıştır, price_clean, engine_power_clean, mileage_clean gibi yeni sütunlar oluşturularak analizlere hazır hale getirilmiştir.
+
+
 
 ## Sonuçlar
 
