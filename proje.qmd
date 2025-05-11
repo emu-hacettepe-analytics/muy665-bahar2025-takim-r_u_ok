@@ -261,9 +261,18 @@ ggplot(brand_summary, aes(x = reorder(brand, mean_price), y = mean_price, fill =
 
 Markalara Göre Ortalama Araç Fiyatları
 
-Veri setindeki her bir aracın markasına göre ortalama ikinci el satış fiyatı hesaplanarak markalar bazında bir karşılaştırma yapılmıştır. Elde edilen sonuçlar, markalar arasında belirgin fiyat farklılıkları olduğunu göstermektedir. **Lüks segmentteki markalar** ortalama fiyatları en yüksek olan grubu oluşturmaktadır. Bu markaların ikinci el araçlarının ortalama fiyatları milyon TL seviyelerine yaklaşabilmekte ya da bu eşiği aşabilmektedir. **Ekonomi segmentindeki markalar** ise çok daha düşük ortalama fiyatlara sahiptir. Örneğin, Tofaş markalı eski model araçların ilanları genellikle ortalama birkaç yüz bin TL’nin altında seyrederken, Mercedes gibi markaların ikinci el piyasadaki ortalamaları bunların katbekat üzerindedir.
+Aşağıdaki grafik, Türkiye ikinci el otomobil piyasasında en çok ilana sahip markaların ortalama araç fiyatlarını göstermektedir. Görseldeki değerler, her markaya ait ilanlardaki `price_clean` sütunu temel alınarak hesaplanmış ortalama fiyatları temsil etmektedir.
 
-Marka bazlı fiyat dağılım grafikleri, bazı markaların fiyat dağılımının da geniş olduğunu göstermektedir. Özellikle hem düşük sınıf hem de üst sınıf modeller üreten markalarda ikinci el fiyatlarında geniş bir yayılım görülür. Bu durum, aynı markanın farklı modelleri arasındaki fiyat uçurumundan kaynaklanmaktadır. Buna karşılık, ultra lüks markaların ikinci el ilanları az sayıda olsa da ortalama olarak en yüksek fiyatlara sahip olup dağılımları nispeten homojendir. Genel olarak, **marka** faktörünün ikinci el araç değerlemesinde son derece belirleyici olduğu teyit edilmiştir. Tüketiciler, iyi bilinen ve prestijli markalara ikinci el olsa dahi yüksek bedeller ödemeye razı olabilmektedirler. Bu bulgu, marka algısının fiyat üzerindeki etkisine dair literatürdeki bilgilerle de uyumludur; marka değeri yüksek olan araçlar, ikinci el piyasasında da bu değeri paraya dönüştürebilmektedir.
+Elde edilen bulgulara göre:
+
+- **Mercedes-Benz**, yaklaşık **2.939.797 TL** ile açık ara en yüksek ortalama fiyata sahip markadır. Bu değer, markanın premium segmentteki konumunu ve genellikle yüksek donanım seviyesine sahip araçlar sunmasını yansıtmaktadır.
+- **Audi** ve **BMW**, sırasıyla **1.668.136 TL** ve **1.637.546 TL** ortalama fiyatlarıyla Mercedes-Benz’i takip etmektedir. Bu üç marka, ikinci el piyasasında lüks segmentte yoğunlaşmış durumdadır.
+- **Honda**, **Volkswagen** ve **Toyota** gibi markalar ise orta segmentte yer almakta olup ortalama fiyatları **700.000–900.000 TL** aralığındadır.
+- **Ford**, **Hyundai**, **Peugeot**, **Opel**, **Renault** ve **Fiat** gibi markalar, görece daha uygun fiyatlı araçlar sunmakta olup ortalama fiyatları **500.000 TL’nin altına** düşmektedir. Özellikle **Fiat**, yaklaşık **445.937 TL** ile listedeki en düşük ortalama fiyata sahip markadır.
+
+Bu sonuçlar, markaların konumlandığı pazar segmentlerini açıkça ortaya koymaktadır. Lüks markaların ikinci el piyasada da değerini koruduğu; buna karşın ekonomik markaların daha geniş kitlelerce erişilebilir fiyatlar sunduğu görülmektedir. Ortalama fiyatlar arasındaki büyük farklar, marka algısının ve tüketici tercihlerinin ikinci el araç piyasasına doğrudan yansıdığını göstermektedir.
+
+Sonuç olarak, araç markası ikinci el fiyatları önemli ölçüde etkiler; bu yüzden piyasa analizlerinde markaya göre değerlendirme yapmak daha doğru sonuçlar verir.
 
 ### Vites Tipine Göre Fiyat
 
@@ -282,9 +291,18 @@ cars %>%
 
 Vites Tipine Göre Fiyat Dağılımı<br>
 
-İkinci el araç ilanları, **vites tipine** göre temelde **manuel** ve **otomatik** olarak iki sınıfa ayrılabilir (bazı ilanlarda “yarı otomatik” ayrı bir kategori olarak belirtilse de yaygınlık manuel/otomatik kadar değildir). Analizler, otomatik vitesli araçların ikinci el fiyatlarının, benzer koşullardaki manuel vitesli araçlara kıyasla daha yüksek olduğunu göstermektedir. Örneğin, veriye göre otomatik vitesli araçların medyan fiyatı, manuel vitesli araçların medyan fiyatının belirgin biçimde üzerindedir. Farklı sınıf ve segmentlerde bu farkın büyüklüğü değişebilse de yönü tutarlıdır: aynı model ve benzer yaşta bir aracın otomatik versiyonu, manuel versiyonuna göre genellikle daha pahalıya satılmaktadır.
+Yukarıdaki kutu grafiği, ikinci el araç piyasasında vites tipine göre fiyatların logaritmik ölçekte (log10(Fiyat)) nasıl dağıldığını göstermektedir. Analiz sonuçlarına göre vites tipi, ikinci el araç fiyatlarını etkileyen önemli bir değişkendir.
 
-Bu durumun birden çok olası nedeni vardır. Öncelikle, otomatik vites genellikle daha yeni ve yüksek donanım seviyesine sahip araçlarda bulunmaktadır; dolayısıyla otomatik vitesli ikinci el araçlar ortalama olarak daha yeni modelleri temsil eder. İkincisi, özellikle büyük şehir trafiğinde otomatik vites kullanımının rahatlığı nedeniyle talep daha yüksektir. Artan talep, ikinci el piyasada otomatik araçların fiyatlarının yüksek kalmasına katkıda bulunur. Buna karşın manuel vitesli araçlar, Türkiye’de uzun yıllar standart olmakla birlikte, günümüzde daha çok ekonomik veya eski model araçlarda görüldüğü için fiyatları görece düşüktür. Analizde dikkat çeken bir diğer nokta, vites tipine bağlı fiyat farkının bazı markalarda daha belirgin olmasıdır. Lüks markaların hemen tüm araçları otomatik vitese sahipken, ekonomik markalarda manuel vitesli araç oranı daha yüksektir. Bu da veride gözlemlenen fiyat farkını kısmen açıklamaktadır: lüks markalar (zaten pahalı olan) otomatik araçlar üretirken, manuel vitesli araçlar çoğunlukla düşük fiyat segmentinde kalmaktadır. Sonuç olarak, **vites tipi** başlı başına fiyatı belirleyen bir özellik olmayıp, diğer özelliklerle (model, donanım, segment) etkileşimli biçimde etkisini göstermektedir. Yine de, ortalama olarak **otomatik vitesli araçlar ikinci elde daha yüksek fiyatla listelenmektedir**, bu da piyasanın teknoloji ve konfor için ek bir bedel ödemeye istekli olduğunu göstermektedir.
+**Automatic (otomatik) vitesli** araçlar, en yüksek medyan fiyata sahip grubu oluşturmaktadır. Bu durum, otomatik vitesli araçların genellikle daha yeni model ve yüksek donanımlı segmentlerde yer almasıyla ilişkilendirilebilir. Ayrıca, şehir içi kullanımda sağladığı konforun da bu fiyat farkında etkili olduğu değerlendirilmektedir.
+
+**Manual (manuel) vitesli** araçlar, medyan fiyat açısından en düşük seviyeyi temsil etmektedir. Bu araçlar çoğunlukla daha eski veya giriş seviyesi modellerden oluşmakta olup, fiyatları da buna bağlı olarak düşmektedir.
+
+**Semi-Automatic (yarı otomatik)** araçlar ise ortalama fiyat düzeyi bakımından iki uç arasında yer almakta; hem fiyat aralığı hem de medyan değer açısından dengeli bir görünüm sergilemektedir.
+
+Tüm vites tiplerinde üst uçlarda çeşitli **aykırı değerler (outlier)** gözlemlenmiştir. Özellikle otomatik vitesli araç grubunda, 10⁷ TL seviyesine yaklaşan ilanlar, bu kategorinin lüks segmentteki yoğunluğunu yansıtmaktadır.
+
+Bu bulgular, vites tipi ile ikinci el araç fiyatları arasında güçlü ve tutarlı bir ilişki olduğunu göstermektedir. Otomatik ve yarı otomatik araçlara olan yüksek talep, bu araçların daha yüksek fiyatlarla listelenmesine neden olmakta; manuel vitesli araçlar ise daha uygun fiyatlı alternatifler olarak öne çıkmaktadır.
+
 
 ```{r, message=FALSE, warning=FALSE}
 
@@ -336,7 +354,7 @@ ggplot(city_top, aes(x = fct_reorder(city, mean_price), y = mean_price, fill = c
 
 
 ```
-
+### İlk 12 Şehirde Ortalama ve Medyan Fiyat Karşılaştırması
 ```{r, message=FALSE, warning=FALSE}
 
 library(ggplot2)
@@ -397,17 +415,18 @@ ggplot(fiyat_ozet, aes(x = city, y = Fiyat, fill = FiyatTürü)) +
 
 ```
 
-Türkiye genelinde medyan fiyat açısından Muğla, yaklaşık 780 000 TL ile birinci sırada yer alırken, İstanbul 770 000 TL civarıyla ikinci ve Batman 760 000 TL dolaylarıyla üçüncü konumda bulunuyor. Ortalama fiyatlarda ise İstanbul, yaklaşık 1 150 000 TL ile açık ara liderliğini koruyor; Muğla (≈ 950 000 TL) ve Antalya (≈ 900 000 TL) ise İstanbul’u izliyor. Bu durum, pazardaki yüksek fiyatlı ilanların ortalamayı ciddi biçimde yukarı çektiğini gösteriyor.
 
-Turistik destinasyonlar başta olmak üzere Muğla ve Antalya’da hem medyan hem de ortalama fiyatların görece yüksek olması, Bodrum, Fethiye ve Marmaris gibi ilçelere yönelik güçlü talebin ve bölge ekonomisinin ikinci el piyasasını üst segmente doğru kaydırdığını ortaya koyuyor. İstanbul ise büyük metropol olmanın getirdiği nüfus yoğunluğu, iş imkânları ve lüks araç arz-talep dengesiyle ortalama fiyat bakımından zirvede yer alıyor.
+Görselde ilan sayısı 40’tan fazla olan şehirler arasından ortalama fiyatı en yüksek olan ilk 12 şehir seçilerek medyan ve ortalama ikinci el araç fiyatları karşılaştırılmıştır. Görselde yer alan koyu renkli çubuklar medyan fiyatları, açık renkli çubuklar ise ortalama fiyatları temsil etmektedir.
 
-Ortalama ve medyan arasındaki farkın İstanbul’da yaklaşık 380 000 TL, Muğla’da ise 170 000 TL civarında seyretmesi, bu illerdeki pahalı ilan hacminin fazlalığına işaret ediyor. Yani yüksek gelir grubuna mensup alıcılar bu piyasalarda belirgin ağırlıkta.
+Verilere göre:
 
-Medyanı 600–700 000 TL arasında değişen Konya, Mersin, Adana ve Sakarya gibi iller geniş bir kitleye hitap ederken, fiyatların ne aşırı oynak ne de tamamen durağan olduğu dengeli bir pazar yapısı sunuyor. Öte yandan Kahramanmaraş, Zonguldak, Yozgat, Sivas ve Çorum’da hem medyan hem de ortalama fiyatlar 500 000 TL’nin altında seyrediyor. Uç fiyat ilanlarının nispeten sınırlı kaldığı bu bölgeler daha “ölçülü” bir piyasa yapısına sahip.
+- **İstanbul**, yaklaşık **1.155.000 TL** ortalama ile tüm şehirler arasında açık ara en yüksek ortalama fiyata sahiptir. Medyan fiyat ise **695.000 TL**’dir. Bu iki değer arasındaki büyük fark, İstanbul’da aşırı yüksek fiyatlı ilanların bulunduğunu ve bu ilanların ortalamayı yukarı çektiğini göstermektedir.
+- **Muğla** ve **Antalya**, sırasıyla **1.028.940 TL** ve **878.882 TL** ortalama fiyatlarla İstanbul’un ardından gelmektedir. Medyan fiyatlar ise Muğla’da **760.000 TL**, Antalya’da ise **597.500 TL** düzeyindedir. Bu durum, özellikle turistik bölgelerdeki yüksek segmentli araç ilanlarının fiyat düzeyini yukarı taşıdığını ortaya koymaktadır.
+- **Diyarbakır**, **İzmir** ve **Osmaniye** gibi şehirlerde de ortalama ve medyan fiyatlar arasında dikkate değer farklar gözlenmiştir. Bu farklar, söz konusu şehirlerde bazı ilanların olağan dışı yüksek fiyatlarla listelenmiş olabileceğini düşündürmektedir.
+- Öte yandan **Gaziantep**, **Sakarya**, **Adana** ve **Mersin** gibi şehirlerde ortalama ve medyan fiyatlar birbirine daha yakın seyretmektedir. Bu durum, fiyat dağılımının daha homojen olduğunu ve aşırı uç değerlerin etkisinin sınırlı kaldığını göstermektedir.
 
-Genel olarak, medyan fiyatın yüksek olduğu bir ilde tipik bir satışın bile ülke ortalamasının üstünde gerçekleştiği; düşük medyanlı bölgelerde ise çoğu ilanın makul sınırlarda seyrettiği söylenebilir.
+Genel olarak, **ortalama fiyat** yüksek olsa dahi medyan değerin daha düşük kalması, veri setinde yer alan bazı ilanların aşırı fiyatlandırıldığına işaret etmektedir. Bu nedenle piyasa değerlendirmelerinde yalnızca ortalama değere odaklanmak yerine, medyan değerin de dikkate alınması daha sağlıklı bir bakış açısı sunmaktadır. Medyan değerin, veri setinin ortasındaki “tipik” değeri temsil etmesi açısından, ikinci el araç pazarında daha gerçekçi bir fiyat göstergesi olduğu söylenebilir.
 
-Yatırım ya da satın alma stratejisi belirlenirken, uç fiyatların yanıltıcı etkisinden kaçınmak için ortalama yerine medyan değere odaklanmak daha gerçekçi bir bakış açısı sağlayacaktır. Ayrıca, medyan değeri yüksek ancak ortalama ile arasındaki makasın görece dar olduğu Batman veya Diyarbakır gibi iller, lüks segmente kapı aralarken aşırı fiyat dalgalanmalarından da uzak kalmak isteyen alıcılar için cazip seçenekler sunabilir.
 
 ### Türkiye’deki illerin ortalama ikinci el araç fiyatlarının harita üzerinde gösterimi
 
@@ -511,16 +530,30 @@ ggplot(fuel_prices, aes(x = reorder(fuel_type, median_price), y = median_price, 
 
 ```
 
-Yakıt tipi, bir aracın kullanım maliyetini ve teknolojisini belirleyen önemli bir özelliktir ve ikinci el piyasa değerine de yansımaktadır. Veri setimizde araçlar **Benzin**, **Dizel**, **LPG** (sadece LPG ya da LPG & Benzin) ve **Hibrit/Elektrik** yakıt seçeneklerine sahiptir. Yaptığımız analiz, yakıt tipine göre medyan fiyatlarda belirgin farklar olduğunu ortaya koymuştur. En yüksek medyan fiyata sahip grup, beklendiği üzere **elektrikli araçlar** olmuştur: Elektrikli araçların ortalama ikinci el fiyatı yaklaşık 4.19 milyon TL ile diğer tüm grupları açık ara geride bırakmaktadır. Bunu, nispeten yeni teknolojiye sahip **hibrit araçlar** takip etmektedir; hibrit araçların medyan fiyatı yaklaşık 1.27 milyon TL civarındadır. **Benzinli** araçlar için medyan fiyat yaklaşık 825 bin TL olarak bulunurken, **dizel** araçların medyanı yaklaşık 610 bin TL ile biraz daha düşük çıkmıştır. En düşük medyan fiyat ise **LPG’li** (ya da LPG dönüşümü yapılmış) araçlardadır; bu grupta medyan fiyat yaklaşık olarak 360 bin TL seviyesindedir.
+Yakıt tipi, araçların teknolojik seviyesini ve kullanım maliyetlerini belirlemede temel bir değişkendir. Bu nedenle, ikinci el piyasasında da fiyat farklılıklarına doğrudan yansımaktadır. Çalışmada incelenen veri setinde araçlar; benzin, dizel, LPG (sadece LPG ya da LPG & benzin), hibrit ve elektrikli olmak üzere beş ana yakıt türü altında sınıflandırılmıştır.
 
-Bu bulgular, farklı yakıt türlerinin ikinci el piyasada farklı segmentlere karşılık geldiğini göstermektedir. **Elektrikli araçlar**, genellikle premium fiyatlı yeni teknoloji araçlar olduğundan ikinci elde de yüksek fiyatlanmaktadır. **Hibritler** de benzer şekilde yeni ve pahalı araçlardır. **Benzinli** ve **Dizel** araçlar ise çok daha geniş bir yelpazeye yayılmıştır; ekonomik küçük arabalardan lüks segment araçlara kadar benzinli/dizel birçok model bulunduğundan, medyan değerleri orta sıralarda yer almaktadır. Dizel araçların medyanının benzinli araçlardan düşük çıkması, dizel araçların genelde yüksek kilometre yapmış veya ticari amaçla kullanılmış olmasıyla ilişkilendirilebilir. Oysa 2000’lerde yapılan bir çalışmada, dizel motorun ikinci el fiyatı artıran bir unsur olduğu belirtilmiştir \[8\]. Erdem ve Şentürk (2009) o dönemde dizel motorlu olmanın fiyatı pozitif etkilediğini bulmuşlardır; muhtemelen yakıt ekonomisi nedeniyle dizel araçlara talep güçlüydü.\
-2025’e gelindiğinde ise benzinli motorlar teknolojik olarak verimli hale gelmiş, dizel motorlar emisyon regülasyonlarıyla pazar payı kaybetmeye başlamıştır. Bu değişim, dizel araçların ikinci el değerine de yansımış olabilir. Yine de, yakıt tipi genel olarak fiyatı etkileyen önemli bir faktördür ve farklı yakıt türleri arasında ciddi fiyat medyan farkları oluşmaktadır.\
-\
-\[8\] Erdem, C., & Şentürk, İ. (2009). *A hedonic analysis of used car prices in Turkey*. *International Journal of Economic Perspectives, 3*(2), 141–149.
+Analiz sonuçlarına göre, yakıt türlerine göre medyan ikinci el fiyatlar şu şekilde özetlenmiştir:
+
+- **Elektrikli araçlar**, yaklaşık **4.190.000 TL** medyan fiyat ile en yüksek grubu oluşturmaktadır.
+- **Hibrit araçlar**, ortalama **1.270.000 TL** medyan değer ile ikinci sırada yer almaktadır.
+- **Benzinli araçlar** için bu değer yaklaşık **825.000 TL** seviyesindedir.
+- **Dizel araçlar**, yaklaşık **610.000 TL** ile benzinli araçlardan daha düşük bir ortalamaya sahiptir.
+- **LPG’li araçlar**, yaklaşık **360.000 TL** medyan fiyatla en düşük seviyedeki grubu temsil etmektedir.
+
+Bu bulgular, farklı yakıt türlerinin ikinci el piyasada farklı kullanıcı segmentlerine hitap ettiğini ortaya koymaktadır. Elektrikli ve hibrit araçlar, yeni teknolojiye sahip ve daha pahalı segmentte konumlandıkları için daha yüksek fiyatlanmaktadır. Buna karşılık, benzinli ve dizel araçlar geniş bir model ve fiyat yelpazesine sahip olup orta düzeyde konumlanmaktadır. Dizel araçların medyan fiyatının görece düşük olması, bu araçların genellikle daha yüksek kilometreli veya ticari kullanım amaçlı tercih edilmesiyle açıklanabilir.
+
+Önceki dönem çalışmalarıyla karşılaştırıldığında, bu sonuçlar dikkate değerdir. Örneğin **Erdem ve Şentürk (2009)**, dizel motorların ikinci el fiyatlarını artırıcı bir etkisi olduğunu belirtmişlerdir. Ancak 2025 itibarıyla teknolojik gelişmelerin benzinli motorları daha verimli hale getirmesi ve emisyon regülasyonları nedeniyle dizel araçların cazibesini yitirmeye başlaması, bu farkın yön değiştirmesine neden olmuştur.
+
+Sonuç olarak, yakıt tipi, araç değerini etkileyen yapısal ve dinamik faktörlerle birlikte değerlendirilmesi gereken önemli bir değişkendir. İkinci el piyasa analizlerinde, fiyat tahmini veya segmentasyon çalışmalarında bu unsurun dikkate alınması daha sağlıklı öngörüler sunacaktır.
+
+::: {.reference}
+**[8]** Erdem, C., & Şentürk, İ. (2009). *A hedonic analysis of used car prices in Turkey*. International Journal of Economic Perspectives, 3(2), 141–149.
+:::
+
 
 ## Trend Analizi
 
-### Araç Yaşı ile Fiyat İlişkisi
+### Araç Kilometresi ile Fiyat İlişkisi
 
 ```{r,message= FALSE, warning= FALSE }
 # Bilimsel gösterimi kapat
@@ -584,29 +617,20 @@ ggplot(cars_filtered, aes(x = mileage_clean, y = price_clean)) +
 
 ```
 
-Negatif Korelasyon (Eğim Azalan):
+İkinci el otomobil piyasasında aracın kilometresi, değer belirleme açısından kritik bir göstergedir. Kilometre bilgisi, aracın kullanım düzeyini temsil ettiği için, piyasa değeri üzerinde doğrudan etkili olmaktadır.
 
-Siyah çizgi (regresyon doğrusu), kilometre arttıkça araç fiyatının azaldığını gösteriyor.
+Yukarıdaki grafik, araçların kilometresi ile satış fiyatı arasındaki ilişkiyi yansıtmaktadır. Gözlemler doğrultusunda şu çıkarımlar yapılabilir:
 
-Bu beklenen bir sonuç: Daha fazla kullanılmış (yüksek km’li) araçlar genellikle daha ucuz.
+- Genel eğilim **negatif yönlü bir korelasyonu** işaret etmektedir. Kilometre arttıkça araç fiyatlarının azaldığı gözlenmektedir.
+- Özellikle **150.000 km üzerindeki** araçlarda fiyatların büyük oranda **1.000.000 TL’nin altında** seyrettiği dikkati çekmektedir.
+- **0–50.000 km** aralığında bulunan düşük kilometreli araçlar, **3.000.000 TL ve üzeri** fiyatlara kadar ulaşabilmektedir.
+- Regresyon doğrusu, bu ilişkinin istatistiksel olarak anlamlı bir düşüş eğilimi gösterdiğini açık biçimde ortaya koymaktadır.
+- Fiyat dağılımında, **50.000–150.000 km** aralığındaki araçlar, hem fiyat hem de yoğunluk bakımından ikinci el piyasada en yaygın grubu oluşturmaktadır.
 
-Veri Dağılımı:
+Bu bulgular, kullanım yoğunluğunun ikinci el değer üzerinde önemli bir rol oynadığını doğrulamaktadır. Aracın düşük kilometrede olması, daha az yıpranmış olma ihtimali nedeniyle alıcılar nezdinde daha yüksek bir bedelle değerlendirilmekte; buna karşılık, yüksek kilometreli araçlar daha düşük fiyatlarla alıcı bulmaktadır. Bu durum, piyasa beklentileri ve tüketici davranışları ile uyumludur.
 
-0–50.000 km arası araçlar daha yüksek fiyatlara sahip. Fiyat 3.000.000 TL'ye kadar çıkabiliyor.
+Sonuç olarak, kilometre bilgisi, ikinci el araçların değerlemesinde dikkate alınması gereken temel değişkenlerden biri olup, fiyat tahmin modellerine dâhil edilmesi önerilmektedir.
 
-150.000 km’den sonra fiyatlar genellikle 1.000.000 TL'nin altına düşüyor.
-
-Yoğunluk:
-
-En yoğun noktalar 50.000 – 150.000 km arası ve 500.000 – 1.500.000 TL fiyat aralığında toplanıyor.
-
-Bu da piyasadaki en yaygın ikinci el araç kitlesini gösteriyor.
-
-Aykırı Değerlerin Etkisi Azalmış:
-
-İlk grafiğe göre çok uç fiyatlar (\>30.000.000 TL gibi) çıkarıldığı için regresyon çizgisi daha gerçekçi bir eğilim gösteriyor.
-
-Kilometre arttıkça araç fiyatı genellikle düşmektedir. Özellikle 150.000 km üzerindeki araçlar belirgin şekilde daha ucuzdur. Ancak düşük kilometreli araçların fiyatları çok değişken olup bazı modellerde yüksek fiyatlara ulaşabilmektedir.
 
 ### Araç Yaşı ve Ortalama Fiyat
 
@@ -645,17 +669,21 @@ ggplot(yas_fiyat, aes(x = age, y = mean_price)) +
 
 ```
 
-Genel Eğilim (Azalan Trend):
+İkinci el otomobil piyasasında araç yaşı, fiyatları etkileyen temel belirleyicilerden biridir. Aşağıdaki grafik, araç yaşının artmasıyla ortalama fiyatlarda gözle görülür bir düşüş eğilimi olduğunu ortaya koymaktadır. Bu durum, otomobil piyasasında yaygın olarak bilinen değer kaybı (*depreciation*) ilkesiyle uyum göstermektedir\[9\].
 
-Grafik kırmızı bir çizgiyle, araç yaşı arttıkça ortalama fiyatın düştüğünü net şekilde gösteriyor.
+Literatürde, yeni bir aracın ilk yılında değerinin yaklaşık %15 ila %30’unu kaybettiği; izleyen her yılda ise bu kaybın ortalama %10–15 seviyelerinde gerçekleştiği belirtilmektedir\[1\] . Veri setimizde yapılan analiz de bu eğilimi desteklemektedir. Özellikle 0–2 yaş aralığındaki araçların ortalama fiyatları 3 milyon TL civarında seyrederken, 10 yaş üzeri araçlarda bu değerin belirgin biçimde azaldığı görülmüştür. Araç yaşı 20’yi geçtiğinde ise ortalama fiyatlar yüz bin TL seviyelerine kadar gerilemektedir.
 
-İkinci el araç fiyatlarını belirleyen en önemli unsurlardan biri araçların model yılı, yani yaşlarıdır. Genel kural olarak, bir araç trafiğe çıktığı andan itibaren her yıl değer kaybeder (*depreciation*). Literatürde yeni bir otomobilin ilk yılında değerinin %15-30’unu, sonraki her yıl ise ortalama %10-15’ini kaybettiği sıkça belirtilir \[9\]. Bizim veri setimiz de bu eğilimi doğrular niteliktedir. Model yılı arttıkça (araç daha yeni oldukça) ikinci el fiyatın belirgin biçimde yükseldiği görülmüştür. Örneğin 2022, 2023 ve 2024 model araçların medyan fiyatları 1 milyon TL’nin üzerinde seyretmekteyken, 2010’lu yılların başına ait araçların medyanları bunun çok altındadır. Hatta 1990’lı, 2000’li yıllara ait eski araçlar için ikinci el fiyatları yüz bin TL mertebelerine kadar düşebilmektedir. Analizimizde aracın **model yılı** ile ikinci el fiyatı arasında pozitif yönlü orta kuvvette bir korelasyon saptanmıştır (Pearson korelasyonu ≈ 0.39). Bu, daha yeni araçların daha pahalı olduğunu sayısal olarak da teyit etmektedir. Bununla birlikte, her model yılı için fiyat dağılımının geniş bir aralıkta olabileceği unutulmamalıdır; zira marka ve donanım farklılıkları, iki aynı model yılındaki araç arasında bile ciddi fiyat farklarına yol açabilir. Örneğin 2015 model bir lüks araç, 2020 model bir ekonomik araçtan pahalı olabilir. Dolayısıyla yaş tek başına değil, diğer özelliklerle birlikte değerlendirilmelidir. Yine de, genel trend olarak **“araç yaşlandıkça ucuzlar”** prensibi verimizde açıkça görülmüştür. Bu da beklentilerle uyumludur ve hedonik model perspektifinden bakıldığında, üretim yılı fiyatı belirleyen en temel niteliklerden biridir \[10\].
+Analiz bulgularına göre, araç yaşı ile ikinci el satış fiyatı arasında **negatif yönlü ve orta kuvvette bir korelasyon** bulunmaktadır (Pearson r ≈ 0.39). Bu durum, daha yeni araçların sistematik olarak daha yüksek fiyatlardan işlem gördüğünü nicel olarak teyit etmektedir.
 
-\[9\] Bankrate. (n.d.). *Car depreciation: What it is and how it works*. Bankrate. Erişim tarihi 11 Mayıs 2025, <https://www.bankrate.com/insurance/car/understanding-car-depreciation/>
+Bununla birlikte, her model yılı için fiyat dağılımının oldukça geniş bir aralıkta olabileceği göz önünde bulundurulmalıdır. Marka, donanım seviyesi ve kilometre gibi diğer değişkenler, aynı model yılındaki iki araç arasında dahi ciddi fiyat farklılıklarına yol açabilmektedir. Örneğin, 2015 model bir lüks segment araç, 2020 model ekonomik segment bir araçtan daha yüksek fiyata sahip olabilir.
 
-\[10\] Özçalıcı, M. (2017). Predicting second-hand car sales price using decision trees and genetic algorithms. *Alphanumeric Journal, 5*(1), 103–114. <https://doi.org/10.17093/alphanumeric.323836>
+Sonuç olarak, analiz verileri, ikinci el otomobil piyasasında yaygın olarak kabul edilen “araç yaşlandıkça fiyat düşer” prensibini doğrulamaktadır. Bu bulgu, hedonik fiyatlama modelleri başta olmak üzere çeşitli değerleme yöntemlerinde yaş değişkeninin dikkate alınması gerektiğini göstermektedir\[10\].
 
-## Model Uydurma
+\[9\] : Bankrate. (n.d.). *Car depreciation: What it is and how it works*. Bankrate. Erişim tarihi: 11 Mayıs 2025, <https://www.bankrate.com/insurance/car/understanding-car-depreciation/>
+
+\[10\] : Özçalıcı, M. (2017). Predicting second-hand car sales price using decision trees and genetic algorithms. *Alphanumeric Journal, 5*(1), 103–114. <https://doi.org/10.17093/alphanumeric.323836>
+
+
 
 ## Modelin Performansı
 
