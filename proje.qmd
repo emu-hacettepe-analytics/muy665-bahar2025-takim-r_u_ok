@@ -14,11 +14,11 @@ code-fold: true
 
 Bu çalışma, 2025 yılı Türkiye ikinci el otomobil pazarı verilerini kullanarak marka ve şehir bazlı benchmark analizi, kapsamlı keşifsel veri analizi (EDA) ve fiyat tahminlemesi (forecasting) gerçekleştirmeyi amaçlamaktadır. Kod, anlatı ve görseller Quarto ile tekrar üretilebilir biçimde hazırlanmıştır.
 
-# Veri Seti Hakkında Bilgi 
+# Veri Seti Hakkında Bilgi
 
 Bu projede kullanılan veri seti, Türkiye’deki popüler bir çevrimiçi araç ilan platformundan 2025 yılında web kazıma yoluyla elde edilmiş kapsamlı ikinci el otomobil ilan verilerini içermektedir \[1\]. Veri setinde farklı marka ve modellerdeki araçların; üretim yılı, kilometre bilgisi, satış fiyatı, yakıt tipi (benzin, dizel, LPG, hibrit, elektrik), vites tipi (manuel, otomatik), bulunduğu şehir (il) ve benzeri özellikleri kayıt altına alınmıştır. Toplamda on binlerce ilana ait verinin yer aldığı bu veri seti, Türkiye ikinci el otomobil piyasasının güncel durumunu yansıtacak şekilde zengin ve çeşitli bir örneklem sunmaktadır. Analiz için veri Kaggle üzerinden temin edilip (bahridgr, 2025), uygun biçimde temizlenerek R programlama diline aktarılmıştır. Veri ön işleme aşamasında eksik ya da tutarsız gözlemler elenmiş, kategorik değişkenler analiz amaçlarına uygun olarak yeniden düzenlenmiştir. Örneğin, araç yaşı üretim yılından hesaplanmış, fiyatlar gerekli durumlarda aşırı uç değerlerin etkisini azaltmak için logaritmik dönüşümle incelenmiştir.
 
-Veri analizi ve görselleştirme işlemleri **R** dili kullanılarak ve **Quarto** ile tekrarlanabilir bir raporlama formatında yürütülmüştür \[2\]. Veri manipülasyonu ve grafik çizimleri için geniş ölçüde **tidyverse** paket ailesinden yararlanılmıştır \[3\]. Özellikle 'dplyr' ve 'readr' ile veri işlemleri gerçekleştirilirken, görselleştirmeler için `ggplot2` kullanılmıştır \[4\]. Coğrafi analizlerde Türkiye’nin il sınırları verisini işlemek ve harita çizimleri yapmak amacıyla **sf** paketi tercih edilmiştir \[5\]. Ayrıca, modelleme ve doğrulama aşamalarında **caret** paketi kullanılarak farklı makine öğrenmesi algoritmalarının uygulanması ve karşılaştırılması sağlanmıştır; bu kapsamda özellikle **randomForest** paketinden faydalanılmıştır \[6,7\]. Tüm bu araçlar ve yöntemler, çalışmanın şeffaf ve yeniden üretilebilir olmasını temin etmektedir.\
+Veri analizi ve görselleştirme işlemleri **R** dili kullanılarak ve **Quarto** ile tekrarlanabilir bir raporlama formatında yürütülmüştür \[2\]. Veri manipülasyonu ve grafik çizimleri için geniş ölçüde **tidyverse** paket ailesinden yararlanılmıştır \[3\]. Özellikle **dplyr** ve **readr** ile veri işlemleri gerçekleştirilirken, görselleştirmeler için **ggplot2** kullanılmıştır \[4\]. Coğrafi analizlerde Türkiye’nin il sınırları verisini işlemek ve harita çizimleri yapmak amacıyla **sf** paketi tercih edilmiştir \[5\]. Ayrıca, modelleme ve doğrulama aşamalarında **caret** paketi kullanılarak farklı makine öğrenmesi algoritmalarının uygulanması ve karşılaştırılması sağlanmıştır; bu kapsamda özellikle **randomForest** paketinden faydalanılmıştır \[6,7\]. Tüm bu araçlar ve yöntemler, çalışmanın şeffaf ve yeniden üretilebilir olmasını temin etmektedir.\
 \
 \[1\] bahridgr. (2025). *Used Car Prices in Türkiye 2025 (EN/TR)* \[Data set\]. Kaggle.\
 <https://www.kaggle.com/datasets/bahridgr/used-car-prices-in-trkiye-2025-entr>
@@ -511,7 +511,7 @@ ggplot(fuel_prices, aes(x = reorder(fuel_type, median_price), y = median_price, 
 
 ```
 
-Yakıt tipi, bir aracın kullanım maliyetini ve teknolojisini belirleyen önemli bir özelliktir ve ikinci el piyasa değerine de yansımaktadır. Veri setimizde araçlar **Benzin**, **Dizel**, **LPG** (sadece LPG ya da LPG & Benzin) ve **Hibrit/Elektrik** yakıt seçeneklerine sahiptir. Yaptığımız analiz, yakıt tipine göre medyan fiyatlarda belirgin farklar olduğunu ortaya koymuştur. En yüksek medyan fiyata sahip grup, beklendiği üzere **elektrikli araçlar** olmuştur: Elektrikli araçların ortalama ikinci el fiyatı yaklaşık 3.94 milyon TL ile diğer tüm grupları açık ara geride bırakmaktadır. Bunu, nispeten yeni teknolojiye sahip **hibrit araçlar** takip etmektedir; hibrit araçların medyan fiyatı yaklaşık 1.27 milyon TL civarındadır. **Benzinli** araçlar için medyan fiyat yaklaşık 825 bin TL olarak bulunurken, **dizel** araçların medyanı yaklaşık 610 bin TL ile biraz daha düşük çıkmıştır. En düşük medyan fiyat ise **LPG’li** (ya da LPG dönüşümü yapılmış) araçlardadır; bu grupta medyan fiyat yaklaşık olarak 360 bin TL seviyesindedir.
+Yakıt tipi, bir aracın kullanım maliyetini ve teknolojisini belirleyen önemli bir özelliktir ve ikinci el piyasa değerine de yansımaktadır. Veri setimizde araçlar **Benzin**, **Dizel**, **LPG** (sadece LPG ya da LPG & Benzin) ve **Hibrit/Elektrik** yakıt seçeneklerine sahiptir. Yaptığımız analiz, yakıt tipine göre medyan fiyatlarda belirgin farklar olduğunu ortaya koymuştur. En yüksek medyan fiyata sahip grup, beklendiği üzere **elektrikli araçlar** olmuştur: Elektrikli araçların ortalama ikinci el fiyatı yaklaşık 4.19 milyon TL ile diğer tüm grupları açık ara geride bırakmaktadır. Bunu, nispeten yeni teknolojiye sahip **hibrit araçlar** takip etmektedir; hibrit araçların medyan fiyatı yaklaşık 1.27 milyon TL civarındadır. **Benzinli** araçlar için medyan fiyat yaklaşık 825 bin TL olarak bulunurken, **dizel** araçların medyanı yaklaşık 610 bin TL ile biraz daha düşük çıkmıştır. En düşük medyan fiyat ise **LPG’li** (ya da LPG dönüşümü yapılmış) araçlardadır; bu grupta medyan fiyat yaklaşık olarak 360 bin TL seviyesindedir.
 
 Bu bulgular, farklı yakıt türlerinin ikinci el piyasada farklı segmentlere karşılık geldiğini göstermektedir. **Elektrikli araçlar**, genellikle premium fiyatlı yeni teknoloji araçlar olduğundan ikinci elde de yüksek fiyatlanmaktadır. **Hibritler** de benzer şekilde yeni ve pahalı araçlardır. **Benzinli** ve **Dizel** araçlar ise çok daha geniş bir yelpazeye yayılmıştır; ekonomik küçük arabalardan lüks segment araçlara kadar benzinli/dizel birçok model bulunduğundan, medyan değerleri orta sıralarda yer almaktadır. Dizel araçların medyanının benzinli araçlardan düşük çıkması, dizel araçların genelde yüksek kilometre yapmış veya ticari amaçla kullanılmış olmasıyla ilişkilendirilebilir. Oysa 2000’lerde yapılan bir çalışmada, dizel motorun ikinci el fiyatı artıran bir unsur olduğu belirtilmiştir \[8\]. Erdem ve Şentürk (2009) o dönemde dizel motorlu olmanın fiyatı pozitif etkilediğini bulmuşlardır; muhtemelen yakıt ekonomisi nedeniyle dizel araçlara talep güçlüydü.\
 2025’e gelindiğinde ise benzinli motorlar teknolojik olarak verimli hale gelmiş, dizel motorlar emisyon regülasyonlarıyla pazar payı kaybetmeye başlamıştır. Bu değişim, dizel araçların ikinci el değerine de yansımış olabilir. Yine de, yakıt tipi genel olarak fiyatı etkileyen önemli bir faktördür ve farklı yakıt türleri arasında ciddi fiyat medyan farkları oluşmaktadır.\
@@ -766,6 +766,7 @@ tahmin_df <- test_set %>%
 ```{r, message=FALSE, warning=FALSE}
 library(dplyr)
 library(ggplot2)
+library(viridis)
 
 # tahmin_df ve test_set için ID ekleme
 tahmin_df <- tahmin_df %>%
@@ -804,16 +805,23 @@ sehir_fahis <- ilan_fahis_detay %>%
   count(city, sort = TRUE) %>%
   top_n(10, wt = n)
 
-
-# Görselleştirme (örnek)
-ggplot(marka_fahis, aes(x = reorder(brand, n), y = n)) +
-  geom_col(fill = "steelblue") +
+ggplot(marka_fahis, aes(x = reorder(brand, n), y = n, fill = n)) +
+  geom_col(width = 0.7) +
+  geom_text(aes(label = n), hjust = -0.3, size = 4, fontface = "bold", color = "black") +
   coord_flip() +
-  labs(title = "En Çok Fahiş Fiyatlı İlan Bulunan Markalar", x = "Marka", y = "İlan Sayısı")
-
-ggplot(ilan_fahis_detay, aes(x = hata_orani)) +
-  geom_histogram(fill = "tomato", bins = 30) +
-  labs(title = "Fahiş İlanlarda Hata Oranı Dağılımı", x = "% Hata", y = "İlan Sayısı")
+  scale_fill_viridis_c(option = "D", direction = -1) +
+  labs(
+    title = "En Çok Fahiş Fiyatlı İlan Bulunan Markalar",
+    x = "Marka",
+    y = "Fahiş İlan Sayısı"
+  ) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.2))) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold", size = 15, color = "#2b2b2b"),
+    axis.text = element_text(face = "bold"),
+    legend.position = "none"
+  )
 
 ```
 
@@ -825,7 +833,23 @@ Peugeot, Hyundai ve BMW gibi diğer markalar da fahiş fiyatlı ilanlar açısı
 
 Sonuç olarak, elde edilen bulgular, ikinci el araç piyasasında bazı markalarda piyasa değerinin üzerinde fiyatlandırmaların yoğunlaştığını ortaya koymakta ve bu durumun marka bazında farklılık gösterdiğine işaret etmektedir.
 
-Grafik Yorumu – Fahiş İlanlarda Hata Oranı Dağılımı
+```{r, message=FALSE, warning=FALSE}
+ggplot(ilan_fahis_detay, aes(x = hata_orani)) +
+  geom_histogram(fill = "#ff6f61", bins = 30, color = "white") +
+  labs(
+    title = "Fahiş Fiyatlı İlanlarda Hata Oranı Dağılımı",
+    x = "Tahmin Hatası (%)",
+    y = "İlan Sayısı"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold", size = 15, color = "#2b2b2b"),
+    axis.text = element_text(face = "bold")
+  )
+
+```
+
+Fahiş İlanlarda Hata Oranı Dağılımı
 
 %30–50 aralığında hata oranına sahip ilanlar en yoğun grubu oluşturmaktadır. Bu durum, piyasadaki fahiş fiyatlı ilanların büyük çoğunluğunun, piyasa değerine kıyasla %30 ila %50 daha yüksek fiyatlandırıldığını göstermektedir.
 
@@ -838,59 +862,87 @@ Grafik Yorumu – Fahiş İlanlarda Hata Oranı Dağılımı
 ### Satıcı Türüne Göre Fahiş Fiyat Eğilimi
 
 ```{r, message=FALSE, warning=FALSE}
-library(dplyr)
+
 library(ggplot2)
+library(dplyr)
+library(scales)
+library(tidyr)
 
-# Fahiş fiyatlı ilanları hata oranı > 30 olarak kabul et
-fahis_analiz <- tahmin_df %>%
-  mutate(price_log = log10(gercek_fiyat)) %>%
-  filter(hata_orani > 30) %>%
-  left_join(cars %>% 
-              mutate(price_log = log10(price_clean)) %>% 
-              select(price_log, seller_type),
-            by = "price_log")
-
-# Toplam ve fahiş ilan sayısını hesapla
-fahis_oran_df <- cars %>%
-  count(seller_type, name = "toplam") %>%
-  left_join(
-    fahis_analiz %>%
-      count(seller_type, name = "fahis"),
+# Her satıcı tipi için fahiş ilan sayısı
+fahis_oran_df <- ilan_fahis_detay %>%
+  count(seller_type, name = "fahis") %>%
+  right_join(
+    cars %>% count(seller_type, name = "toplam"),
     by = "seller_type"
   ) %>%
+  replace_na(list(fahis = 0)) %>%
   mutate(
-    fahis = replace_na(fahis, 0),
-    oran = round((fahis / toplam) * 100, 1)
-  )
+    oran = round((fahis / toplam) * 100, 1),                     # Oranı hesapla
+    label = paste0(seller_type, ": ", oran, "%")                 # Etiket oluştur
+  ) %>%
+  filter(!is.na(seller_type) & oran > 0)                         # Yalnızca oranı > 0 olanlar
 
-# Görselleştir
-ggplot(fahis_oran_df, aes(x = reorder(seller_type, oran), y = oran)) +
-  geom_col(fill = "darkred") +
-  coord_flip() +
+# Donut grafik çizimi
+ggplot(fahis_oran_df, aes(x = 2, y = oran, fill = seller_type)) +
+  geom_col(width = 1, color = "white", size = 1.2) +
+  coord_polar(theta = "y") +
+  xlim(0.5, 2.5) +  # Donut efekti için
+  geom_text(
+    aes(label = label),
+    position = position_stack(vjust = 0.5),
+    size = 4.5,
+    fontface = "bold",
+    color = "black"
+  ) +
+  scale_fill_brewer(palette = "Set3") +
   labs(
     title = "Satıcı Tipine Göre Fahiş Fiyatlı İlan Oranı",
-    x = "Satıcı Tipi",
-    y = "Fahiş İlan Oranı (%)"
+    fill = "Satıcı Tipi"
   ) +
-  theme_minimal()
+  theme_void(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    legend.position = "none"
+  )
+
+
+
 
 
 ```
 
-Fiyatlar Tahmin Modeline Uygun: Authorized Dealer ilanları, genellikle profesyonel fiyatlama stratejileri ile yayımlandığından tahmin modelimizin öngördüğü fiyatlara oldukça yakındır. Bu durum, bu grubun fahiş fiyatlı ilan üretme eğiliminin düşük olduğunu göstermektedir.
+Bu grafik, ikinci el araç ilanlarında **tahmin edilen piyasa değerine göre %30’dan fazla fiyat farkı** içeren ilanların satıcı türlerine göre dağılımını göstermektedir.
+
+**En yüksek oran %21.3 ile Private Seller (Bireysel Satıcılar)** kategorisine aittir. Bu durum, bireysel satıcıların piyasa fiyatının üzerinde fiyat belirlemeye daha yatkın olduklarını göstermektedir. Muhtemelen piyasa bilgisine profesyonel satıcılar kadar hâkim olmamaları veya duygusal fiyatlandırma yapmaları bu sonucu doğurmuş olabilir.
+
+**İkinci sırada %11.3 ile “Dealer” (Galerici)** tipi yer alır. Bu oran, galerilerin de belli ölçüde fahiş fiyatlı ilanlar yayınladığını ortaya koyar. Ancak yine de bireysel satıcılara kıyasla bu oran daha düşüktür.
+
+**Authorized Dealer (Yetkili Satıcı)** ilanlarında fahiş fiyat oranı %0 çıkmıştır. Bu grup genellikle kurumsal yapıda olup fiyatlama stratejileri daha gerçekçi ve modele uygun olduğu için, tahmin edilen değerle yakınlık göstermektedir.
+
+**Unknown** kategorisinde de oran sıfırdır; bu satıcı tipi çok az sayıda ilana sahiptir ya da veride eksik bilgi mevcuttur.
 
 ## Sonuçlar
 
 # Sonuçlar ve Ana Çıkarımlar
 
-Bu proje kapsamında gerçekleştirilen analizler, **Türkiye’deki ikinci el otomobil piyasasının** veriye dayalı kapsamlı bir fotoğrafını sunmuştur. Keşifsel veri analizi aşaması, **marka, yakıt türü, vites tipi, bölge** gibi etmenlerin ikinci el fiyatlar üzerinde belirgin etkileri olduğunu nicel bulgularla ortaya koymuştur. Örneğin, lüks segment bir markanın aracının, ekonomik segment bir aracın onlarca katına varan fiyatlara ulaşabildiği; otomatik vites, hibrit/elektrik gibi özelliklerin yüksek fiyat segmentinde yoğunlaştığı gösterilmiştir. **Trend analizleri** ile yıllar içindeki fiyat değişimleri ve araç yaşının getirdiği değer kaybı somut şekilde görülmüş; bunun yanında Türkiye’ye özgü piyasa hareketleri (örneğin yüksek enflasyon döneminde ikinci el araçların değer kazanması) tespit edilmiştir. Tüm bu analizlerden elde edilen içgörüler bir araya getirildiğinde, ikinci el otomobil piyasasında fiyat dinamiklerinin büyük ölçüde rasyonel ve öngörülebilir faktörlere dayandığı sonucuna varılabilir.
+Bu proje kapsamında gerçekleştirilen analizler, **Türkiye’deki ikinci el otomobil piyasasının** veriye dayalı kapsamlı bir fotoğrafını sunmuştur. Keşifsel veri analizi aşaması, **marka, yakıt türü, vites tipi, bölge** gibi etmenlerin ikinci el fiyatlar üzerinde belirgin etkileri olduğunu nicel bulgularla ortaya koymuştur. Örneğin, lüks segment bir markanın aracının, ekonomik segment bir aracın onlarca katına varan fiyatlara ulaşabildiği; otomatik vites, hibrit/elektrik gibi özelliklerin yüksek fiyat segmentinde yoğunlaştığı gösterilmiştir.
 
-Proje kapsamında geliştirilen **fiyat tahmin modeli**, eldeki veriler kullanılarak bir aracın makul ikinci el değerinin hesaplanabileceğini göstermiştir. Elde edilen model yüksek doğrulukla tahminler üretmiş ve en önemli fiyat belirleyicilerinin araç yaşı, marka ve kullanım miktarı olduğunu teyit etmiştir. Bu sonuç, klasik otomotiv değeri kavramlarıyla örtüşmektedir: Bir aracın değeri, onun ne kadar yeni olduğu, ne kadar yol yaptığı ve hangi marka imajına sahip olduğu ile yakından ilgilidir. Model, veriye dayalı bir **değerleme aracı** olarak kullanılabilecek niteliktedir. Bu yönüyle çalışma, ikinci el araç piyasasında **veri bilimi uygulamalarının potansiyelini** ortaya koymaktadır. Örneğin, online ilan platformları bu tür modelleri entegre ederek satıcılara otomatik fiyat önerileri sunabilir, alıcılara ise bir aracın istenen fiyatının piyasa geneline göre yüksek mi düşük mü olduğunu gösterebilir.
+**Fiyat Belirleyicileri**: İkinci el araç fiyatlarını etkileyen başlıca unsurlar; araç markası, yaşı, motor gücü, kilometre bilgisi, yakıt ve vites tipi olarak belirlenmiştir. Bu değişkenlerin fiyat üzerindeki etkileri hem keşifsel analizlerle hem de regresyon modeli aracılığıyla doğrulanmıştır.
+
+**Bölgesel Farklılıklar**: Türkiye genelinde iller arasında ikinci el araç fiyatlarında kayda değer farklılıklar gözlemlenmiştir. İstanbul, Muğla ve Antalya gibi illerde hem medyan hem de ortalama fiyatlar oldukça yüksek seviyelerde seyrederken; İç Anadolu ve Karadeniz’in bazı illerinde fiyatlar görece daha düşüktür. Turistik talep, demografik yapı ve alım gücü bu farklılıkları şekillendiren başlıca faktörlerdir.
+
+**Fahiş Fiyatlı İlanlar**: Tahmin edilen piyasa değerinin %30 ve üzerinde fiyat farkı içeren ilanlar "fahiş fiyatlı" olarak değerlendirilmiş ve bu kapsama giren ilanların marka, satıcı türü ve şehir dağılımları incelenmiştir. Özellikle Renault, Fiat ve Opel gibi yaygın markalarda bu tür fiyatlamalara daha sık rastlanmıştır.
+
+**Trend analizleri** ile yıllar içindeki fiyat değişimleri ve araç yaşının getirdiği değer kaybı somut şekilde görülmüş; bunun yanında Türkiye’ye özgü piyasa hareketleri (örneğin yüksek enflasyon döneminde ikinci el araçların değer kazanması) tespit edilmiştir. Tüm bu analizlerden elde edilen içgörüler bir araya getirildiğinde, ikinci el otomobil piyasasında fiyat dinamiklerinin büyük ölçüde rasyonel ve öngörülebilir faktörlere dayandığı sonucuna varılabilir.
+
+**Satıcı Tipi Analizi**: Fahiş fiyatlı ilanların satıcı bazlı dağılımı incelendiğinde, bireysel (private) satıcıların bu kategoride en yüksek orana sahip olduğu tespit edilmiştir (%21,3). Yetkili satıcılarda (authorized dealer) ise fahiş fiyat oranı gözlemlenmemiştir. Bu durum, fiyatlandırma sürecinde kurumsal yapının disiplin ve piyasa bilgisine dayalı kararlar alma eğilimini yansıtmaktadır.
+
+**Modelleme Performansı**: Random Forest algoritması kullanılarak geliştirilen fiyat tahmin modeli, test verisi üzerinde yaklaşık %17,8 oranında bir ortalama hata ile yüksek doğrulukta tahminler üretmiştir. Bu sonuç, ikinci el araç fiyatlarının öngörülebilir yapıda olduğunu ve veri madenciliği yöntemleriyle başarılı biçimde modellenebileceğini göstermektedir.
+
+**Politika ve Uygulama Önerileri**: Elde edilen model, online ilan platformlarında dinamik fiyat öneri sistemleri geliştirmek ve kullanıcıları gerçekçi fiyatlandırma konusunda yönlendirmek amacıyla entegre edilebilir. Ayrıca tüketicilerin, özellikle fahiş fiyatlı ilanlardan korunması adına medyan ve tahmin değerlerine dayalı filtreleme sistemleri oluşturulabilir.
 
 **Türkiye bağlamında**, elde edilen bulgular piyasanın mevcut durumunu anlamamıza yardımcı olmasının yanı sıra, son yıllardaki olağanüstü koşulların etkisini de vurgulamaktadır. Yüksek enflasyon ve kur dalgalanmaları gibi makro değişkenler, ikinci el otomobil fiyatlarını alışılmadık biçimde etkilemiştir. Bu çalışma, bu etkinin veriyle izlenebileceğini ve gerektiğinde model tahminlerine yedirilebileceğini göstermiştir. İleride benzer bir analiz, örneğin yıllık bazda tekrarlandığında, fiyat trendlerindeki değişimleri (enflasyonun durulması halinde ikinci el fiyatların normal amortisman eğrisine dönüp dönmediği gibi) ortaya koyabilecektir. Dolayısıyla, çalışmamız bir **temel hat** oluşturmakta; bundan sonra piyasada meydana gelebilecek değişimleri gözlemlemek için de bir referans noktası sağlamaktadır.
 
-Analizin ve modelin bazı kısıtları da bulunmaktadır. Veri seti her ne kadar geniş kapsamlı olsa da, **araçların kondisyonu** gibi sübjektif unsurlar veya **ilan pazarlık payı** gibi faktörler modelde yer almamaktadır. İkinci el piyasada, araçların hasar durumu, bakımları, lastik durumu, renk tercihleri veya aksesuarları gibi fiyatı etkileyebilecek detaylar da bulunmaktadır. Bu çalışmada sadece ilanlarda yapısal olarak yer alan bilgiler kullanılabilmiştir. Gelecekte, ilan açıklama metinlerinin metin madenciliğiyle analiz edilmesi veya ekspertiz raporlarının veri setine dahil edilmesi gibi yöntemlerle modele yeni değişkenler eklenerek tahmin performansı daha da artırılabilir. Ayrıca, burada tek bir zaman diliminin (2025 başı) verisi kullanılmışken, **zamana yayılı veriler** ile bir zaman serisi analizi yapılarak piyasa dalgalanmaları ve mevsimsellik etkileri incelenebilir. Bu sayede, örneğin yılın belirli aylarında fiyat oynaklığı olup olmadığı veya ekonomik döngülerin etkisi daha iyi anlaşılabilir.
-
-Sonuç olarak, **“Türkiye’deki İkinci El Araç İlanları Üzerine Veri Analizi”** başlıklı bu çalışma, hem kapsamlı bir keşifsel analiz hem de başarılı bir öngörü modeli ortaya koymuştur. Çalışma bulguları, ekonomik teori (örneğin hedonik fiyatlama) ile piyasa gerçeklerinin kesiştiği noktaları netleştirmektedir. Araç değerini belirleyen temel unsurlar, Türkiye piyasasının verileriyle doğrulanmış; ayrıca piyasaya özgü anomali ve eğilimler saptanmıştır. Elde edilen içgörüler, ikinci el araç alım-satımında daha şeffaf ve bilinçli kararlar alınmasına katkı sunabilir. Son olarak, bu projenin **Quarto ile tekrarlanabilir** bir rapor formatında sunulması, benzer verilerin güncellenerek analizlerin yinelenmesine imkân tanımaktadır. Bu da, gelecekte ortaya çıkabilecek yeni trendlerin ve değişimlerin kolaylıkla izlenebileceği anlamına gelir. Böylece, veri bilimi yöntemiyle sürekli güncellenen bir **ikinci el araç piyasa barometresi** oluşturmak mümkün olabilecektir
+Sonuç olarak, **Türkiye’deki İkinci El Araç İlanları Üzerine Veri Analizi** başlıklı bu çalışma, hem kapsamlı bir keşifsel analiz hem de başarılı bir öngörü modeli ortaya koymuştur. Çalışma bulguları, ekonomik teori ile piyasa gerçeklerinin kesiştiği noktaları netleştirmektedir. Araç değerini belirleyen temel unsurlar, Türkiye piyasasının verileriyle doğrulanmış; ayrıca piyasaya özgü anomali ve eğilimler saptanmıştır. Elde edilen içgörüler, ikinci el araç alım-satımında daha şeffaf ve bilinçli kararlar alınmasına katkı sunabilir. Son olarak, bu projenin **Quarto ile tekrarlanabilir** bir rapor formatında sunulması, benzer verilerin güncellenerek analizlerin yinelenmesine imkân tanımaktadır. Bu da, gelecekte ortaya çıkabilecek yeni trendlerin ve değişimlerin kolaylıkla izlenebileceği anlamına gelir. Böylece, veri bilimi yöntemiyle sürekli güncellenen bir **ikinci el araç piyasa barometresi** oluşturmak mümkün olabilecektir
 
 Not: Bu raporun hazırlanması sürecinde, metnin oluşturulmasında ve dil kontrolünde OpenAI tarafından geliştirilen ChatGPT aracından faydalanılmıştır. Üretilen içerik ekip üyelerince dikkatlice incelenmiş, gerekli düzeltmeler yapılmış ve akademik etik ilkelerine uygunluk sağlanmıştır. Bu yapay zekâ kullanımına dair şeffaflık, projenin etik duruşunun bir parçası olarak burada beyan edilmektedir.
