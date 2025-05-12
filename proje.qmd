@@ -547,7 +547,7 @@ Bu bulgular, farklı yakıt türlerinin ikinci el piyasada farklı kullanıcı s
 Sonuç olarak, yakıt tipi, araç değerini etkileyen yapısal ve dinamik faktörlerle birlikte değerlendirilmesi gereken önemli bir değişkendir. İkinci el piyasa analizlerinde, fiyat tahmini veya segmentasyon çalışmalarında bu unsurun dikkate alınması daha sağlıklı öngörüler sunacaktır.
 
 ::: {.reference}
-**[8]** Erdem, C., & Şentürk, İ. (2009). *A hedonic analysis of used car prices in Turkey*. International Journal of Economic Perspectives, 3(2), 141–149.
+\[8\].Erdem, C., & Şentürk, İ. (2009). *A hedonic analysis of used car prices in Turkey*. International Journal of Economic Perspectives, 3(2), 141–149.
 :::
 
 
@@ -948,8 +948,6 @@ Bu grafik, ikinci el araç ilanlarında **tahmin edilen piyasa değerine göre %
 **Authorized Dealer (Yetkili Satıcı)** ilanlarında fahiş fiyat oranı %0 çıkmıştır. Bu grup genellikle kurumsal yapıda olup fiyatlama stratejileri daha gerçekçi ve modele uygun olduğu için, tahmin edilen değerle yakınlık göstermektedir.
 
 **Unknown** kategorisinde de oran sıfırdır; bu satıcı tipi çok az sayıda ilana sahiptir ya da veride eksik bilgi mevcuttur.
-
-## Sonuçlar
 
 # Sonuçlar ve Ana Çıkarımlar
 
