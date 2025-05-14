@@ -4,6 +4,14 @@ number-sections: true
 code-fold: true
 ---
 
+# Sunumu Görüntüle
+
+::: slide-embed
+<iframe src="https://docs.google.com/presentation/d/1K5jvzzyS4ssv9rv1J6wAxxHaMfarLY7z5Hp_dvHTf3Q/edit?usp=sharing" width="100%" height="500" frameborder="0" allowfullscreen>
+
+</iframe>
+:::
+
 ![](images/484681339013201.gif)
 
 **Proje sayfamıza hoş geldiniz.**
@@ -18,7 +26,7 @@ Bu çalışma, 2025 yılı Türkiye ikinci el otomobil pazarı verilerini kullan
 
 Bu projede kullanılan veri seti, Türkiye’deki popüler bir çevrimiçi araç ilan platformundan 2025 yılında web kazıma yoluyla elde edilmiş kapsamlı ikinci el otomobil ilan verilerini içermektedir \[1\]. Veri setinde farklı marka ve modellerdeki araçların; üretim yılı, kilometre bilgisi, satış fiyatı, yakıt tipi (benzin, dizel, LPG, hibrit, elektrik), vites tipi (manuel, otomatik), bulunduğu şehir (il) ve benzeri özellikleri kayıt altına alınmıştır. Toplamda on binlerce ilana ait verinin yer aldığı bu veri seti, Türkiye ikinci el otomobil piyasasının güncel durumunu yansıtacak şekilde zengin ve çeşitli bir örneklem sunmaktadır. Analiz için veri Kaggle üzerinden temin edilip (bahridgr, 2025), uygun biçimde temizlenerek R programlama diline aktarılmıştır. Veri ön işleme aşamasında eksik ya da tutarsız gözlemler elenmiş, kategorik değişkenler analiz amaçlarına uygun olarak yeniden düzenlenmiştir. Örneğin, araç yaşı üretim yılından hesaplanmış, fiyatlar gerekli durumlarda aşırı uç değerlerin etkisini azaltmak için logaritmik dönüşümle incelenmiştir.
 
-Veri analizi ve görselleştirme işlemleri **R** dili kullanılarak ve **Quarto** ile tekrarlanabilir bir raporlama formatında yürütülmüştür \[2\]. Veri manipülasyonu ve grafik çizimleri için geniş ölçüde **tidyverse** paket ailesinden yararlanılmıştır \[3\]. Özellikle **dplyr** ve **readr** ile veri işlemleri gerçekleştirilirken, görselleştirmeler için **ggplot2** kullanılmıştır \[4\]. Coğrafi analizlerde Türkiye’nin il sınırları verisini işlemek ve harita çizimleri yapmak amacıyla **sf** paketi tercih edilmiştir \[5\]. Ayrıca, modelleme ve doğrulama aşamalarında **caret** paketi kullanılarak farklı makine öğrenmesi algoritmalarının uygulanması ve karşılaştırılması sağlanmıştır; bu kapsamda özellikle **randomForest** paketinden faydalanılmıştır \[6,7\]. Tüm bu araçlar ve yöntemler, çalışmanın şeffaf ve yeniden üretilebilir olmasını temin etmektedir.\
+Veri analizi ve görselleştirme işlemleri **R** dili kullanılarak ve **Quarto** ile tekrarlanabilir bir raporlama formatında yürütülmüştür \[2\]. Veri manipülasyonu ve grafik çizimleri için geniş ölçüde **tidyverse** paket ailesinden yararlanılmıştır \[3\]. Özellikle **dplyr** ve **readr** ile veri işlemleri gerçekleştirilirken, görselleştirmeler için **ggplot2** kullanılmıştır \[4\]. Coğrafi analizlerde Türkiye’nin il sınırları verisini işlemek ve harita çizimleri yapmak amacıyla **sf** paketi tercih edilmiştir \[5\]. Farklı makine öğrenmesi algoritmalarının uygulanması ve karşılaştırılması sağlanmıştır özellikle **randomForest** paketinden faydalanılmıştır \[6,7\]. Tüm bu araçlar ve yöntemler, çalışmanın şeffaf ve yeniden üretilebilir olmasını temin etmektedir.\
 \
 \[1\] bahridgr. (2025). *Used Car Prices in Türkiye 2025 (EN/TR)* \[Data set\]. Kaggle.\
 <https://www.kaggle.com/datasets/bahridgr/used-car-prices-in-trkiye-2025-entr>
@@ -199,9 +207,69 @@ cars %>%
 
 ```
 
+### Eksik Verilerin Doldurulması
+
+Veri setinde eksik gözlemler; değişken türüne ve bağlamına göre sistematik biçimde doldurulmuştur. Sayısal değişkenlerde (örneğin motor gücü, kilometre, model yılı) eksikler önce medyan değerlerle, ardından marka-model bazlı grup ortalamalarıyla tamamlanmıştır. Kategorik değişkenlerde ise eksik değerler, değişkenin en sık görülen kategorisi (mod) ile doldurulmuştur.
+
+Ayrıca, metin içinde gömülü olan sayısal bilgiler ayrıştırılarak analiz edilebilir biçime dönüştürülmüş; yıl bilgisi eksik olan araçlar, ait oldukları marka-model gruplarının ortalama yılı ile tahmin edilmiştir. Kritik öneme sahip değişkenlerde hâlâ eksik bilgi varsa ilgili satırlar temizlenmiştir.
+
+Bu süreçte, eksik verilerin görselleştirilmesi için **gg_miss_var()** fonksiyonu kullanılarak genel boşluk dağılımı kontrol edilmiştir.
+
 # Analiz
 
-Veri hazırlandıktan sonra, proje kapsamında çeşitli analiz adımları gerçekleştirilmiştir. İlk olarak **Keşifsel Veri Analizi (Exploratory Data Analysis - EDA)** ile verinin genel özellikleri ve önemli paternleri incelenmiştir. EDA kapsamında, ortalama fiyatların marka bazında dağılımı, farklı vites ve yakıt tiplerinde fiyat farklılıkları, şehirler bazında bölgesel fiyat değişimleri gibi sorular görselleştirmelerle ele alınmıştır. Ardından **Trend Analizi** başlığı altında, zaman boyutunda (piyasa eğilimleri ve araç yaşı etkisi gibi) fiyat değişimleri değerlendirilmiştir. Sonraki adımda, **Model Uyarlama** bölümünde ikinci el araç fiyatlarını öngörmeye yönelik istatistiksel bir model kurulmuş; bu model ile verideki ilişkilerin nicel olarak ifade edilmesi ve yeni gözlemler için fiyat tahminlerinin elde edilmesi amaçlanmıştır. Modelin başarı durumu **Modelin Performansı** kısmında ölçütlerle tartışılmıştır. Son olarak, **Sonuçlar** kısmında analiz bulguları özetlenmiş ve genel çıkarımlar sunulmuştur. Aşağıda, bu analiz adımlarının detayları sırasıyla ele alınmaktadır.
+Veri hazırlandıktan sonra, proje kapsamında çeşitli analiz adımları gerçekleştirilmiştir.
+
+**Keşifsel Veri Analizi**
+
+İlk olarak **Keşifsel Veri Analizi (EDA)** ile verinin genel özellikleri ve önemli paternleri incelenmiştir.\
+EDA kapsamında aşağıdaki başlıklara odaklanılmıştır:
+
+-   Ortalama fiyatların marka bazında dağılımı\
+-   Farklı vites ve yakıt tiplerinde fiyat farklılıkları\
+-   Şehirler bazında bölgesel fiyat değişimleri
+
+Bu analizler, uygun grafikler ve tablolar ile desteklenerek görsel olarak sunulmuştur.
+
+**Trend Analizi**
+
+Ardından **Trend Analizi** başlığı altında zaman boyutunda fiyat değişimleri değerlendirilmiştir.\
+Bu bölümde:
+
+-   Piyasa eğilimleri\
+-   Araç yaşı ile fiyat arasındaki ilişki
+
+gibi zamanla değişen dinamikler analiz edilmiştir.
+
+**Model Uyarlama**
+
+Sonraki adımda **Model Uyarlama** süreci gerçekleştirilmiştir.\
+Bu bölümde:
+
+-   İkinci el araç fiyatlarını öngörmeye yönelik istatistiksel bir model kurulmuştur.\
+-   Model, verideki ilişkileri **nicel olarak** ifade etmeyi ve yeni gözlemler için fiyat tahminleri üretmeyi amaçlamaktadır.
+
+Modelde kullanılan bağımlı ve bağımsız değişkenler belirlenerek analiz süreci yapılandırılmıştır.
+
+**Modelin Performansı**
+
+Kurulan modelin başarı durumu, aşağıdaki ölçütlerle değerlendirilmiş ve tartışılmıştır:
+
+-   RMSE (Root Mean Square Error)\
+-   MAE (Mean Absolute Error)\
+-   R² (Determinasyon Katsayısı)
+
+Elde edilen değerler üzerinden modelin doğruluk seviyesi analiz edilmiştir.
+
+**Sonuçlar**
+
+Son olarak, **Sonuçlar** kısmında analiz bulguları özetlenmiş ve genel çıkarımlar sunulmuştur.\
+Bu çıkarımlar doğrultusunda:
+
+-   Fiyatları etkileyen temel faktörler belirlenmiş\
+-   Bölgesel ve özellik bazlı fiyat farkları gözlemlenmiş\
+-   Kurulan modelin, gerçek piyasa koşullarına yakın sonuçlar ürettiği görülmüştür
+
+Yapılan tüm bu analizler, ikinci el araç pazarına yönelik veri temelli kararlar alınmasına katkı sunmaktadır.
 
 ## Keşifsel Veri Analizi
 
@@ -265,10 +333,10 @@ Aşağıdaki grafik, Türkiye ikinci el otomobil piyasasında en çok ilana sahi
 
 Elde edilen bulgulara göre:
 
-- **Mercedes-Benz**, yaklaşık **2.939.797 TL** ile açık ara en yüksek ortalama fiyata sahip markadır. Bu değer, markanın premium segmentteki konumunu ve genellikle yüksek donanım seviyesine sahip araçlar sunmasını yansıtmaktadır.
-- **Audi** ve **BMW**, sırasıyla **1.668.136 TL** ve **1.637.546 TL** ortalama fiyatlarıyla Mercedes-Benz’i takip etmektedir. Bu üç marka, ikinci el piyasasında lüks segmentte yoğunlaşmış durumdadır.
-- **Honda**, **Volkswagen** ve **Toyota** gibi markalar ise orta segmentte yer almakta olup ortalama fiyatları **700.000–900.000 TL** aralığındadır.
-- **Ford**, **Hyundai**, **Peugeot**, **Opel**, **Renault** ve **Fiat** gibi markalar, görece daha uygun fiyatlı araçlar sunmakta olup ortalama fiyatları **500.000 TL’nin altına** düşmektedir. Özellikle **Fiat**, yaklaşık **445.937 TL** ile listedeki en düşük ortalama fiyata sahip markadır.
+-   **Mercedes-Benz**, yaklaşık **2.939.797 TL** ile açık ara en yüksek ortalama fiyata sahip markadır. Bu değer, markanın premium segmentteki konumunu ve genellikle yüksek donanım seviyesine sahip araçlar sunmasını yansıtmaktadır.
+-   **Audi** ve **BMW**, sırasıyla **1.668.136 TL** ve **1.637.546 TL** ortalama fiyatlarıyla Mercedes-Benz’i takip etmektedir. Bu üç marka, ikinci el piyasasında lüks segmentte yoğunlaşmış durumdadır.
+-   **Honda**, **Volkswagen** ve **Toyota** gibi markalar ise orta segmentte yer almakta olup ortalama fiyatları **700.000–900.000 TL** aralığındadır.
+-   **Ford**, **Hyundai**, **Peugeot**, **Opel**, **Renault** ve **Fiat** gibi markalar, görece daha uygun fiyatlı araçlar sunmakta olup ortalama fiyatları **500.000 TL’nin altına** düşmektedir. Özellikle **Fiat**, yaklaşık **445.937 TL** ile listedeki en düşük ortalama fiyata sahip markadır.
 
 Bu sonuçlar, markaların konumlandığı pazar segmentlerini açıkça ortaya koymaktadır. Lüks markaların ikinci el piyasada da değerini koruduğu; buna karşın ekonomik markaların daha geniş kitlelerce erişilebilir fiyatlar sunduğu görülmektedir. Ortalama fiyatlar arasındaki büyük farklar, marka algısının ve tüketici tercihlerinin ikinci el araç piyasasına doğrudan yansıdığını göstermektedir.
 
@@ -303,6 +371,7 @@ Tüm vites tiplerinde üst uçlarda çeşitli **aykırı değerler (outlier)** g
 
 Bu bulgular, vites tipi ile ikinci el araç fiyatları arasında güçlü ve tutarlı bir ilişki olduğunu göstermektedir. Otomatik ve yarı otomatik araçlara olan yüksek talep, bu araçların daha yüksek fiyatlarla listelenmesine neden olmakta; manuel vitesli araçlar ise daha uygun fiyatlı alternatifler olarak öne çıkmaktadır.
 
+### Ortalama Fiyat Bazında İlk 15 Şehir
 
 ```{r, message=FALSE, warning=FALSE}
 
@@ -354,7 +423,9 @@ ggplot(city_top, aes(x = fct_reorder(city, mean_price), y = mean_price, fill = c
 
 
 ```
+
 ### İlk 12 Şehirde Ortalama ve Medyan Fiyat Karşılaştırması
+
 ```{r, message=FALSE, warning=FALSE}
 
 library(ggplot2)
@@ -415,18 +486,16 @@ ggplot(fiyat_ozet, aes(x = city, y = Fiyat, fill = FiyatTürü)) +
 
 ```
 
-
 Görselde ilan sayısı 40’tan fazla olan şehirler arasından ortalama fiyatı en yüksek olan ilk 12 şehir seçilerek medyan ve ortalama ikinci el araç fiyatları karşılaştırılmıştır. Görselde yer alan koyu renkli çubuklar medyan fiyatları, açık renkli çubuklar ise ortalama fiyatları temsil etmektedir.
 
 Verilere göre:
 
-- **İstanbul**, yaklaşık **1.155.000 TL** ortalama ile tüm şehirler arasında açık ara en yüksek ortalama fiyata sahiptir. Medyan fiyat ise **695.000 TL**’dir. Bu iki değer arasındaki büyük fark, İstanbul’da aşırı yüksek fiyatlı ilanların bulunduğunu ve bu ilanların ortalamayı yukarı çektiğini göstermektedir.
-- **Muğla** ve **Antalya**, sırasıyla **1.028.940 TL** ve **878.882 TL** ortalama fiyatlarla İstanbul’un ardından gelmektedir. Medyan fiyatlar ise Muğla’da **760.000 TL**, Antalya’da ise **597.500 TL** düzeyindedir. Bu durum, özellikle turistik bölgelerdeki yüksek segmentli araç ilanlarının fiyat düzeyini yukarı taşıdığını ortaya koymaktadır.
-- **Diyarbakır**, **İzmir** ve **Osmaniye** gibi şehirlerde de ortalama ve medyan fiyatlar arasında dikkate değer farklar gözlenmiştir. Bu farklar, söz konusu şehirlerde bazı ilanların olağan dışı yüksek fiyatlarla listelenmiş olabileceğini düşündürmektedir.
-- Öte yandan **Gaziantep**, **Sakarya**, **Adana** ve **Mersin** gibi şehirlerde ortalama ve medyan fiyatlar birbirine daha yakın seyretmektedir. Bu durum, fiyat dağılımının daha homojen olduğunu ve aşırı uç değerlerin etkisinin sınırlı kaldığını göstermektedir.
+-   **İstanbul**, yaklaşık **1.155.000 TL** ortalama ile tüm şehirler arasında açık ara en yüksek ortalama fiyata sahiptir. Medyan fiyat ise **695.000 TL**’dir. Bu iki değer arasındaki büyük fark, İstanbul’da aşırı yüksek fiyatlı ilanların bulunduğunu ve bu ilanların ortalamayı yukarı çektiğini göstermektedir.
+-   **Muğla** ve **Antalya**, sırasıyla **1.028.940 TL** ve **878.882 TL** ortalama fiyatlarla İstanbul’un ardından gelmektedir. Medyan fiyatlar ise Muğla’da **760.000 TL**, Antalya’da ise **597.500 TL** düzeyindedir. Bu durum, özellikle turistik bölgelerdeki yüksek segmentli araç ilanlarının fiyat düzeyini yukarı taşıdığını ortaya koymaktadır.
+-   **Diyarbakır**, **İzmir** ve **Osmaniye** gibi şehirlerde de ortalama ve medyan fiyatlar arasında dikkate değer farklar gözlenmiştir. Bu farklar, söz konusu şehirlerde bazı ilanların olağan dışı yüksek fiyatlarla listelenmiş olabileceğini düşündürmektedir.
+-   Öte yandan **Gaziantep**, **Sakarya**, **Adana** ve **Mersin** gibi şehirlerde ortalama ve medyan fiyatlar birbirine daha yakın seyretmektedir. Bu durum, fiyat dağılımının daha homojen olduğunu ve aşırı uç değerlerin etkisinin sınırlı kaldığını göstermektedir.
 
-Genel olarak, **ortalama fiyat** yüksek olsa dahi medyan değerin daha düşük kalması, veri setinde yer alan bazı ilanların aşırı fiyatlandırıldığına işaret etmektedir. Bu nedenle piyasa değerlendirmelerinde yalnızca ortalama değere odaklanmak yerine, medyan değerin de dikkate alınması daha sağlıklı bir bakış açısı sunmaktadır. Medyan değerin, veri setinin ortasındaki “tipik” değeri temsil etmesi açısından, ikinci el araç pazarında daha gerçekçi bir fiyat göstergesi olduğu söylenebilir.
-
+Genel olarak, **ortalama fiyat** yüksek olsa dahi medyan değerin daha düşük kalması, veri setinde yer alan bazı ilanların aşırı fiyatlandırıldığına işaret etmektedir. Bu nedenle piyasa değerlendirmelerinde yalnızca ortalama değere odaklanmak yerine, medyan değerin de dikkate alınması daha sağlıklı bir bakış açısı sunmaktadır. Medyan değerin, veri setinin ortasındaki tipik değeri temsil etmesi açısından, ikinci el araç pazarında daha gerçekçi bir fiyat göstergesi olduğu söylenebilir.
 
 ### Türkiye’deki illerin ortalama ikinci el araç fiyatlarının harita üzerinde gösterimi
 
@@ -534,11 +603,11 @@ Yakıt tipi, araçların teknolojik seviyesini ve kullanım maliyetlerini belirl
 
 Analiz sonuçlarına göre, yakıt türlerine göre medyan ikinci el fiyatlar şu şekilde özetlenmiştir:
 
-- **Elektrikli araçlar**, yaklaşık **4.190.000 TL** medyan fiyat ile en yüksek grubu oluşturmaktadır.
-- **Hibrit araçlar**, ortalama **1.270.000 TL** medyan değer ile ikinci sırada yer almaktadır.
-- **Benzinli araçlar** için bu değer yaklaşık **825.000 TL** seviyesindedir.
-- **Dizel araçlar**, yaklaşık **610.000 TL** ile benzinli araçlardan daha düşük bir ortalamaya sahiptir.
-- **LPG’li araçlar**, yaklaşık **360.000 TL** medyan fiyatla en düşük seviyedeki grubu temsil etmektedir.
+-   **Elektrikli araçlar**, yaklaşık **4.190.000 TL** medyan fiyat ile en yüksek grubu oluşturmaktadır.
+-   **Hibrit araçlar**, ortalama **1.270.000 TL** medyan değer ile ikinci sırada yer almaktadır.
+-   **Benzinli araçlar** için bu değer yaklaşık **825.000 TL** seviyesindedir.
+-   **Dizel araçlar**, yaklaşık **610.000 TL** ile benzinli araçlardan daha düşük bir ortalamaya sahiptir.
+-   **LPG’li araçlar**, yaklaşık **360.000 TL** medyan fiyatla en düşük seviyedeki grubu temsil etmektedir.
 
 Bu bulgular, farklı yakıt türlerinin ikinci el piyasada farklı kullanıcı segmentlerine hitap ettiğini ortaya koymaktadır. Elektrikli ve hibrit araçlar, yeni teknolojiye sahip ve daha pahalı segmentte konumlandıkları için daha yüksek fiyatlanmaktadır. Buna karşılık, benzinli ve dizel araçlar geniş bir model ve fiyat yelpazesine sahip olup orta düzeyde konumlanmaktadır. Dizel araçların medyan fiyatının görece düşük olması, bu araçların genellikle daha yüksek kilometreli veya ticari kullanım amaçlı tercih edilmesiyle açıklanabilir.
 
@@ -546,10 +615,9 @@ Bu bulgular, farklı yakıt türlerinin ikinci el piyasada farklı kullanıcı s
 
 Sonuç olarak, yakıt tipi, araç değerini etkileyen yapısal ve dinamik faktörlerle birlikte değerlendirilmesi gereken önemli bir değişkendir. İkinci el piyasa analizlerinde, fiyat tahmini veya segmentasyon çalışmalarında bu unsurun dikkate alınması daha sağlıklı öngörüler sunacaktır.
 
-::: {.reference}
+::: reference
 \[8\].Erdem, C., & Şentürk, İ. (2009). *A hedonic analysis of used car prices in Turkey*. International Journal of Economic Perspectives, 3(2), 141–149.
 :::
-
 
 ## Trend Analizi
 
@@ -621,16 +689,15 @@ ggplot(cars_filtered, aes(x = mileage_clean, y = price_clean)) +
 
 Yukarıdaki grafik, araçların kilometresi ile satış fiyatı arasındaki ilişkiyi yansıtmaktadır. Gözlemler doğrultusunda şu çıkarımlar yapılabilir:
 
-- Genel eğilim **negatif yönlü bir korelasyonu** işaret etmektedir. Kilometre arttıkça araç fiyatlarının azaldığı gözlenmektedir.
-- Özellikle **150.000 km üzerindeki** araçlarda fiyatların büyük oranda **1.000.000 TL’nin altında** seyrettiği dikkati çekmektedir.
-- **0–50.000 km** aralığında bulunan düşük kilometreli araçlar, **3.000.000 TL ve üzeri** fiyatlara kadar ulaşabilmektedir.
-- Regresyon doğrusu, bu ilişkinin istatistiksel olarak anlamlı bir düşüş eğilimi gösterdiğini açık biçimde ortaya koymaktadır.
-- Fiyat dağılımında, **50.000–150.000 km** aralığındaki araçlar, hem fiyat hem de yoğunluk bakımından ikinci el piyasada en yaygın grubu oluşturmaktadır.
+-   Genel eğilim **negatif yönlü bir korelasyonu** işaret etmektedir. Kilometre arttıkça araç fiyatlarının azaldığı gözlenmektedir.
+-   Özellikle **150.000 km üzerindeki** araçlarda fiyatların büyük oranda **1.000.000 TL’nin altında** seyrettiği dikkati çekmektedir.
+-   **0–50.000 km** aralığında bulunan düşük kilometreli araçlar, **3.000.000 TL ve üzeri** fiyatlara kadar ulaşabilmektedir.
+-   Regresyon doğrusu, bu ilişkinin istatistiksel olarak anlamlı bir düşüş eğilimi gösterdiğini açık biçimde ortaya koymaktadır.
+-   Fiyat dağılımında, **50.000–150.000 km** aralığındaki araçlar, hem fiyat hem de yoğunluk bakımından ikinci el piyasada en yaygın grubu oluşturmaktadır.
 
 Bu bulgular, kullanım yoğunluğunun ikinci el değer üzerinde önemli bir rol oynadığını doğrulamaktadır. Aracın düşük kilometrede olması, daha az yıpranmış olma ihtimali nedeniyle alıcılar nezdinde daha yüksek bir bedelle değerlendirilmekte; buna karşılık, yüksek kilometreli araçlar daha düşük fiyatlarla alıcı bulmaktadır. Bu durum, piyasa beklentileri ve tüketici davranışları ile uyumludur.
 
 Sonuç olarak, kilometre bilgisi, ikinci el araçların değerlemesinde dikkate alınması gereken temel değişkenlerden biri olup, fiyat tahmin modellerine dâhil edilmesi önerilmektedir.
-
 
 ### Araç Yaşı ve Ortalama Fiyat
 
@@ -682,8 +749,6 @@ Sonuç olarak, analiz verileri, ikinci el otomobil piyasasında yaygın olarak k
 \[9\] : Bankrate. (n.d.). *Car depreciation: What it is and how it works*. Bankrate. Erişim tarihi: 11 Mayıs 2025, <https://www.bankrate.com/insurance/car/understanding-car-depreciation/>
 
 \[10\] : Özçalıcı, M. (2017). Predicting second-hand car sales price using decision trees and genetic algorithms. *Alphanumeric Journal, 5*(1), 103–114. <https://doi.org/10.17093/alphanumeric.323836>
-
-
 
 ## Modelin Performansı
 
