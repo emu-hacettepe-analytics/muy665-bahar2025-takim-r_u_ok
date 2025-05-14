@@ -7,8 +7,7 @@ code-fold: true
 # Sunumu Görüntüle
 
 ::: slide-embed
-
-<iframe src="https://docs.google.com/presentation/d/1K5jvzzyS4ssv9rv1J6wAxxHaMfarLY7z5Hp_dvHTf3Q/embed?start=false&loop=false"
+<iframe src="https://docs.google.com/presentation/d/1vbk0ZoUqMcbos-lWUSHz8z5Nx08I9CbnWgWeI68-SzQ/embed?start=false&loop=false"
         width="100%" height="500" frameborder="0" allowfullscreen>
 </iframe>
 
